@@ -6,8 +6,11 @@ import { Layout } from "../components/Layout";
 import Link from "next/link";
 import { PrismicRichText } from "@prismicio/react";
 
+import { SliceZone } from "@prismicio/react";
+import { components } from "../slices";
+
 const Index = ({ navigation, settings, page }) => {
-  console.log(page)
+
   return (
     <Layout
       navigation={navigation}
@@ -22,14 +25,7 @@ const Index = ({ navigation, settings, page }) => {
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
       <div className="main-grid">
-        {page.data.agenda_items.map((item, i) => {
-          return(
-            <div key={`item${i}`} className="item" style={{backgroundImage:`url(${item.agenda_item.data.image.url})`}}>
-              <h2>{prismicH.asText(item.agenda_item.data.title)}</h2>
-              <p>{item.agenda_item.data.date}</p>
-            </div>
-          )
-        })}
+        <SliceZone slices={page.data.slices} components={components} />
       </div>
     </Layout>
   );
@@ -43,7 +39,7 @@ export async function getStaticProps({ previewData }) {
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
   const page = await client.getSingle("home", {
-    fetchLinks: `agenda_item.title, agenda_item.image, agenda_item.date`
+    fetchLinks: `agenda_item.title, agenda_item.image, agenda_item.date, agenda_item.slices`
   });
 
 

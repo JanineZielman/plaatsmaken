@@ -12,31 +12,15 @@
           "placeholder": ""
         }
       },
-      "title": {
-        "type": "StructuredText",
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
         "config": {
-          "label": "Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "heading1"
-        }
-      },
-      "image": {
-        "type": "Image",
-        "config": {
-          "label": "Image",
-          "constraint": {
-            "height": 1080,
-            "width": 1080
-          },
-          "thumbnails": []
-        }
-      },
-      "date": {
-        "type": "Text",
-        "config": {
-          "label": "Date",
-          "placeholder": ""
+          "choices": {
+            "square": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     }

@@ -9,39 +9,22 @@ type Simplify<T> = {
 /** Content for Agenda Item documents */
 interface AgendaItemDocumentData {
     /**
-     * Title field in *Agenda Item*
+     * Slice Zone field in *Agenda Item*
      *
-     * - **Field Type**: Title
+     * - **Field Type**: Slice Zone
      * - **Placeholder**: *None*
-     * - **API ID Path**: agenda_item.title
+     * - **API ID Path**: agenda_item.slices[]
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
      *
      */
-    title: prismicT.TitleField;
-    /**
-     * Image field in *Agenda Item*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: agenda_item.image
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    image: prismicT.ImageField<never>;
-    /**
-     * Date field in *Agenda Item*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: agenda_item.date
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    date: prismicT.KeyTextField;
+    slices: prismicT.SliceZone<AgendaItemDocumentDataSlicesSlice>;
 }
+/**
+ * Slice for *Agenda Item → Slice Zone*
+ *
+ */
+type AgendaItemDocumentDataSlicesSlice = SquareSlice;
 /**
  * Agenda Item document from Prismic
  *
@@ -65,6 +48,17 @@ interface HomeDocumentData {
      *
      */
     agenda_items: prismicT.GroupField<Simplify<HomeDocumentDataAgendaItemsItem>>;
+    /**
+     * Slice Zone field in *Home*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: home.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<HomeDocumentDataSlicesSlice>;
 }
 /**
  * Item in Home → Agenda Items
@@ -82,6 +76,11 @@ export interface HomeDocumentDataAgendaItemsItem {
      */
     agenda_item: prismicT.RelationField<"agenda_item">;
 }
+/**
+ * Slice for *Home → Slice Zone*
+ *
+ */
+type HomeDocumentDataSlicesSlice = SquareSlice;
 /**
  * Home document from Prismic
  *
@@ -213,11 +212,96 @@ interface SettingsDocumentData {
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
 export type AllDocumentTypes = AgendaItemDocument | HomeDocument | NavigationDocument | PageDocument | SettingsDocument;
+/**
+ * Primary content in Square → Primary
+ *
+ */
+interface SquareSliceDefaultPrimary {
+    /**
+     * Title field in *Square → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: square.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Date field in *Square → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: square.primary.date
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    date: prismicT.KeyTextField;
+    /**
+     * Image field in *Square → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: square.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+}
+/**
+ * Item in Square → Items
+ *
+ */
+export interface SquareSliceDefaultItem {
+    /**
+     * Type field in *Square → Items*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **API ID Path**: square.items[].type
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
+     *
+     */
+    type: prismicT.SelectField<"image" | "title" | "date" | "button" | "empty">;
+    /**
+     * Position field in *Square → Items*
+     *
+     * - **Field Type**: Select
+     * - **Placeholder**: *None*
+     * - **API ID Path**: square.items[].position
+     * - **Documentation**: https://prismic.io/docs/core-concepts/select
+     *
+     */
+    position: prismicT.SelectField<"square-12" | "square-11" | "square-11-2" | "square-7" | "square-5" | "square-5-2" | "square-4" | "square-3" | "square-3-2" | "square-2" | "square-2-2" | "square-1" | "square-1-2">;
+}
+/**
+ * Default variation for Square Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Square`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SquareSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<SquareSliceDefaultPrimary>, Simplify<SquareSliceDefaultItem>>;
+/**
+ * Slice variation for *Square*
+ *
+ */
+type SquareSliceVariation = SquareSliceDefault;
+/**
+ * Square Shared Slice
+ *
+ * - **API ID**: `square`
+ * - **Description**: `Square`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SquareSlice = prismicT.SharedSlice<"square", SquareSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AgendaItemDocumentData, AgendaItemDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocument, PageDocumentData, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes };
+        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocument, PageDocumentData, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, SquareSliceDefaultPrimary, SquareSliceDefaultItem, SquareSliceDefault, SquareSliceVariation, SquareSlice };
     }
 }

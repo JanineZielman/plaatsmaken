@@ -1,0 +1,81 @@
+{
+  "id": "square",
+  "type": "SharedSlice",
+  "name": "Square",
+  "description": "Square",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Square",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "date": {
+          "type": "Text",
+          "config": {
+            "label": "Date",
+            "placeholder": ""
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {
+              "width": 1080,
+              "height": 1080
+            },
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {
+        "type": {
+          "type": "Select",
+          "config": {
+            "label": "Type",
+            "placeholder": "",
+            "options": [
+              "image",
+              "title",
+              "date",
+              "button",
+              "empty"
+            ]
+          }
+        },
+        "position": {
+          "type": "Select",
+          "config": {
+            "label": "Position",
+            "placeholder": "",
+            "options": [
+              "square-12",
+              "square-11",
+              "square-11-2",
+              "square-7",
+              "square-5",
+              "square-5-2",
+              "square-4",
+              "square-3",
+              "square-3-2",
+              "square-2",
+              "square-2-2",
+              "square-1",
+              "square-1-2"
+            ]
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

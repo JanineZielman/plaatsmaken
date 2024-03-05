@@ -1,12 +1,146 @@
+@font-face {
+  font-family: "gothic";
+  src:
+    url("ITCAvantGardeStd BkCn.otf") format("opentype");
+}
+
 *{
   box-sizing: border-box;
 }
+
+body{
+  font-family: "gothic";
+}
+
 
 .main-grid{
   display: flex;
   .item{
     width: 25%;
-    margin: 14px;
-    padding: 14px;
+    position: relative;
+    width: 23.8%;
+    height: 23.8%;
+    aspect-ratio: 1/1;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
+}
+
+.square{
+  height: auto;
+  aspect-ratio: 1/1;
+  position: absolute;
+  overflow: hidden;
+  background-color: white;
+  // border: 1px solid black;
+  padding: 10px;
+  h2{
+    font-size: 2.4vw;
+    line-height: 1.2;
+  }
+  p{
+    font-size: 1.5vw;
+    line-height: 1.1;
+  }
+  h2, p{
+    margin: 0;
+  }
+}
+
+.square-12{
+  width: calc(12%*4.348);
+  top: 0;
+  left: 0;
+}
+
+.square-11{
+  width: calc(11%*4.348);
+  top: 0;
+  left: calc(12%*4.348);
+}
+
+.square-11-2{
+  width: calc(11%*4.348);
+  top:  calc(12%*4.348);
+  left: 0;
+}
+
+.square-7{
+  width: calc(7%*4.348);
+  left: calc(11%*4.348);
+  bottom: 0;
+}
+
+.square-5{
+  width: calc(5%*4.348);;
+  left: calc(14%*4.348);
+  top: calc(11%*4.348);
+}
+
+.square-5-2{
+  width: calc(5%*4.348);
+  bottom: 0;
+  right: 0;
+}
+
+.square-4{
+  width: calc(4%*4.348);
+  right: 0;
+  top: calc(11%*4.348);
+}
+
+.square-3{
+  width: calc(3%*4.348);
+  left: calc(11%*4.348);
+  top: calc(13%*4.348);
+}
+
+.square-3-2{
+  width: calc(3%*4.348);
+  right: 0;
+  bottom: calc(5%*4.348);
+}
+
+.square-2{
+  width: calc(2%*4.348);;
+  left: calc(12%*4.348);
+  top: calc(11%*4.348);
+  position: relative;
+  background-color: transparent!important;
+}
+
+.square-2:after, .square-2-2:after, .square-1:after, .square-1-2:after{
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white!important;
+  border: none!important;
+  border-radius: 50%;
+}
+
+.square-2-2{
+  width: calc(2%*4.348);
+  right: calc(3%*4.348);
+  bottom: calc(5%*4.348);
+  background-color: transparent!important;
+}
+
+
+.square-1{
+  width: calc(1%*4.348);
+  top: calc(12%*4.348);
+  left: calc(11%*4.348);
+  background-color: transparent!important;
+}
+
+.square-1-2{
+  width:calc(1%*4.348);
+  height: calc(1%*4.348);
+  top: calc(15%*4.348);
+  right: calc(3%*4.348);
+  background-color: transparent!important;
 }
