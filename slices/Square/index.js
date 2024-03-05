@@ -17,9 +17,11 @@ const Square = ({ slice }) => {
           <div className='square square-11'>
             <h2>{slice.primary.agenda_item.data.title}</h2>
           </div>
-          <div className='square square-7'>
-            <p>{slice.primary.agenda_item.data.date}</p>
-          </div>
+          {slice.primary.agenda_item.data.date &&
+            <div className='square square-7'>
+              <p>{slice.primary.agenda_item.data.date}</p>
+            </div>
+          }
           <div className='square square-5'></div>
           <div className='square square-3'></div>
           <div className='square square-1'></div>
@@ -31,9 +33,11 @@ const Square = ({ slice }) => {
           <div className='square square-11-2'>
             <h2>{slice.primary.agenda_item.data.title}</h2>
           </div>
-          <div className='square square-7'>
-            <p>{slice.primary.agenda_item.data.date}</p>
-          </div>
+          {slice.primary.agenda_item.data.date &&
+            <div className='square square-7'>
+              <p>{slice.primary.agenda_item.data.date}</p>
+            </div>
+          }
           <div className='square square-5-2'></div>
           <div className='square square-4'></div>
           <div className='square square-1-2'></div>
@@ -45,9 +49,11 @@ const Square = ({ slice }) => {
           <div className='square square-11-2'>
             <h2>{slice.primary.agenda_item.data.title}</h2>
           </div>
-          <div className='square square-11'>
-            <p>{slice.primary.agenda_item.data.date}</p>
-          </div>
+          {slice.primary.agenda_item.data.date &&
+            <div className='square square-11'>
+              <p>{slice.primary.agenda_item.data.date}</p>
+            </div>
+          }
           <div className='square square-3-2'></div>
           <div className='square square-4'></div>
           <div className='square square-3'></div>
@@ -55,18 +61,53 @@ const Square = ({ slice }) => {
           <div className='square square-2'></div>
         </>
       }
-          {/* // <div className={`square ${item.position}`}>
-          //   {item.type == 'title' && 
-          //     <h2>{slice.primary.title}</h2>
-          //   }
-          //   {item.type == 'date' &&
-          //     <p>{slice.primary.date}</p>
-          //   }
-          //   {item.type == 'image' &&
-          //     <PrismicNextImage field={slice.primary.image}/>
-          //   }
-          // </div> */}
-
+      {slice.variation === 'default4' &&
+        <>
+          <div className='square square-11'>
+            <h2>{slice.primary.agenda_item.data.title}</h2>
+          </div>
+          {slice.primary.agenda_item.data.date &&
+            <div className='square square-5'>
+              <p>{slice.primary.agenda_item.data.date}</p>
+            </div>
+          }
+          <div className='square square-3'></div>
+          <div className='square square-1'></div>
+          <div className='square square-2'></div>
+        </>
+      }
+      {slice.variation === 'default5' &&
+        <>
+          <div className='square square-12'>
+            <h2>{slice.primary.agenda_item.data.title}</h2>
+          </div>
+          {slice.primary.agenda_item.data.date &&
+            <div className='square square-7'>
+              <p>{slice.primary.agenda_item.data.date}</p>
+            </div>
+          }
+          <div className='square square-5-2'></div>
+          <div className='square square-3-2'></div>
+          <div className='square square-1-2'></div>
+          <div className='square square-2-2'></div>
+        </>
+      }
+      {slice.variation === 'default6' &&
+        <>
+          <div className='square square-12'>
+            <h2>{slice.primary.agenda_item.data.title}</h2>
+          </div>
+          {slice.primary.agenda_item.data.date &&
+            <div className='square square-11-2'>
+              <p>{slice.primary.agenda_item.data.date}</p>
+            </div>
+          }
+          <div className='square square-3'></div>
+          <div className='square square-5'></div>
+          <div className='square square-1'></div>
+          <div className='square square-2'></div>
+        </>
+      }
     </section>
   )
 }
