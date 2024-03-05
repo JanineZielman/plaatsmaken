@@ -1,0 +1,39 @@
+{
+  "siteTitle": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading1",
+        "content": {
+          "text": "Could"
+        }
+      }
+    ]
+  },
+  "description": {
+    "__TYPE__": "FieldContent",
+    "value": "willing",
+    "type": "Text"
+  },
+  "image": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+      "width": 3882,
+      "height": 2584
+    },
+    "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?rect=1%2C0%2C3881%2C2584&w=1200&h=799",
+    "width": 1200,
+    "height": 799,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 1,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "home",
+  "label": "Home",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "agenda_items": {
+        "type": "Group",
+        "config": {
+          "label": "Agenda Items",
+          "fields": {
+            "agenda_item": {
+              "type": "Link",
+              "config": {
+                "label": "Agenda Item",
+                "select": "document",
+                "customtypes": [
+                  "agenda_item"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

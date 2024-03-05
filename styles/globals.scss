@@ -1,0 +1,12 @@
+*{
+  box-sizing: border-box;
+}
+
+.main-grid{
+  display: flex;
+  .item{
+    width: 25%;
+    margin: 14px;
+    padding: 14px;
+  }
+}
