@@ -24,7 +24,7 @@ const Index = ({ navigation, settings, page }) => {
       <div className="main-grid">
         {page.data.agenda_items.map((item, i) => {
           return(
-            <div className="item" style={{backgroundImage:`url(${item.agenda_item.data.image.url})`}}>
+            <div key={`item${i}`} className="item" style={{backgroundImage:`url(${item.agenda_item.data.image.url})`}}>
               <h2>{prismicH.asText(item.agenda_item.data.title)}</h2>
               <p>{item.agenda_item.data.date}</p>
             </div>
