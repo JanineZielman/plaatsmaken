@@ -63,7 +63,13 @@ const Square = ({ slice}) => {
       {slice.variation === 'default4' &&
         <>
           <div className='square square-11'>
-            <h2>{slice.primary.agenda_item.data.title}</h2>
+            {slice.primary.agenda_item.data.title ?
+              <h2>{slice.primary.agenda_item.data.title}</h2>
+            :
+              <video width="400" autoPlay muted loop>
+                <source src="./logo.mov" type="video/mp4"/>
+              </video>
+            }
           </div>
           {slice.primary.agenda_item.data.date &&
             <div className='square square-5'>

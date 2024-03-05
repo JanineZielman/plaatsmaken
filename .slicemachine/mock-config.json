@@ -1,7 +1,9 @@
 {
   "_cts": {
     "page": {},
-    "navigation": {},
+    "navigation": {
+      "footer": {}
+    },
     "settings": {},
     "agenda_item": {},
     "home": {
