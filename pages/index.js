@@ -1,5 +1,6 @@
 import Head from "next/head";
 import * as prismicH from "@prismicio/helpers";
+import React, { useEffect, useState } from 'react';
 
 import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
@@ -10,7 +11,37 @@ import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
 
 const Index = ({ navigation, settings, page }) => {
-
+  const [amount, setAmount] = useState(2);
+	
+	useEffect(() => {
+    if (window.innerWidth>1400){
+      setAmount(2);
+    } 
+    if (window.innerWidth<1400){
+      setAmount(3);
+    }
+    if (window.innerWidth<900){
+      setAmount(4);
+    }
+    if (window.innerWidth<600){
+      setAmount(8);
+    }
+		function handleResize(){
+			if (window.innerWidth>1400){
+				setAmount(2);
+			} 
+			if (window.innerWidth<1400){
+				setAmount(3);
+			}
+			if (window.innerWidth<900){
+				setAmount(4);
+			}
+      if (window.innerWidth<600){
+				setAmount(8);
+			}
+		}
+		window.addEventListener('resize', handleResize)
+  })
   return (
     <Layout
       navigation={navigation}
@@ -25,7 +56,18 @@ const Index = ({ navigation, settings, page }) => {
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
       <div className="main-grid">
-        <SliceZone slices={page.data.slices} components={components} />
+        <div className={`row row-1`}>
+          <SliceZone slices={page.data.slices.slice(0,amount)} components={components} amount={amount}/>
+        </div>
+        <div className={`row row-2`}>
+          <SliceZone slices={page.data.slices.slice(amount,amount*2)} components={components} />
+        </div>
+        <div className={`row row-3`}>
+          <SliceZone slices={page.data.slices.slice(amount*2,amount*3)} components={components} />
+        </div>
+        <div className={`row row-4`}>
+          <SliceZone slices={page.data.slices.slice(amount*3,amount*4)} components={components} />
+        </div>
       </div>
     </Layout>
   );

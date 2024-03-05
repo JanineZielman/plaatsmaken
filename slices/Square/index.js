@@ -1,15 +1,14 @@
-import React from 'react'
 import { PrismicRichText } from '@prismicio/react'
 import { PrismicNextImage } from '@prismicio/next'
+import React, { useEffect, useState } from 'react';
 
 /**
  * @typedef {import("@prismicio/client").Content.SquareSlice} SquareSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<SquareSlice>} SquareProps
  * @param { SquareProps }
  */
-const Square = ({ slice }) => {
-  console.log(slice)
-  // style={{backgroundImage: `url(${slice.primary.agenda_item.data.image.url})`}}
+const Square = ({ slice}) => {
+
   return(
     <section className='item' style={{backgroundImage: `url(${slice.primary.agenda_item.data.image.url})`}} >
       {slice.variation === 'default' &&

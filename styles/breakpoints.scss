@@ -1,4 +1,53 @@
+@media only screen and (max-width: 1400px) {
+  .main-grid .row{
+    width: 32.1%;
+  }
+  .row-4{
+    display: none;
+  }
+  .square{
+    h2{
+      font-size: 3vw;
+    }
+    p{
+      font-size: 1.6vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .main-grid .row{
+    width: 48.8%;
+  }
+  .row-3{
+    display: none;
+  }
+  .square{
+    h2{
+      font-size: 4.8vw;
+    }
+    p{
+      font-size: 2.4vw;
+    }
+  }
+}
+
 @media only screen and (max-width: 600px) {
- 
-  
+  .main-grid .row{
+    width: 100%;
+  }
+  .row-3{
+    display: none;
+  }
+  .row-2{
+    display: none;
+  }
+  .square{
+    h2{
+      font-size: 40px;
+    }
+    p{
+      font-size: 20px;
+    }
+  }
 }

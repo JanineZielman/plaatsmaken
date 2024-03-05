@@ -16,14 +16,18 @@ body{
 .main-grid{
   display: flex;
   flex-wrap: wrap;
+  .row{
+    width: 23.8%;
+    margin: 0 0.6%;
+  }
   .item{
     position: relative;
-    width: 23.8%;
-    height: 23.8%;
+    width: 100%;
+    height: auto;
     aspect-ratio: 1/1;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 0.6%;
+    margin: 4.348% 0;
   }
 }
 
@@ -42,12 +46,16 @@ body{
     font-weight: normal;
   }
   p{
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     line-height: 1.1;
     word-break: break-word;
   }
   h2, p{
     margin: 0;
+    -webkit-hyphens : auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
   }
 }
 
