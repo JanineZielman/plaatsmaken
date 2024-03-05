@@ -24,7 +24,7 @@ const Square = ({ slice}) => {
           <div className='square square-5'></div>
           <div className='square square-3'></div>
           <div className='square square-1'></div>
-          <div className='square square-2'></div>
+          <div className='square square-2'><div className='play'></div></div>
         </>
       }
       {slice.variation === 'default2' &&
@@ -57,7 +57,7 @@ const Square = ({ slice}) => {
           <div className='square square-4'></div>
           <div className='square square-3'></div>
           <div className='square square-1'></div>
-          <div className='square square-2'></div>
+          <div className='square square-2'><div className='mail'></div></div>
         </>
       }
       {slice.variation === 'default4' &&
@@ -78,7 +78,7 @@ const Square = ({ slice}) => {
           }
           <div className='square square-3'></div>
           <div className='square square-1'></div>
-          <div className='square square-2'></div>
+          <div className='square square-2'><div className='play'></div></div>
         </>
       }
       {slice.variation === 'default5' &&
