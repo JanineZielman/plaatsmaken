@@ -9,6 +9,39 @@ type Simplify<T> = {
 /** Content for Agenda Item documents */
 interface AgendaItemDocumentData {
     /**
+     * Title field in *Agenda Item*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: agenda_item.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Image field in *Agenda Item*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: agenda_item.image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * Date field in *Agenda Item*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: agenda_item.date
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    date: prismicT.KeyTextField;
+    /**
      * Slice Zone field in *Agenda Item*
      *
      * - **Field Type**: Slice Zone
@@ -24,7 +57,7 @@ interface AgendaItemDocumentData {
  * Slice for *Agenda Item → Slice Zone*
  *
  */
-type AgendaItemDocumentDataSlicesSlice = SquareSlice;
+type AgendaItemDocumentDataSlicesSlice = never;
 /**
  * Agenda Item document from Prismic
  *
@@ -218,61 +251,15 @@ export type AllDocumentTypes = AgendaItemDocument | HomeDocument | NavigationDoc
  */
 interface SquareSliceDefaultPrimary {
     /**
-     * Title field in *Square → Primary*
+     * Agenda Item field in *Square → Primary*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Content Relationship
      * - **Placeholder**: *None*
-     * - **API ID Path**: square.primary.title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **API ID Path**: square.primary.agenda_item
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    title: prismicT.KeyTextField;
-    /**
-     * Date field in *Square → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: square.primary.date
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    date: prismicT.KeyTextField;
-    /**
-     * Image field in *Square → Primary*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: square.primary.image
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    image: prismicT.ImageField<never>;
-}
-/**
- * Item in Square → Items
- *
- */
-export interface SquareSliceDefaultItem {
-    /**
-     * Type field in *Square → Items*
-     *
-     * - **Field Type**: Select
-     * - **Placeholder**: *None*
-     * - **API ID Path**: square.items[].type
-     * - **Documentation**: https://prismic.io/docs/core-concepts/select
-     *
-     */
-    type: prismicT.SelectField<"image" | "title" | "date" | "button" | "empty">;
-    /**
-     * Position field in *Square → Items*
-     *
-     * - **Field Type**: Select
-     * - **Placeholder**: *None*
-     * - **API ID Path**: square.items[].position
-     * - **Documentation**: https://prismic.io/docs/core-concepts/select
-     *
-     */
-    position: prismicT.SelectField<"square-12" | "square-11" | "square-11-2" | "square-7" | "square-5" | "square-5-2" | "square-4" | "square-3" | "square-3-2" | "square-2" | "square-2-2" | "square-1" | "square-1-2">;
+    agenda_item: prismicT.RelationField;
 }
 /**
  * Default variation for Square Slice
@@ -282,12 +269,137 @@ export interface SquareSliceDefaultItem {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type SquareSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<SquareSliceDefaultPrimary>, Simplify<SquareSliceDefaultItem>>;
+export type SquareSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<SquareSliceDefaultPrimary>, never>;
+/**
+ * Primary content in Square → Primary
+ *
+ */
+interface SquareSliceDefault2Primary {
+    /**
+     * Agenda Item field in *Square → Primary*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: square.primary.agenda_item
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    agenda_item: prismicT.RelationField;
+}
+/**
+ * Default2 variation for Square Slice
+ *
+ * - **API ID**: `default2`
+ * - **Description**: `Square`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SquareSliceDefault2 = prismicT.SharedSliceVariation<"default2", Simplify<SquareSliceDefault2Primary>, never>;
+/**
+ * Primary content in Square → Primary
+ *
+ */
+interface SquareSliceDefault3Primary {
+    /**
+     * Agenda Item field in *Square → Primary*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: square.primary.agenda_item
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    agenda_item: prismicT.RelationField;
+}
+/**
+ * Default3 variation for Square Slice
+ *
+ * - **API ID**: `default3`
+ * - **Description**: `Square`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SquareSliceDefault3 = prismicT.SharedSliceVariation<"default3", Simplify<SquareSliceDefault3Primary>, never>;
+/**
+ * Primary content in Square → Primary
+ *
+ */
+interface SquareSliceDefault4Primary {
+    /**
+     * Agenda Item field in *Square → Primary*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: square.primary.agenda_item
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    agenda_item: prismicT.RelationField;
+}
+/**
+ * Default4 variation for Square Slice
+ *
+ * - **API ID**: `default4`
+ * - **Description**: `Square`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SquareSliceDefault4 = prismicT.SharedSliceVariation<"default4", Simplify<SquareSliceDefault4Primary>, never>;
+/**
+ * Primary content in Square → Primary
+ *
+ */
+interface SquareSliceDefault5Primary {
+    /**
+     * Agenda Item field in *Square → Primary*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: square.primary.agenda_item
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    agenda_item: prismicT.RelationField;
+}
+/**
+ * Default5 variation for Square Slice
+ *
+ * - **API ID**: `default5`
+ * - **Description**: `Square`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SquareSliceDefault5 = prismicT.SharedSliceVariation<"default5", Simplify<SquareSliceDefault5Primary>, never>;
+/**
+ * Primary content in Square → Primary
+ *
+ */
+interface SquareSliceDefault6Primary {
+    /**
+     * Agenda Item field in *Square → Primary*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: square.primary.agenda_item
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    agenda_item: prismicT.RelationField;
+}
+/**
+ * Default6 variation for Square Slice
+ *
+ * - **API ID**: `default6`
+ * - **Description**: `Square`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SquareSliceDefault6 = prismicT.SharedSliceVariation<"default6", Simplify<SquareSliceDefault6Primary>, never>;
 /**
  * Slice variation for *Square*
  *
  */
-type SquareSliceVariation = SquareSliceDefault;
+type SquareSliceVariation = SquareSliceDefault | SquareSliceDefault2 | SquareSliceDefault3 | SquareSliceDefault4 | SquareSliceDefault5 | SquareSliceDefault6;
 /**
  * Square Shared Slice
  *
@@ -302,6 +414,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocument, PageDocumentData, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, SquareSliceDefaultPrimary, SquareSliceDefaultItem, SquareSliceDefault, SquareSliceVariation, SquareSlice };
+        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocument, PageDocumentData, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceDefault2Primary, SquareSliceDefault2, SquareSliceDefault3Primary, SquareSliceDefault3, SquareSliceDefault4Primary, SquareSliceDefault4, SquareSliceDefault5Primary, SquareSliceDefault5, SquareSliceDefault6Primary, SquareSliceDefault6, SquareSliceVariation, SquareSlice };
     }
 }

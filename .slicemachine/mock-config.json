@@ -13,6 +13,9 @@
       "default": {
         "primary": {},
         "items": {}
+      },
+      "default2": {
+        "primary": {}
       }
     }
   }

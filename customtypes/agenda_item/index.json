@@ -12,15 +12,36 @@
           "placeholder": ""
         }
       },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {
+            "width": 1080,
+            "height": 1080
+          },
+          "thumbnails": []
+        }
+      },
+      "date": {
+        "type": "Text",
+        "config": {
+          "label": "Date",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "square": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     }
