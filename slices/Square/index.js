@@ -66,7 +66,7 @@ const Square = ({ slice}) => {
             {slice.primary.agenda_item.data.title ?
               <h2>{slice.primary.agenda_item.data.title}</h2>
             :
-              <video width="400" autoPlay muted loop>
+              <video autoPlay muted loop>
                 <source src="./logo.mov" type="video/mp4"/>
               </video>
             }
