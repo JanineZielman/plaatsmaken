@@ -11,6 +11,7 @@ export default function Document() {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fff"/>
         <meta name="msapplication-TileColor" content="#fff"/>
         <meta name="theme-color" content="#ffffff"></meta> */}
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"></link>
       </Head>
       <body className="overflow-x-hidden antialiased">
         <Main />

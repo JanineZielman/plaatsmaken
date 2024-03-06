@@ -19,6 +19,11 @@
       "default2": {
         "primary": {}
       }
+    },
+    "Content": {
+      "default": {
+        "primary": {}
+      }
     }
   }
 }

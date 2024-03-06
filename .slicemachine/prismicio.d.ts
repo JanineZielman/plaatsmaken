@@ -57,7 +57,7 @@ interface AgendaItemDocumentData {
  * Slice for *Agenda Item → Slice Zone*
  *
  */
-type AgendaItemDocumentDataSlicesSlice = never;
+type AgendaItemDocumentDataSlicesSlice = ContentSlice;
 /**
  * Agenda Item document from Prismic
  *
@@ -273,6 +273,45 @@ interface SettingsDocumentData {
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
 export type AllDocumentTypes = AgendaItemDocument | HomeDocument | NavigationDocument | PageDocument | SettingsDocument;
 /**
+ * Primary content in Content → Primary
+ *
+ */
+interface ContentSliceDefaultPrimary {
+    /**
+     * Text field in *Content → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: content.primary.text
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    text: prismicT.RichTextField;
+}
+/**
+ * Default variation for Content Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Content`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ContentSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ContentSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Content*
+ *
+ */
+type ContentSliceVariation = ContentSliceDefault;
+/**
+ * Content Shared Slice
+ *
+ * - **API ID**: `content`
+ * - **Description**: `Content`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ContentSlice = prismicT.SharedSlice<"content", ContentSliceVariation>;
+/**
  * Primary content in Square → Primary
  *
  */
@@ -441,6 +480,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceDefault2Primary, SquareSliceDefault2, SquareSliceDefault3Primary, SquareSliceDefault3, SquareSliceDefault4Primary, SquareSliceDefault4, SquareSliceDefault5Primary, SquareSliceDefault5, SquareSliceDefault6Primary, SquareSliceDefault6, SquareSliceVariation, SquareSlice };
+        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ContentSliceDefaultPrimary, ContentSliceDefault, ContentSliceVariation, ContentSlice, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceDefault2Primary, SquareSliceDefault2, SquareSliceDefault3Primary, SquareSliceDefault3, SquareSliceDefault4Primary, SquareSliceDefault4, SquareSliceDefault5Primary, SquareSliceDefault5, SquareSliceDefault6Primary, SquareSliceDefault6, SquareSliceVariation, SquareSlice };
     }
 }

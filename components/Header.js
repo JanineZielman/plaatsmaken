@@ -6,7 +6,6 @@ import Link from "next/link";
 import { linkResolver } from "../prismicio";
 
 export const Header = ({ navigation, settings }) => {
-  console.log(navigation)
 
   function toggleMenu() {
     var element = document.getElementById("nav");
