@@ -1,0 +1,128 @@
+.page{
+  .item{
+    position: fixed;
+    display: inline-block;
+    width: 45%;
+    height: auto;
+    aspect-ratio: 1/1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // margin: 4.348% 0;
+    left: 1%;
+    margin-top: 1%;
+    // overflow: hidden;
+    transform: scale(0.5);
+    animation: scale 1s ease 1;
+    animation-fill-mode: forwards;
+  }
+  .square-11, .square-5-2, .square-4, .square-3-2{
+    left: auto;
+    // right: -118%;
+    right: 0;
+    animation: squares 1s ease 1;
+    animation-fill-mode: forwards;
+  }
+  .square-5-2{
+    animation-delay: 0.1s;
+  }
+  .square-4{
+    animation-delay: 0.3s;
+  }
+  .square-3-2{
+    animation-delay: 0.2s;
+  }
+  .square-7{
+    left: auto;
+    right: 21.5%;
+    animation: square7 1s ease 1;
+    animation-fill-mode: forwards;
+  }
+  .square-5{
+    left: auto;
+    right: 17.7%;
+    animation: square5 1s ease 1;
+    animation-fill-mode: forwards;
+  }
+  .square-5{
+    animation-delay: 0.3s;
+  }
+  .square-3, .square-2{
+    left: auto;
+    right: 39.5%;
+    animation: square2-3 1s ease 1;
+    animation-fill-mode: forwards;
+  }
+
+  .square-2{
+    animation-delay: 0.2s;
+  }
+
+  .square{
+    h2{
+      font-size: 4.6vw;
+      line-height: 0.95;
+    }
+    p{
+      font-size: 2.4vw;
+    }
+  }
+  .content{
+    width: 48%;
+    max-width: 900px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 24px;
+    min-height: 100vh;
+    opacity: 0;
+    animation: opacity 2s 0.5s ease 1;
+    animation-fill-mode: forwards;
+    .intro{
+      border-bottom: 2px solid black;
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+      margin-left: 15%;
+      h2{
+        font-size: 36px;
+        margin: 0;
+      }
+    }
+    p{
+      font-size: 18px;
+      font-family: space mono;
+      line-height: 1.3;
+    }
+  }
+}
+
+@keyframes scale {
+  0%   {transform: scale(0.5);}
+  100% {transform: scale(1);}
+}
+
+@keyframes opacity {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+
+@keyframes squares {
+  0%   {right: 0;}
+  100% {right: -118%;}
+}
+
+@keyframes square7 {
+  0%   {right: 21.5%;}
+  100% {right: -96.3%;}
+}
+
+@keyframes square5 {
+  0%   {right: 17.7%;}
+  100% {right: -101%;}
+}
+
+@keyframes square2-3 {
+  0%   {right: 39.5%;}
+  100% {right: -79.5%;}
+}

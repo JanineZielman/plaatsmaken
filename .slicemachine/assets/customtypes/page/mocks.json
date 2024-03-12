@@ -1,7 +1,7 @@
 {
   "uid": {
     "__TYPE__": "UIDContent",
-    "value": "rather"
+    "value": "just"
   },
   "title": {
     "__TYPE__": "StructuredTextContent",
@@ -9,7 +9,104 @@
       {
         "type": "heading1",
         "content": {
-          "text": "Color"
+          "text": "Diameter"
+        }
+      }
+    ]
+  },
+  "image": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+      "width": 4272,
+      "height": 2848
+    },
+    "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6?rect=712%2C0%2C2848%2C2848&w=1920&h=1920",
+    "width": 1920,
+    "height": 1920,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 712,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
+      {
+        "key": "page_content$9bae2d51-6bcb-4144-bec3-4470ded4e82f",
+        "name": "page_content",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "title": {
+              "__TYPE__": "FieldContent",
+              "value": "safe",
+              "type": "Text"
+            },
+            "intro": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Labore elit sint elit consectetur voluptate Lorem est qui. Voluptate occaecat reprehenderit incididunt sint irure pariatur exercitation nulla. Consectetur id amet sunt Lorem cillum eu ea sint."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "text",
+                  {
+                    "__TYPE__": "StructuredTextContent",
+                    "value": [
+                      {
+                        "type": "paragraph",
+                        "content": {
+                          "text": "Reprehenderit sint laboris veniam exercitation sint tempor aliqua laborum nulla fugiat ad aliqua. Anim pariatur laborum sint esse reprehenderit adipisicing veniam amet elit. Nisi ea tempor officia consequat magna culpa reprehenderit veniam sint commodo exercitation nostrud labore."
+                        }
+                      }
+                    ]
+                  }
+                ],
+                [
+                  "image",
+                  {
+                    "__TYPE__": "ImageContent",
+                    "origin": {
+                      "id": "main",
+                      "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+                      "width": 12288,
+                      "height": 16384
+                    },
+                    "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab?rect=0%2C0%2C12288%2C16384&w=1920&h=2560",
+                    "width": 1920,
+                    "height": 2560,
+                    "edit": {
+                      "zoom": 1,
+                      "crop": {
+                        "x": 0,
+                        "y": 0
+                      },
+                      "background": "transparent"
+                    },
+                    "thumbnails": {}
+                  }
+                ]
+              ]
+            }
+          ]
         }
       }
     ]

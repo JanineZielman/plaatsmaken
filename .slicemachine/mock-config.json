@@ -24,6 +24,12 @@
       "default": {
         "primary": {}
       }
+    },
+    "PageContent": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
     }
   }
 }

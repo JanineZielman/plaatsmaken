@@ -26,6 +26,9 @@ export const linkResolver = (doc) => {
       return `/${doc.uid}`;
     }
   }
+  if (doc.type === "agenda_item") {
+    return `/agenda/${doc.uid}`;
+  }
   return `/`;
 };
 

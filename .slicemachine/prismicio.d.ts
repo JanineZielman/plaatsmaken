@@ -214,7 +214,34 @@ interface PageDocumentData {
      *
      */
     title: prismicT.TitleField;
+    /**
+     * Image field in *Page*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * Slice Zone field in *Page*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<PageDocumentDataSlicesSlice>;
 }
+/**
+ * Slice for *Page → Slice Zone*
+ *
+ */
+type PageDocumentDataSlicesSlice = PageContentSlice;
 /**
  * Page document from Prismic
  *
@@ -278,6 +305,16 @@ export type AllDocumentTypes = AgendaItemDocument | HomeDocument | NavigationDoc
  */
 interface ContentSliceDefaultPrimary {
     /**
+     * Intro field in *Content → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: content.primary.intro
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    intro: prismicT.RichTextField;
+    /**
      * Text field in *Content → Primary*
      *
      * - **Field Type**: Rich Text
@@ -311,6 +348,71 @@ type ContentSliceVariation = ContentSliceDefault;
  *
  */
 export type ContentSlice = prismicT.SharedSlice<"content", ContentSliceVariation>;
+/**
+ * Primary content in PageContent → Primary
+ *
+ */
+interface PageContentSliceDefaultPrimary {
+    /**
+     * Title field in *PageContent → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page_content.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Intro field in *PageContent → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page_content.primary.intro
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    intro: prismicT.RichTextField;
+}
+/**
+ * Item in PageContent → Items
+ *
+ */
+export interface PageContentSliceDefaultItem {
+    /**
+     * Text field in *PageContent → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page_content.items[].text
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    text: prismicT.RichTextField;
+}
+/**
+ * Default variation for PageContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `PageContent`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PageContentSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<PageContentSliceDefaultPrimary>, Simplify<PageContentSliceDefaultItem>>;
+/**
+ * Slice variation for *PageContent*
+ *
+ */
+type PageContentSliceVariation = PageContentSliceDefault;
+/**
+ * PageContent Shared Slice
+ *
+ * - **API ID**: `page_content`
+ * - **Description**: `PageContent`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PageContentSlice = prismicT.SharedSlice<"page_content", PageContentSliceVariation>;
 /**
  * Primary content in Square → Primary
  *
@@ -480,6 +582,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ContentSliceDefaultPrimary, ContentSliceDefault, ContentSliceVariation, ContentSlice, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceDefault2Primary, SquareSliceDefault2, SquareSliceDefault3Primary, SquareSliceDefault3, SquareSliceDefault4Primary, SquareSliceDefault4, SquareSliceDefault5Primary, SquareSliceDefault5, SquareSliceDefault6Primary, SquareSliceDefault6, SquareSliceVariation, SquareSlice };
+        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ContentSliceDefaultPrimary, ContentSliceDefault, ContentSliceVariation, ContentSlice, PageContentSliceDefaultPrimary, PageContentSliceDefaultItem, PageContentSliceDefault, PageContentSliceVariation, PageContentSlice, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceDefault2Primary, SquareSliceDefault2, SquareSliceDefault3Primary, SquareSliceDefault3, SquareSliceDefault4Primary, SquareSliceDefault4, SquareSliceDefault5Primary, SquareSliceDefault5, SquareSliceDefault6Primary, SquareSliceDefault6, SquareSliceVariation, SquareSlice };
     }
 }

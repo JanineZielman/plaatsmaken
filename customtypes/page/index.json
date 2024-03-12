@@ -20,6 +20,28 @@
           "allowTargetBlank": true,
           "single": "heading1"
         }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {
+            "width": 1920,
+            "height": 1920
+          },
+          "thumbnails": []
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "page_content": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }
