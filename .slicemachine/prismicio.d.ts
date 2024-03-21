@@ -42,6 +42,17 @@ interface AgendaItemDocumentData {
      */
     date: prismicT.KeyTextField;
     /**
+     * Category field in *Agenda Item*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: agenda_item.category
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    category: prismicT.RelationField<"category">;
+    /**
      * Slice Zone field in *Agenda Item*
      *
      * - **Field Type**: Slice Zone
@@ -68,6 +79,18 @@ type AgendaItemDocumentDataSlicesSlice = ContentSlice;
  * @typeParam Lang - Language API ID of the document.
  */
 export type AgendaItemDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<AgendaItemDocumentData>, "agenda_item", Lang>;
+/** Content for Category documents */
+type CategoryDocumentData = Record<string, never>;
+/**
+ * Category document from Prismic
+ *
+ * - **API ID**: `category`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CategoryDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<CategoryDocumentData>, "category", Lang>;
 /** Content for Home documents */
 interface HomeDocumentData {
     /**
@@ -298,7 +321,7 @@ interface SettingsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = AgendaItemDocument | HomeDocument | NavigationDocument | PageDocument | SettingsDocument;
+export type AllDocumentTypes = AgendaItemDocument | CategoryDocument | HomeDocument | NavigationDocument | PageDocument | SettingsDocument;
 /**
  * Primary content in Content → Primary
  *
@@ -582,6 +605,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ContentSliceDefaultPrimary, ContentSliceDefault, ContentSliceVariation, ContentSlice, PageContentSliceDefaultPrimary, PageContentSliceDefaultItem, PageContentSliceDefault, PageContentSliceVariation, PageContentSlice, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceDefault2Primary, SquareSliceDefault2, SquareSliceDefault3Primary, SquareSliceDefault3, SquareSliceDefault4Primary, SquareSliceDefault4, SquareSliceDefault5Primary, SquareSliceDefault5, SquareSliceDefault6Primary, SquareSliceDefault6, SquareSliceVariation, SquareSlice };
+        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, CategoryDocumentData, CategoryDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ContentSliceDefaultPrimary, ContentSliceDefault, ContentSliceVariation, ContentSlice, PageContentSliceDefaultPrimary, PageContentSliceDefaultItem, PageContentSliceDefault, PageContentSliceVariation, PageContentSlice, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceDefault2Primary, SquareSliceDefault2, SquareSliceDefault3Primary, SquareSliceDefault3, SquareSliceDefault4Primary, SquareSliceDefault4, SquareSliceDefault5Primary, SquareSliceDefault5, SquareSliceDefault6Primary, SquareSliceDefault6, SquareSliceVariation, SquareSlice };
     }
 }

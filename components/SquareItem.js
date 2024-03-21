@@ -6,7 +6,7 @@ export const SquareItem = ({
 }) => {
   return (
     <div className='item' >
-     {variation === 'default' &&
+     {(variation === 'default' ||  variation === 'default1') &&
         <>
           <div className="square square-12"  style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-11'>

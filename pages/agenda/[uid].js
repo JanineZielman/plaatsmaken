@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
+import * as prismic from '@prismicio/client'
+
 
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
@@ -8,12 +10,15 @@ import { Layout } from "../../components/Layout";
 import Moment from 'moment';
 import { PrismicNextImage } from "@prismicio/next";
 import { SquareItem } from "../../components/SquareItem";
+import { useRouter } from 'next/router'
 
-const Page = ({ page, navigation, settings}) => {
-  let variation = 'default';
+const Page = ({ page, navigation, settings, items}) => {
+  const router = useRouter()
+  let variation = router.query.variation ? router.query.variation : 'default';
   let bgImg = page.data.image.url;
   let title =  page.data.title;
   let date = page.data.date;
+
   return (
     <Layout
       navigation={navigation}
@@ -31,7 +36,22 @@ const Page = ({ page, navigation, settings}) => {
       </Head>
       <div className={`container page`}>       
         <SquareItem variation={variation} bgImg={bgImg} title={title} date={date}/>
-        <SliceZone slices={page.data.slices} components={components} />        
+        <SliceZone slices={page.data.slices} components={components} />
+      </div>
+      <div className="related">
+        <h2>Gerelateerde projecten</h2>
+        <div className="related-items">
+          {items.filter((item) => page.tags.some(r=> item.tags.includes(r))).filter((item) => item.uid != page.uid).map((item, i) => {
+            let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
+            return(
+              <>
+              <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date}/>
+              </a>
+              </>
+            )
+          })}  
+        </div>
       </div>
     </Layout>
   );
@@ -47,12 +67,14 @@ export async function getStaticProps({ params, previewData }) {
   });
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
+  const items = await client.getAllByType('agenda_item');
 
   return {
     props: {
       page,
       navigation,
       settings,
+      items
     },
   };
 }
