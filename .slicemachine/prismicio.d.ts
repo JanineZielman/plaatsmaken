@@ -53,6 +53,17 @@ interface AgendaItemDocumentData {
      */
     category: prismicT.RelationField<"category">;
     /**
+     * Extra Info field in *Agenda Item*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: agenda_item.extra_info
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    extra_info: prismicT.RichTextField;
+    /**
      * Slice Zone field in *Agenda Item*
      *
      * - **Field Type**: Slice Zone

@@ -9,12 +9,14 @@ export const SquareItem = ({
      {(variation === 'default' ||  variation === 'default1') &&
         <>
           <div className="square square-12"  style={{backgroundImage: `url(${bgImg})`}}></div>
-          <div className='square square-11'>
-            <h2>{title}</h2>
-          </div>
+          {title &&
+            <div className='square square-11' >
+              <h2>{title}</h2>
+            </div>
+          }
           <div className="square square-11-2"  style={{backgroundImage: `url(${bgImg})`}}></div>
           {date &&
-            <div className='square square-7'>
+            <div className='square square-7' >
               <p>{date}</p>
             </div>
           }
@@ -31,9 +33,11 @@ export const SquareItem = ({
         <>
           <div className='square square-12' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-11' style={{backgroundImage: `url(${bgImg})`}}></div>
-          <div className='square square-11-2'>
-            <h2>{title}</h2>
-          </div>
+          {title &&
+            <div className='square square-11-2'>
+              <h2>{title}</h2>
+            </div>
+          }
           {date &&
             <div className='square square-7'>
               <p>{date}</p>
@@ -51,9 +55,11 @@ export const SquareItem = ({
       {variation === 'default3' &&
         <>
          <div className='square square-12' style={{backgroundImage: `url(${bgImg})`}}></div>
-          <div className='square square-11-2'>
-            <h2>{title}</h2>
-          </div>
+         {title &&
+            <div className='square square-11-2'>
+              <h2>{title}</h2>
+            </div>
+          }
           {date &&
             <div className='square square-11'>
               <p>{date}</p>
@@ -72,15 +78,11 @@ export const SquareItem = ({
       {variation === 'default4' &&
         <>
           <div className='square square-12' style={{backgroundImage: `url(${bgImg})`}}></div>
-          <div className='square square-11'>
-            {title ?
+          {title &&
+            <div className='square square-11'>
               <h2>{title}</h2>
-            :
-              <video autoPlay muted loop>
-                <source src="./logo.mov" type="video/mp4"/>
-              </video>
-            }
-          </div>
+            </div>
+          }
           <div className='square square-11-2' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-7' style={{backgroundImage: `url(${bgImg})`}}></div>
           {date &&
@@ -98,9 +100,11 @@ export const SquareItem = ({
       }
       {variation === 'default5' &&
         <>
-          <div className='square square-12'>
-            <h2>{title}</h2>
-          </div>
+          {title &&
+            <div className='square square-12'>
+              <h2>{title}</h2>
+            </div>
+          }
           <div className='square square-11' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-11-2' style={{backgroundImage: `url(${bgImg})`}}></div>
           {date &&
@@ -119,9 +123,11 @@ export const SquareItem = ({
       }
       {variation === 'default6' &&
         <>
-          <div className='square square-12'>
-            <h2>{title}</h2>
-          </div>
+          {title &&
+            <div className='square square-12'>
+              <h2>{title}</h2>
+            </div>
+          }
           <div className='square square-11' style={{backgroundImage: `url(${bgImg})`}}></div>
           {date &&
             <div className='square square-11-2'>

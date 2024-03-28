@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.35 80.31">
-  <g id="Layer_1-2" data-name="Layer 1">
-    <g>
-      <path d="m.03,0h101.2v17.48h-1.29c-32.83,0-65.66,0-98.49.02-1.12,0-1.46-.28-1.44-1.42C.06,11.15.03,6.22.03,1.3V0Z" style="stroke-width: 0px;"/>
-      <path d="m.1,80.31c-.03-.41-.07-.75-.07-1.09,0-5.05.02-10.09-.02-15.14,0-.97.27-1.26,1.25-1.26,32.95.02,65.9.02,98.84.01.74,0,1.26,0,1.25,1.02-.04,5.24-.02,10.48-.02,15.73,0,.22-.06.45-.11.73H.1Z" style="stroke-width: 0px;"/>
-      <path d="m.1,30.9h101.14v17.4H.1v-17.4Z" style="stroke-width: 0px;"/>
-    </g>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.8.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2_00000127730521402903061410000018381254841359392399_"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 101.3 80.3"
+	 style="enable-background:new 0 0 101.3 80.3;" xml:space="preserve">
+<g id="Layer_1-2">
+	<g>
+		<path d="M5.7,9.4h89.9v10h-1.1c-29.2,0-58.3,0-87.5,0c-1,0-1.3-0.2-1.3-0.8c0-2.8,0-5.6,0-8.4V9.4z"/>
+		<path d="M5.8,70.9c0-0.2-0.1-0.4-0.1-0.6c0-2.9,0-5.8,0-8.7c0-0.6,0.2-0.7,1.1-0.7c29.3,0,58.5,0,87.8,0c0.7,0,1.1,0,1.1,0.6
+			c0,3,0,6,0,9c0,0.1-0.1,0.3-0.1,0.4C95.6,70.9,5.8,70.9,5.8,70.9z"/>
+		<path d="M5.8,34.5h89.8v10H5.8V34.5z"/>
+	</g>
+</g>
 </svg>

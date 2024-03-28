@@ -47,6 +47,15 @@
           ]
         }
       },
+      "extra_info": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Extra Info",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

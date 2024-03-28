@@ -4,14 +4,16 @@ import React, { useEffect, useState } from 'react';
 
 import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
-import Link from "next/link";
-import { PrismicRichText } from "@prismicio/react";
-
 import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
 
 const Index = ({ navigation, settings, page }) => {
   const [amount, setAmount] = useState(2);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false)
+  }, [])
 	
 	useEffect(() => {
     if (window.innerWidth>1400){
@@ -55,20 +57,22 @@ const Index = ({ navigation, settings, page }) => {
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-      <div className="main-grid">
-        <div className={`row row-1`}>
-          <SliceZone slices={page.data.slices.slice(0,amount)} components={components} amount={amount}/>
+      {!loading &&
+        <div className="main-grid">
+          <div className={`row row-1`}>
+            <SliceZone slices={page.data.slices.slice(0,amount)} components={components} amount={amount} />
+          </div>
+          <div className={`row row-2`}>
+            <SliceZone slices={page.data.slices.slice(amount,amount*2)} components={components}  />
+          </div>
+          <div className={`row row-3`}>
+            <SliceZone slices={page.data.slices.slice(amount*2,amount*3)} components={components} />
+          </div>
+          <div className={`row row-4`}>
+            <SliceZone slices={page.data.slices.slice(amount*3,amount*4)} components={components} />
+          </div>
         </div>
-        <div className={`row row-2`}>
-          <SliceZone slices={page.data.slices.slice(amount,amount*2)} components={components} />
-        </div>
-        <div className={`row row-3`}>
-          <SliceZone slices={page.data.slices.slice(amount*2,amount*3)} components={components} />
-        </div>
-        <div className={`row row-4`}>
-          <SliceZone slices={page.data.slices.slice(amount*3,amount*4)} components={components} />
-        </div>
-      </div>
+      }
     </Layout>
   );
 };
