@@ -9,7 +9,8 @@
     "home": {
       "agenda_items": {}
     },
-    "category": {}
+    "category": {},
+    "shop_item": {}
   },
   "slices": {
     "Square": {

@@ -1,0 +1,97 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "rich"
+  },
+  "title": {
+    "__TYPE__": "FieldContent",
+    "value": "determine",
+    "type": "Text"
+  },
+  "artist": {
+    "__TYPE__": "FieldContent",
+    "value": "yard",
+    "type": "Text"
+  },
+  "image": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
+      "width": 8640,
+      "height": 8640
+    },
+    "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?rect=0%2C0%2C8640%2C8640&w=1080&h=1080",
+    "width": 1080,
+    "height": 1080,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {
+      "full": {
+        "origin": {
+          "id": "full",
+          "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
+          "width": 3560,
+          "height": 5340
+        },
+        "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?rect=0%2C0%2C3560%2C5340&w=720&h=1080",
+        "width": 720,
+        "height": 1080,
+        "edit": {
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          },
+          "background": "transparent"
+        }
+      }
+    }
+  },
+  "jaar": {
+    "__TYPE__": "FieldContent",
+    "value": "bell",
+    "type": "Text"
+  },
+  "techniek": {
+    "__TYPE__": "FieldContent",
+    "value": "fix",
+    "type": "Text"
+  },
+  "afmeting": {
+    "__TYPE__": "FieldContent",
+    "value": "given",
+    "type": "Text"
+  },
+  "oplage": {
+    "__TYPE__": "FieldContent",
+    "value": "win",
+    "type": "Text"
+  },
+  "prijs": {
+    "__TYPE__": "FieldContent",
+    "value": "wear",
+    "type": "Text"
+  },
+  "info": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Lorem eu aliquip proident pariatur dolor qui adipisicing in tempor labore sit in aute laboris enim."
+        }
+      }
+    ]
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": []
+  }
+}

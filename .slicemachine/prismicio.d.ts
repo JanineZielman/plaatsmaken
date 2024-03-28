@@ -332,7 +332,135 @@ interface SettingsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = AgendaItemDocument | CategoryDocument | HomeDocument | NavigationDocument | PageDocument | SettingsDocument;
+/** Content for Shop Item documents */
+interface ShopItemDocumentData {
+    /**
+     * Title field in *Shop Item*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: shop_item.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Artist field in *Shop Item*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: shop_item.artist
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    artist: prismicT.KeyTextField;
+    /**
+     * Image field in *Shop Item*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: shop_item.image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<"full">;
+    /**
+     * Jaar field in *Shop Item*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: shop_item.jaar
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    jaar: prismicT.KeyTextField;
+    /**
+     * Techniek field in *Shop Item*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: shop_item.techniek
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    techniek: prismicT.KeyTextField;
+    /**
+     * Afmeting field in *Shop Item*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: shop_item.afmeting
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    afmeting: prismicT.KeyTextField;
+    /**
+     * Oplage field in *Shop Item*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: shop_item.oplage
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    oplage: prismicT.KeyTextField;
+    /**
+     * Prijs field in *Shop Item*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: shop_item.prijs
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    prijs: prismicT.KeyTextField;
+    /**
+     * Info field in *Shop Item*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: shop_item.info
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    info: prismicT.RichTextField;
+    /**
+     * Slice Zone field in *Shop Item*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: shop_item.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<ShopItemDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Shop Item → Slice Zone*
+ *
+ */
+type ShopItemDocumentDataSlicesSlice = never;
+/**
+ * Shop Item document from Prismic
+ *
+ * - **API ID**: `shop_item`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ShopItemDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ShopItemDocumentData>, "shop_item", Lang>;
+export type AllDocumentTypes = AgendaItemDocument | CategoryDocument | HomeDocument | NavigationDocument | PageDocument | SettingsDocument | ShopItemDocument;
 /**
  * Primary content in Content → Primary
  *
@@ -616,6 +744,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, CategoryDocumentData, CategoryDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ContentSliceDefaultPrimary, ContentSliceDefault, ContentSliceVariation, ContentSlice, PageContentSliceDefaultPrimary, PageContentSliceDefaultItem, PageContentSliceDefault, PageContentSliceVariation, PageContentSlice, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceDefault2Primary, SquareSliceDefault2, SquareSliceDefault3Primary, SquareSliceDefault3, SquareSliceDefault4Primary, SquareSliceDefault4, SquareSliceDefault5Primary, SquareSliceDefault5, SquareSliceDefault6Primary, SquareSliceDefault6, SquareSliceVariation, SquareSlice };
+        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, CategoryDocumentData, CategoryDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, ShopItemDocumentData, ShopItemDocumentDataSlicesSlice, ShopItemDocument, AllDocumentTypes, ContentSliceDefaultPrimary, ContentSliceDefault, ContentSliceVariation, ContentSlice, PageContentSliceDefaultPrimary, PageContentSliceDefaultItem, PageContentSliceDefault, PageContentSliceVariation, PageContentSlice, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceDefault2Primary, SquareSliceDefault2, SquareSliceDefault3Primary, SquareSliceDefault3, SquareSliceDefault4Primary, SquareSliceDefault4, SquareSliceDefault5Primary, SquareSliceDefault5, SquareSliceDefault6Primary, SquareSliceDefault6, SquareSliceVariation, SquareSlice };
     }
 }

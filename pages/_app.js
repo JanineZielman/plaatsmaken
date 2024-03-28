@@ -5,6 +5,7 @@ import { PrismicPreview } from "@prismicio/next";
 import { repositoryName, linkResolver } from "../prismicio";
 
 import "../styles/globals.scss";
+import "../styles/shop.scss";
 import "../styles/page.scss";
 import "../styles/breakpoints.scss";
 

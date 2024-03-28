@@ -8,15 +8,20 @@ import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 import { PrismicNextImage } from "@prismicio/next";
 import { SquareItem } from "../../components/SquareItem";
+import { SquareItemShop } from "../../components/SquareItemShop";
 import { useRouter } from 'next/router'
 
 const Page = ({ page, navigation, settings, items}) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter()
   let variation = router.query.variation ? router.query.variation : 'default';
-  let bgImg = page.data.image.url;
-  let title =  page.data.title;
-  let date = page.data.date;
+  let bgImg = page.data.image.full.url;
+  // let title =  page.data.title;
+  // let date = page.data.artist;
+  // let jaar = page.data.jaar;
+  // let info = page.data
+
+  const {title, artist, jaar, info, techniek, afmeting, oplage, prijs} = page.data
 
   useEffect(() => {
     setLoading(false)
@@ -37,22 +42,24 @@ const Page = ({ page, navigation, settings, items}) => {
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-      <div className={`container page`}>       
-        <SquareItem variation={variation} bgImg={bgImg} title={title} date={date}/>
-        <SliceZone slices={page.data.slices} components={components} />
+      <div className={`container page shop-page`}>       
+        <SquareItemShop variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting}/>
+        <div className="content" style={{backgroundImage: `url(${bgImg})`}}>
+
+        </div>
         <div className="extra-info">
           <PrismicRichText field={page.data.extra_info}/>
         </div>
       </div>
       {!loading &&
         <div className="related">
-          <h2>Gerelateerde projecten</h2>
+          <h2>Gerelateerde werken</h2>
           <div className="related-items">
             {items.filter((item) => page.tags.some(r=> item.tags.includes(r))).filter((item) => item.uid != page.uid).map((item, i) => {
               let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
               return(
-                <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
-                  <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} />
+                <a href={`/webshop/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                  <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.artist} />
                 </a>
               )
             })}  
@@ -68,12 +75,12 @@ export default Page;
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("agenda_item", params.uid, {
-    fetchLinks: `agenda_item.title, agenda_item.image, agenda_item.date, agenda_item.slices, agenda_item.content`
+  const page = await client.getByUID("shop_item", params.uid, {
+    fetchLinks: `shop_item.title, shop_item.image`
   });
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
-  const items = await client.getAllByType('agenda_item');
+  const items = await client.getAllByType('shop_item');
 
   return {
     props: {
@@ -88,7 +95,7 @@ export async function getStaticProps({ params, previewData }) {
 export async function getStaticPaths() {
   const client = createClient();
 
-  const pages = await client.getAllByType("agenda_item");
+  const pages = await client.getAllByType("shop_item");
 
   return {
     paths: pages.map((page) => {

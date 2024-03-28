@@ -125,6 +125,7 @@ video{
   }
 }
 
+
 .square{
   height: auto;
   aspect-ratio: 1/1;
@@ -291,20 +292,20 @@ footer{
   }
 }
 
-.play{
-  width:100%;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background-color: black;
-  mask-image: url(./SVG/play.svg);
-  mask-size: 40%;
-  mask-repeat: no-repeat;
-  mask-position: 60% center;
-  position: absolute;
-  z-index: 1;
-  cursor: pointer;
-}
+// .play{
+//   width:100%;
+//   top: 0;
+//   left: 0;
+//   height: 100%;
+//   background-color: black;
+//   mask-image: url(./SVG/play.svg);
+//   mask-size: 40%;
+//   mask-repeat: no-repeat;
+//   mask-position: 60% center;
+//   position: absolute;
+//   z-index: 1;
+//   cursor: pointer;
+// }
 
 
 // .mail{
