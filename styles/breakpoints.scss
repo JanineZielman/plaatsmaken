@@ -44,7 +44,7 @@
   }
   .square{
     h2{
-      font-size: 36px;
+      font-size: 34px;
     }
     p{
       font-size: 18px;
@@ -56,5 +56,18 @@
       width: 100%;
       max-width: 100%;
     }
+  }
+  .nav{
+    left: -50vw;
+    width: 50vw;
+  }
+  .main-grid.upcoming-grid .item-wrapper, .main-grid.shop-grid .item-wrapper{
+    width: 100%;
+  }
+  .main-grid.shop-grid .square h2{
+    font-size: 34px;
+  }
+  .main-grid.shop-grid .square p{
+    font-size: 18px;
   }
 }
