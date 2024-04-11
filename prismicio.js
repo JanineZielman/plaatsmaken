@@ -22,7 +22,10 @@ export const linkResolver = (doc) => {
   if (doc.type === "page") {
     if (doc.uid === "home") {
       return `/`;
-    } else {
+    } else if (doc.uid === "over") {
+      return `/page/over`;
+    }
+    else {
       return `/${doc.uid}`;
     }
   }

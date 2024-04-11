@@ -3,10 +3,10 @@ import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import React, { useEffect, useState } from 'react';
 
-import { createClient } from "../prismicio";
-import { components } from "../slices";
-import { Layout } from "../components/Layout";
-import { SquareItem } from "../components/SquareItem";
+import { createClient } from "../../prismicio";
+import { components } from "../../slices";
+import { Layout } from "../../components/Layout";
+import { SquareItem } from "../../components/SquareItem";
 
 const Over = ({ page, navigation, settings}) => {
 
