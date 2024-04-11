@@ -30,7 +30,7 @@ const Index = ({ navigation, settings, page }) => {
     }
 		function handleResize(){
 			if (window.innerWidth>1400){
-				setAmount(2);
+				setAmount(3);
 			} 
 			if (window.innerWidth<1400){
 				setAmount(4);
