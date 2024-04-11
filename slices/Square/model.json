@@ -14,98 +14,12 @@
         "agenda_item": {
           "type": "Link",
           "config": {
-            "label": "Agenda Item",
-            "select": "document"
-          }
-        }
-      },
-      "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
-    },
-    {
-      "id": "default2",
-      "name": "Default2",
-      "docURL": "...",
-      "version": "sktwi1xtmkfgx8626",
-      "description": "Square",
-      "primary": {
-        "agenda_item": {
-          "type": "Link",
-          "config": {
-            "label": "Agenda Item",
-            "select": "document"
-          }
-        }
-      },
-      "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
-    },
-    {
-      "id": "default3",
-      "name": "Default3",
-      "docURL": "...",
-      "version": "sktwi1xtmkfgx8626",
-      "description": "Square",
-      "primary": {
-        "agenda_item": {
-          "type": "Link",
-          "config": {
-            "label": "Agenda Item",
-            "select": "document"
-          }
-        }
-      },
-      "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
-    },
-    {
-      "id": "default4",
-      "name": "Default4",
-      "docURL": "...",
-      "version": "sktwi1xtmkfgx8626",
-      "description": "Square",
-      "primary": {
-        "agenda_item": {
-          "type": "Link",
-          "config": {
-            "label": "Agenda Item",
-            "select": "document"
-          }
-        }
-      },
-      "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
-    },
-    {
-      "id": "default5",
-      "name": "Default5",
-      "docURL": "...",
-      "version": "sktwi1xtmkfgx8626",
-      "description": "Square",
-      "primary": {
-        "agenda_item": {
-          "type": "Link",
-          "config": {
-            "label": "Agenda Item",
-            "select": "document"
-          }
-        }
-      },
-      "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
-    },
-    {
-      "id": "default6",
-      "name": "Default6",
-      "docURL": "...",
-      "version": "sktwi1xtmkfgx8626",
-      "description": "Square",
-      "primary": {
-        "agenda_item": {
-          "type": "Link",
-          "config": {
-            "label": "Agenda Item",
-            "select": "document"
+            "label": "Linked Item",
+            "select": "document",
+            "customtypes": [
+              "agenda_item",
+              "shop_item"
+            ]
           }
         }
       },

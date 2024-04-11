@@ -50,4 +50,11 @@
       font-size: 18px;
     }
   }
+  footer{
+    flex-direction: column;
+    div{
+      width: 100%;
+      max-width: 100%;
+    }
+  }
 }

@@ -1,27 +1,27 @@
 {
   "uid": {
     "__TYPE__": "UIDContent",
-    "value": "rich"
+    "value": "throw"
   },
   "title": {
     "__TYPE__": "FieldContent",
-    "value": "determine",
+    "value": "wheel",
     "type": "Text"
   },
   "artist": {
     "__TYPE__": "FieldContent",
-    "value": "yard",
+    "value": "settle",
     "type": "Text"
   },
   "image": {
     "__TYPE__": "ImageContent",
     "origin": {
       "id": "main",
-      "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
-      "width": 8640,
-      "height": 8640
+      "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+      "width": 3958,
+      "height": 3958
     },
-    "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?rect=0%2C0%2C8640%2C8640&w=1080&h=1080",
+    "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb?rect=0%2C0%2C3958%2C3958&w=1080&h=1080",
     "width": 1080,
     "height": 1080,
     "edit": {
@@ -36,12 +36,12 @@
       "full": {
         "origin": {
           "id": "full",
-          "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
-          "width": 3560,
-          "height": 5340
+          "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+          "width": 4024,
+          "height": 4024
         },
-        "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?rect=0%2C0%2C3560%2C5340&w=720&h=1080",
-        "width": 720,
+        "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43?rect=0%2C0%2C4024%2C4024&w=1080&h=1080",
+        "width": 1080,
         "height": 1080,
         "edit": {
           "zoom": 1,
@@ -56,27 +56,27 @@
   },
   "jaar": {
     "__TYPE__": "FieldContent",
-    "value": "bell",
+    "value": "sleep",
     "type": "Text"
   },
   "techniek": {
     "__TYPE__": "FieldContent",
-    "value": "fix",
+    "value": "club",
     "type": "Text"
   },
   "afmeting": {
     "__TYPE__": "FieldContent",
-    "value": "given",
+    "value": "ground",
     "type": "Text"
   },
   "oplage": {
     "__TYPE__": "FieldContent",
-    "value": "win",
+    "value": "cannot",
     "type": "Text"
   },
   "prijs": {
     "__TYPE__": "FieldContent",
-    "value": "wear",
+    "value": "lonely",
     "type": "Text"
   },
   "info": {
@@ -85,13 +85,62 @@
       {
         "type": "paragraph",
         "content": {
-          "text": "Lorem eu aliquip proident pariatur dolor qui adipisicing in tempor labore sit in aute laboris enim."
+          "text": "Eiusmod elit non deserunt deserunt officia nisi quis."
         }
       }
     ]
   },
   "slices": {
     "__TYPE__": "SliceContentType",
-    "value": []
+    "value": [
+      {
+        "key": "img$66abf0dc-751e-49f7-9409-24c71c3ac02e",
+        "name": "img",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "image": {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+                "width": 4380,
+                "height": 2895
+              },
+              "url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?rect=1%2C0%2C4379%2C2895&w=1080&h=714",
+              "width": 1080,
+              "height": 714,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 1,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            },
+            "caption": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Pariatur do non nulla sit reprehenderit commodo tempor qui consectetur. Fugiat non duis consectetur voluptate magna mollit do Lorem est enim anim. Aute culpa Lorem non minim occaecat cupidatat irure nisi nostrud irure sunt minim esse ut."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      }
+    ]
   }
 }

@@ -66,7 +66,7 @@
         margin-top: 10px;
       }
       p{
-        font-size: 2.4vw;
+        font-size: 2.3vw;
       }
     }
     .content{
@@ -77,7 +77,7 @@
       display: inline-block;
       vertical-align: top;
       margin-top: 24px;
-      min-height: 100vh;
+      // min-height: 100vh;
       opacity: 0;
       animation: opacity 2s 0.5s ease 1;
       animation-fill-mode: forwards;
@@ -107,6 +107,7 @@
     z-index: -1;
     width: 21.5%;
     padding-bottom: 24px;
+    font-family: monospace;
   }
 
   @keyframes scale {
@@ -159,7 +160,7 @@
     flex-wrap: wrap;
     .square{
       h2{
-        font-size: 2.3vw;
+        font-size: 1.8vw;
       }
       p{
         font-size: 0.9vw;
@@ -214,4 +215,25 @@
       }
     }
   }
+}
+
+.embed{
+  iframe{
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+  }
+}
+
+.img-block{
+  img{
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+.caption p{
+  margin-top: 10px;
 }

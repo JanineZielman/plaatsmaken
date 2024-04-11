@@ -1,0 +1,30 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "embed": {
+        "__TYPE__": "FieldContent",
+        "value": "remarkable",
+        "type": "Text"
+      },
+      "caption": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Do in et pariatur magna reprehenderit laborum veniam minim ex aliquip. Id dolor do aliquip ad magna excepteur elit laborum adipisicing voluptate."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]

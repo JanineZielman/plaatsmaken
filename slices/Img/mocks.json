@@ -1,0 +1,46 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "image": {
+        "__TYPE__": "ImageContent",
+        "origin": {
+          "id": "main",
+          "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+          "width": 3277,
+          "height": 4092
+        },
+        "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055?rect=0%2C0%2C3276%2C4092&w=1080&h=1349",
+        "width": 1080,
+        "height": 1349,
+        "edit": {
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          },
+          "background": "transparent"
+        },
+        "thumbnails": {}
+      },
+      "caption": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Culpa amet nostrud et in."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]

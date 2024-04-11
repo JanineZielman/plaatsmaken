@@ -32,6 +32,16 @@
         "primary": {},
         "items": {}
       }
+    },
+    "Video": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Img": {
+      "default": {
+        "primary": {}
+      }
     }
   }
 }

@@ -8,7 +8,7 @@ import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
 
 const Index = ({ navigation, settings, page }) => {
-  const [amount, setAmount] = useState(2);
+  const [amount, setAmount] = useState(3);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,29 +17,29 @@ const Index = ({ navigation, settings, page }) => {
 	
 	useEffect(() => {
     if (window.innerWidth>1400){
-      setAmount(2);
+      setAmount(3);
     } 
     if (window.innerWidth<1400){
-      setAmount(3);
-    }
-    if (window.innerWidth<900){
       setAmount(4);
     }
+    if (window.innerWidth<900){
+      setAmount(6);
+    }
     if (window.innerWidth<600){
-      setAmount(8);
+      setAmount(12);
     }
 		function handleResize(){
 			if (window.innerWidth>1400){
 				setAmount(2);
 			} 
 			if (window.innerWidth<1400){
-				setAmount(3);
-			}
-			if (window.innerWidth<900){
 				setAmount(4);
 			}
+			if (window.innerWidth<900){
+				setAmount(6);
+			}
       if (window.innerWidth<600){
-				setAmount(8);
+				setAmount(12);
 			}
 		}
 		window.addEventListener('resize', handleResize)
