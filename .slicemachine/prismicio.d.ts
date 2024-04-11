@@ -31,7 +31,7 @@ interface AgendaItemDocumentData {
      */
     image: prismicT.ImageField<never>;
     /**
-     * Date field in *Agenda Item*
+     * Subtitle / Date field in *Agenda Item*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
@@ -63,6 +63,17 @@ interface AgendaItemDocumentData {
      *
      */
     extra_info: prismicT.RichTextField;
+    /**
+     * Order Date field in *Agenda Item*
+     *
+     * - **Field Type**: Date
+     * - **Placeholder**: *None*
+     * - **API ID Path**: agenda_item.order_date
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/date
+     *
+     */
+    order_date: prismicT.DateField;
     /**
      * Slice Zone field in *Agenda Item*
      *
@@ -275,7 +286,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = PageContentSlice;
+type PageDocumentDataSlicesSlice = PageContentSlice | ContentSlice;
 /**
  * Page document from Prismic
  *
@@ -346,7 +357,7 @@ interface ShopItemDocumentData {
      */
     title: prismicT.KeyTextField;
     /**
-     * Artist field in *Shop Item*
+     * Subtitle field in *Shop Item*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*

@@ -57,22 +57,25 @@ const Index = ({ navigation, settings, page }) => {
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-      {!loading &&
-        <div className="main-grid">
-          <div className={`row row-1`}>
-            <SliceZone slices={page.data.slices.slice(0,amount)} components={components} amount={amount} />
+
+        <h2 className="home-title">Plaatsmaken</h2>
+        {!loading &&
+          <div className="main-grid">
+            <div className={`row row-1`}>
+              <SliceZone slices={page.data.slices.slice(0,amount)} components={components} amount={amount} />
+            </div>
+            <div className={`row row-2`}>
+              <SliceZone slices={page.data.slices.slice(amount,amount*2)} components={components}  />
+            </div>
+            <div className={`row row-3`}>
+              <SliceZone slices={page.data.slices.slice(amount*2,amount*3)} components={components} />
+            </div>
+            <div className={`row row-4`}>
+              <SliceZone slices={page.data.slices.slice(amount*3,amount*4)} components={components} />
+            </div>
           </div>
-          <div className={`row row-2`}>
-            <SliceZone slices={page.data.slices.slice(amount,amount*2)} components={components}  />
-          </div>
-          <div className={`row row-3`}>
-            <SliceZone slices={page.data.slices.slice(amount*2,amount*3)} components={components} />
-          </div>
-          <div className={`row row-4`}>
-            <SliceZone slices={page.data.slices.slice(amount*3,amount*4)} components={components} />
-          </div>
-        </div>
-      }
+        }
+
     </Layout>
   );
 };

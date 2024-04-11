@@ -33,7 +33,7 @@
       "date": {
         "type": "Text",
         "config": {
-          "label": "Date",
+          "label": "Subtitle / Date",
           "placeholder": ""
         }
       },
@@ -54,6 +54,13 @@
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+        }
+      },
+      "order_date": {
+        "type": "Date",
+        "config": {
+          "label": "Order Date",
+          "placeholder": ""
         }
       },
       "slices": {

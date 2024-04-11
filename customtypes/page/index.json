@@ -39,6 +39,9 @@
           "choices": {
             "page_content": {
               "type": "SharedSlice"
+            },
+            "content": {
+              "type": "SharedSlice"
             }
           }
         }

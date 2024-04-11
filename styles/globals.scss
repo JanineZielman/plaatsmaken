@@ -10,11 +10,18 @@
 
 body{
   font-family: "gothic";
+  padding-top: 14px;
 }
 
 video{
   width: 110%;
   margin-top: -5%;
+}
+
+.home-title{
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .menu-button{
@@ -70,10 +77,12 @@ video{
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 70px 20px 10px 10px;
-  left: -300px;
+  padding: 70px 20px 10px 1vw;
+  left: -30vw;
+  min-width: 30vw;
   top: 0;
   &.active{
+    background: linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 100%);
     animation: slide 0.5s forwards;
   }
   a{
@@ -85,7 +94,7 @@ video{
     transition: all 0.4s ease;
     font-size: 20px;
     &:hover{
-      border-bottom: 2px solid black;
+      font-weight: bold;
     }
   }
 }
@@ -95,18 +104,18 @@ video{
 }
 
 @keyframes slideBack {
-  100% { left: -300px; }
+  100% { left: -30vw; }
 }
 
 .page-title{
   text-align: center;
+  margin-top: 0;
 }
 
 
 .main-grid{
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20px;
   .row{
     width: 23.8%;
     margin: 0 0.6%;
@@ -360,5 +369,20 @@ footer{
   }
   &.active .content{
     max-height: 50vh;
+  }
+}
+
+.main-grid.upcoming-grid{
+  .item-wrapper{
+    width: 23.8%;
+    margin: 0 0.6%;
+  }
+}
+
+.archive-upcoming{
+  h2.subtitle{
+    margin-left: 0.6%;
+    width: 98.8%;
+    border-bottom: 2px solid black;
   }
 }
