@@ -54,12 +54,12 @@ const Page = ({ page, navigation, settings, items, params}) => {
             {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() < date).length > 0 &&
               <h2 className="subtitle">Archief</h2>
             }
-            <div className="main-grid shop-grid">
+            <div className="main-grid archief-grid">
               {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() < date).map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
                   <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
-                    <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} />
+                    <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title}/>
                   </a>
                 )
               })}  

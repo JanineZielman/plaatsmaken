@@ -61,13 +61,13 @@
     left: -50vw;
     width: 50vw;
   }
-  .main-grid.upcoming-grid .item-wrapper, .main-grid.shop-grid .item-wrapper{
+  .main-grid.upcoming-grid .item-wrapper, .main-grid.shop-grid .item-wrapper,  .main-grid.archief-grid .item-wrapper{
     width: 100%;
   }
-  .main-grid.shop-grid .square h2{
+  .main-grid.shop-grid .square h2, .main-grid.archief-grid .square h2{
     font-size: 34px;
   }
-  .main-grid.shop-grid .square p{
+  .main-grid.shop-grid .square p, .main-grid.archief-grid .square p{
     font-size: 18px;
   }
 }

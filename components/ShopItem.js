@@ -78,17 +78,14 @@ export const ShopItem = ({
           {title ?
             <div className='square square-11'>
               <h2>{title}</h2>
+              <p>{date}</p>
             </div>
             :
             <div className='square square-11' style={{backgroundImage: `url(${bgImg})`}}></div>
           }
           <div className='square square-11-2' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-7' style={{backgroundImage: `url(${bgImg})`}}></div>
-          {date &&
-            <div className='square square-5'>
-              <p>{date}</p>
-            </div>
-          }
+          <div className='square square-5' style={{backgroundImage: `url(${bgImg})`}}></div>
            <div className='square square-5-2' style={{backgroundImage: `url(${bgImg})`}}></div>
            <div className='square square-4' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-3' style={{backgroundImage: `url(${bgImg})`}}></div>
@@ -102,17 +99,14 @@ export const ShopItem = ({
           {title ?
             <div className='square square-12'>
               <h2>{title}</h2>
+              <p>{date}</p>
             </div>
             :
             <div className='square square-12' style={{backgroundImage: `url(${bgImg})`}}></div>
           }
           <div className='square square-11' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-11-2' style={{backgroundImage: `url(${bgImg})`}}></div>
-          {date &&
-            <div className='square square-7'>
-              <p>{date}</p>
-            </div>
-          }
+          <div className='square square-7' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-5-2' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-5' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-4' style={{backgroundImage: `url(${bgImg})`}}></div>
@@ -127,16 +121,13 @@ export const ShopItem = ({
           {title ?
             <div className='square square-12'>
               <h2>{title}</h2>
+              <p>{date}</p>
             </div>
             :
             <div className='square square-12' style={{backgroundImage: `url(${bgImg})`}}></div>
           }
           <div className='square square-11' style={{backgroundImage: `url(${bgImg})`}}></div>
-          {date &&
-            <div className='square square-11-2'>
-              <p>{date}</p>
-            </div>
-          }
+          <div className='square square-11-2' style={{backgroundImage: `url(${bgImg})`}}></div>
            <div className='square square-7' style={{backgroundImage: `url(${bgImg})`}}></div>
            <div className='square square-4' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-3' style={{backgroundImage: `url(${bgImg})`}}></div>
