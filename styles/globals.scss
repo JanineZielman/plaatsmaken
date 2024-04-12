@@ -25,6 +25,15 @@ video{
   margin-top: -5%;
 }
 
+.search-icon{
+  position: fixed;
+  z-index: 9;
+  right: 1vw;
+  h2{
+    margin: 0;
+  }
+}
+
 .home-title{
   text-align: center;
   margin-bottom: 0;
@@ -407,5 +416,18 @@ footer{
     margin-left: 0.6%;
     width: 98.8%;
     border-bottom: 2px solid black;
+  }
+}
+
+.Collapsible{
+  margin-top: 24px;
+  span{
+    font-size: 36px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid black;
+    width: 90%;
+    display: block;
+    margin-left: 10%;
+    cursor: pointer;
   }
 }

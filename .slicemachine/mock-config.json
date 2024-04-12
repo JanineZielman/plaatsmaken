@@ -25,18 +25,17 @@
         "primary": {}
       }
     },
-    "PageContent": {
-      "default": {
-        "primary": {},
-        "items": {}
-      }
-    },
     "Video": {
       "default": {
         "primary": {}
       }
     },
     "Img": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Collapsible": {
       "default": {
         "primary": {}
       }

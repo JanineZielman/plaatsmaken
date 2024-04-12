@@ -1,29 +1,29 @@
 {
   "uid": {
     "__TYPE__": "UIDContent",
-    "value": "coming"
+    "value": "has"
   },
   "title": {
     "__TYPE__": "FieldContent",
-    "value": "younger",
+    "value": "fox",
     "type": "Text"
   },
   "image": {
     "__TYPE__": "ImageContent",
     "origin": {
       "id": "main",
-      "url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
-      "width": 4000,
-      "height": 4000
+      "url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+      "width": 4016,
+      "height": 6016
     },
-    "url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a?rect=0%2C0%2C4000%2C4000&w=1080&h=1080",
+    "url": "https://images.unsplash.com/photo-1593642633279-1796119d5482?rect=0%2C1000%2C4016%2C4016&w=1080&h=1080",
     "width": 1080,
     "height": 1080,
     "edit": {
       "zoom": 1,
       "crop": {
         "x": 0,
-        "y": 0
+        "y": 1000
       },
       "background": "transparent"
     },
@@ -31,7 +31,7 @@
   },
   "date": {
     "__TYPE__": "FieldContent",
-    "value": "aloud",
+    "value": "afraid",
     "type": "Text"
   },
   "category": {
@@ -47,7 +47,7 @@
       {
         "type": "paragraph",
         "content": {
-          "text": "Non qui officia occaecat non magna."
+          "text": "Nostrud commodo laboris id occaecat."
         }
       }
     ]
@@ -55,13 +55,13 @@
   "order_date": {
     "__TYPE__": "FieldContent",
     "type": "Date",
-    "value": "2013-08-22"
+    "value": "2019-06-05"
   },
   "slices": {
     "__TYPE__": "SliceContentType",
     "value": [
       {
-        "key": "content$9dda9501-b992-4c99-9176-086235a94327",
+        "key": "content$eac2cd18-059c-4d57-ac66-9e0a95a42e95",
         "name": "content",
         "widget": {
           "__TYPE__": "SharedSliceContent",
@@ -73,7 +73,7 @@
                 {
                   "type": "heading2",
                   "content": {
-                    "text": "Essential"
+                    "text": "Minerals"
                   }
                 }
               ]
@@ -84,7 +84,7 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Exercitation elit laboris cupidatat nisi ipsum deserunt eiusmod nulla veniam. In aute excepteur quis sunt Lorem aliqua do voluptate est occaecat voluptate. Reprehenderit incididunt velit aute ex nostrud enim adipisicing excepteur sit do ea est mollit."
+                    "text": "Consectetur culpa eu mollit est labore quis cillum excepteur minim veniam. Tempor ut eiusmod ex pariatur eiusmod ex cupidatat aliquip mollit reprehenderit voluptate enim voluptate. Officia Lorem nostrud ea Lorem elit ipsum aute eiusmod."
                   }
                 }
               ]
@@ -99,7 +99,7 @@
         }
       },
       {
-        "key": "video$12966f88-446c-46a3-9997-12766cded837",
+        "key": "video$3d42d448-641e-438b-b33b-c4294519d887",
         "name": "video",
         "widget": {
           "__TYPE__": "SharedSliceContent",
@@ -107,7 +107,7 @@
           "primary": {
             "embed": {
               "__TYPE__": "FieldContent",
-              "value": "alphabet",
+              "value": "port",
               "type": "Text"
             },
             "caption": {
@@ -116,7 +116,7 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Est nisi in quis mollit fugiat cupidatat labore. Reprehenderit laborum nulla qui esse aliquip reprehenderit cillum fugiat laboris mollit consectetur sit ullamco pariatur."
+                    "text": "Aliqua et non ex id elit labore laborum. Ex do voluptate quis."
                   }
                 }
               ]
@@ -131,7 +131,7 @@
         }
       },
       {
-        "key": "img$a7251dde-328e-4f0d-b3f5-9ec8de3abfc7",
+        "key": "img$cd825597-61fa-49b4-8b63-48b702ac0d26",
         "name": "img",
         "widget": {
           "__TYPE__": "SharedSliceContent",
@@ -141,13 +141,13 @@
               "__TYPE__": "ImageContent",
               "origin": {
                 "id": "main",
-                "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
-                "width": 8640,
-                "height": 8640
+                "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+                "width": 12288,
+                "height": 16384
               },
-              "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?rect=0%2C0%2C8640%2C8640&w=1080&h=1080",
+              "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab?rect=0%2C0%2C12288%2C16384&w=1080&h=1440",
               "width": 1080,
-              "height": 1080,
+              "height": 1440,
               "edit": {
                 "zoom": 1,
                 "crop": {
@@ -164,7 +164,45 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Eu proident minim proident in amet laboris nulla elit ipsum nisi esse officia consectetur magna. Aute proident deserunt sit Lorem ipsum qui."
+                    "text": "Magna laborum cillum commodo anim tempor id exercitation laboris dolore occaecat."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "collapsible$d3becb7c-57a3-4bfe-8fa8-212ad7f2ec11",
+        "name": "collapsible",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "title": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Quick"
+                  }
+                }
+              ]
+            },
+            "content": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Exercitation enim dolore magna tempor non tempor. Officia qui sit magna ea ea proident Lorem ut deserunt dolor consectetur. Aute sint nostrud in pariatur aliquip officia do pariatur commodo occaecat adipisicing."
                   }
                 }
               ]

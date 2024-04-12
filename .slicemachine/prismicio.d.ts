@@ -90,7 +90,7 @@ interface AgendaItemDocumentData {
  * Slice for *Agenda Item → Slice Zone*
  *
  */
-type AgendaItemDocumentDataSlicesSlice = ContentSlice | VideoSlice | ImgSlice;
+type AgendaItemDocumentDataSlicesSlice = ContentSlice | VideoSlice | ImgSlice | CollapsibleSlice;
 /**
  * Agenda Item document from Prismic
  *
@@ -259,7 +259,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = PageContentSlice | ContentSlice;
+type PageDocumentDataSlicesSlice = ContentSlice | CollapsibleSlice;
 /**
  * Page document from Prismic
  *
@@ -446,6 +446,55 @@ type ShopItemDocumentDataSlicesSlice = ImgSlice;
 export type ShopItemDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ShopItemDocumentData>, "shop_item", Lang>;
 export type AllDocumentTypes = AgendaItemDocument | CategoryDocument | HomeDocument | NavigationDocument | PageDocument | SettingsDocument | ShopItemDocument;
 /**
+ * Primary content in Collapsible → Primary
+ *
+ */
+interface CollapsibleSliceDefaultPrimary {
+    /**
+     * Title field in *Collapsible → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: collapsible.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Content field in *Collapsible → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: collapsible.primary.content
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    content: prismicT.RichTextField;
+}
+/**
+ * Default variation for Collapsible Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Collapsible`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CollapsibleSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<CollapsibleSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Collapsible*
+ *
+ */
+type CollapsibleSliceVariation = CollapsibleSliceDefault;
+/**
+ * Collapsible Shared Slice
+ *
+ * - **API ID**: `collapsible`
+ * - **Description**: `Collapsible`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CollapsibleSlice = prismicT.SharedSlice<"collapsible", CollapsibleSliceVariation>;
+/**
  * Primary content in Content → Primary
  *
  */
@@ -544,71 +593,6 @@ type ImgSliceVariation = ImgSliceDefault;
  */
 export type ImgSlice = prismicT.SharedSlice<"img", ImgSliceVariation>;
 /**
- * Primary content in PageContent → Primary
- *
- */
-interface PageContentSliceDefaultPrimary {
-    /**
-     * Title field in *PageContent → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: page_content.primary.title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    title: prismicT.KeyTextField;
-    /**
-     * Intro field in *PageContent → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: page_content.primary.intro
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    intro: prismicT.RichTextField;
-}
-/**
- * Item in PageContent → Items
- *
- */
-export interface PageContentSliceDefaultItem {
-    /**
-     * Text field in *PageContent → Items*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: page_content.items[].text
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    text: prismicT.RichTextField;
-}
-/**
- * Default variation for PageContent Slice
- *
- * - **API ID**: `default`
- * - **Description**: `PageContent`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type PageContentSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<PageContentSliceDefaultPrimary>, Simplify<PageContentSliceDefaultItem>>;
-/**
- * Slice variation for *PageContent*
- *
- */
-type PageContentSliceVariation = PageContentSliceDefault;
-/**
- * PageContent Shared Slice
- *
- * - **API ID**: `page_content`
- * - **Description**: `PageContent`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type PageContentSlice = prismicT.SharedSlice<"page_content", PageContentSliceVariation>;
-/**
  * Primary content in Square → Primary
  *
  */
@@ -701,6 +685,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, CategoryDocumentData, CategoryDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, ShopItemDocumentData, ShopItemDocumentDataSlicesSlice, ShopItemDocument, AllDocumentTypes, ContentSliceDefaultPrimary, ContentSliceDefault, ContentSliceVariation, ContentSlice, ImgSliceDefaultPrimary, ImgSliceDefault, ImgSliceVariation, ImgSlice, PageContentSliceDefaultPrimary, PageContentSliceDefaultItem, PageContentSliceDefault, PageContentSliceVariation, PageContentSlice, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceVariation, SquareSlice, VideoSliceDefaultPrimary, VideoSliceDefault, VideoSliceVariation, VideoSlice };
+        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, CategoryDocumentData, CategoryDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, ShopItemDocumentData, ShopItemDocumentDataSlicesSlice, ShopItemDocument, AllDocumentTypes, CollapsibleSliceDefaultPrimary, CollapsibleSliceDefault, CollapsibleSliceVariation, CollapsibleSlice, ContentSliceDefaultPrimary, ContentSliceDefault, ContentSliceVariation, ContentSlice, ImgSliceDefaultPrimary, ImgSliceDefault, ImgSliceVariation, ImgSlice, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceVariation, SquareSlice, VideoSliceDefaultPrimary, VideoSliceDefault, VideoSliceVariation, VideoSlice };
     }
 }

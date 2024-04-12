@@ -37,10 +37,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "page_content": {
+            "content": {
               "type": "SharedSlice"
             },
-            "content": {
+            "collapsible": {
               "type": "SharedSlice"
             }
           }

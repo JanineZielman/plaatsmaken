@@ -27,6 +27,9 @@ export const Header = ({ navigation, settings }) => {
           )
         })}
       </div>
+      <div className="search-icon">
+        <h2>Search</h2>
+      </div>
     </header>
   );
 };
