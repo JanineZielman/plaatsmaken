@@ -116,17 +116,6 @@ export type CategoryDocument<Lang extends string = string> = prismicT.PrismicDoc
 /** Content for Home documents */
 interface HomeDocumentData {
     /**
-     * Agenda Items field in *Home*
-     *
-     * - **Field Type**: Group
-     * - **Placeholder**: *None*
-     * - **API ID Path**: home.agenda_items[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
-     *
-     */
-    agenda_items: prismicT.GroupField<Simplify<HomeDocumentDataAgendaItemsItem>>;
-    /**
      * Slice Zone field in *Home*
      *
      * - **Field Type**: Slice Zone
@@ -137,22 +126,6 @@ interface HomeDocumentData {
      *
      */
     slices: prismicT.SliceZone<HomeDocumentDataSlicesSlice>;
-}
-/**
- * Item in Home → Agenda Items
- *
- */
-export interface HomeDocumentDataAgendaItemsItem {
-    /**
-     * Agenda Item field in *Home → Agenda Items*
-     *
-     * - **Field Type**: Content Relationship
-     * - **Placeholder**: *None*
-     * - **API ID Path**: home.agenda_items[].agenda_item
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    agenda_item: prismicT.RelationField<"agenda_item">;
 }
 /**
  * Slice for *Home → Slice Zone*
@@ -728,6 +701,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, CategoryDocumentData, CategoryDocument, HomeDocumentData, HomeDocumentDataAgendaItemsItem, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, ShopItemDocumentData, ShopItemDocumentDataSlicesSlice, ShopItemDocument, AllDocumentTypes, ContentSliceDefaultPrimary, ContentSliceDefault, ContentSliceVariation, ContentSlice, ImgSliceDefaultPrimary, ImgSliceDefault, ImgSliceVariation, ImgSlice, PageContentSliceDefaultPrimary, PageContentSliceDefaultItem, PageContentSliceDefault, PageContentSliceVariation, PageContentSlice, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceVariation, SquareSlice, VideoSliceDefaultPrimary, VideoSliceDefault, VideoSliceVariation, VideoSlice };
+        export type { AgendaItemDocumentData, AgendaItemDocumentDataSlicesSlice, AgendaItemDocument, CategoryDocumentData, CategoryDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocumentDataFooterItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, ShopItemDocumentData, ShopItemDocumentDataSlicesSlice, ShopItemDocument, AllDocumentTypes, ContentSliceDefaultPrimary, ContentSliceDefault, ContentSliceVariation, ContentSlice, ImgSliceDefaultPrimary, ImgSliceDefault, ImgSliceVariation, ImgSlice, PageContentSliceDefaultPrimary, PageContentSliceDefaultItem, PageContentSliceDefault, PageContentSliceVariation, PageContentSlice, SquareSliceDefaultPrimary, SquareSliceDefault, SquareSliceVariation, SquareSlice, VideoSliceDefaultPrimary, VideoSliceDefault, VideoSliceVariation, VideoSlice };
     }
 }

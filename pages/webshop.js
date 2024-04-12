@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
-import { SquareItem } from "../components/SquareItem";
+import { ShopItem } from "../components/ShopItem";
 
 const Webshop = ({ navigation, settings, items }) => {
   const [amount, setAmount] = useState(2);
@@ -65,7 +65,7 @@ const Webshop = ({ navigation, settings, items }) => {
             let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
             return(
               <a href={`/webshop/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
-                <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.artist} />
+                <ShopItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.artist} />
               </a>
             )
           })}  
