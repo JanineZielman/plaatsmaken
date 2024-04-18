@@ -431,3 +431,18 @@ footer{
     cursor: pointer;
   }
 }
+
+
+#logo{
+  visibility: hidden;
+  width: 102%;
+  height: 102%;
+  position: absolute;
+  top: 4%;
+  left: 0;
+  padding: 2%;
+  background-color: white;
+  &.visible{
+    visibility: visible;
+  }
+}

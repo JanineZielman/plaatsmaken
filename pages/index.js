@@ -11,6 +11,14 @@ const Index = ({ navigation, settings, page }) => {
   const [amount, setAmount] = useState(3);
   const [loading, setLoading] = useState(true);
 
+  useEffect(()=>{
+    setInterval(() => { 
+      document.getElementById('logo').classList.add('visible');
+      document.getElementsByClassName('square-5')[Math.floor(Math.random() * document.getElementsByClassName('square-5').length)].append(document.getElementById('logo'))
+    }, 5000);
+  }, [])
+  
+
   useEffect(() => {
     setLoading(false)
   }, [])
@@ -59,6 +67,9 @@ const Index = ({ navigation, settings, page }) => {
       </Head>
 
         <h2 className="home-title">Plaatsmaken</h2>
+        <video muted autoPlay loop playsInline id="logo">
+          <source src={'/logo-full.mp4'} type="video/mp4"/>
+        </video>
         {!loading &&
           <div className="main-grid">
             <div className={`row row-1`}>
