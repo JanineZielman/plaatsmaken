@@ -12,9 +12,13 @@ const Index = ({ navigation, settings, page }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
+    setTimeout(() => {
+      document.getElementById('logo')?.classList.add('visible');
+      document.querySelectorAll(".square-5, .square-7, .square-11, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-12").length)].append(document.getElementById('logo'))
+    }, 1000)
     setInterval(() => { 
-      document.getElementById('logo').classList.add('visible');
-      document.getElementsByClassName('square-5')[Math.floor(Math.random() * document.getElementsByClassName('square-5').length)].append(document.getElementById('logo'))
+      document.getElementById('logo')?.classList.add('visible');
+      document.querySelectorAll(".square-5, .square-7, .square-11, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-12").length)].append(document.getElementById('logo'))
     }, 5000);
   }, [])
   
