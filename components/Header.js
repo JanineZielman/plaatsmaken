@@ -1,5 +1,6 @@
 import * as prismicH from "@prismicio/helpers";
 import { PrismicLink } from "@prismicio/react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 export const Header = ({ navigation, settings }) => {
@@ -27,7 +28,7 @@ export const Header = ({ navigation, settings }) => {
       </div>
       {!router.asPath.includes('search') && !router.asPath.includes('webshop') &&
         <div className="search-icon">
-          <a href="/search"><h2>Search</h2></a>
+          <Link href="/search"><h2>Search</h2></Link>
         </div>
       }
     </header>
