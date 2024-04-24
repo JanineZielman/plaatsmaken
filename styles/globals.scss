@@ -42,6 +42,29 @@ video#logo{
   h2{
     margin: 0;
   }
+  a{
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.search-bar{
+  width: 98%;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid black;
+  margin: auto;
+  display: block;
+  margin-top: 14px;
+  font-size: 24px;
+  font-family: "gothic";
+  font-weight: 300;
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+
+*{
+  outline: none
 }
 
 .home-title{

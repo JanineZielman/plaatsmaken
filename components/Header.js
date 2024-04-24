@@ -1,11 +1,9 @@
 import * as prismicH from "@prismicio/helpers";
-import { PrismicLink, PrismicText } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
-import Link from "next/link";
-
-import { linkResolver } from "../prismicio";
+import { PrismicLink } from "@prismicio/react";
+import { useRouter } from "next/router";
 
 export const Header = ({ navigation, settings }) => {
+  const router = useRouter();
 
   function toggleMenu() {
     var element = document.getElementById("nav");
@@ -27,9 +25,11 @@ export const Header = ({ navigation, settings }) => {
           )
         })}
       </div>
-      <div className="search-icon">
-        <h2>Search</h2>
-      </div>
+      {!router.asPath.includes('search') && !router.asPath.includes('webshop') &&
+        <div className="search-icon">
+          <a href="/search"><h2>Search</h2></a>
+        </div>
+      }
     </header>
   );
 };
