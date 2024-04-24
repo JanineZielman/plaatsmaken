@@ -4,8 +4,6 @@ import React, { useEffect, useState } from 'react';
 
 import { createClient } from "../../prismicio";
 import { Layout } from "../../components/Layout";
-import { SliceZone } from "@prismicio/react";
-import { components } from "../../slices";
 import { SquareItem } from "../../components/SquareItem";
 
 const Index = ({ navigation, settings, items }) => {
@@ -22,9 +20,15 @@ const Index = ({ navigation, settings, items }) => {
       var info = li[i].getElementsByTagName("p")[0]; 
       txtValue = info.innerHTML;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        div[i].style.display = "";
+        div[i].style.display = "visible";
+        div[i].style.opacity = "1";
+        div[i].style.width = "";
+        div[i].style.margin = "";
       } else {
-        div[i].style.display = "none";
+        div[i].style.visability = "hidden";
+        div[i].style.opacity = "0";
+        div[i].style.width = "0";
+        div[i].style.margin = "0";
       }
     }
   }
@@ -47,7 +51,6 @@ const Index = ({ navigation, settings, items }) => {
           <div className="main-grid archief-grid">
             {items.map((item, i) => {
               let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
-              console.log(item)
               return(
                 <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                   <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} />
@@ -64,7 +67,7 @@ const Index = ({ navigation, settings, items }) => {
                   </div>
                 </a>
               )
-            })}  
+            })}
           </div>
         </div>
       </div>
@@ -79,7 +82,10 @@ export async function getStaticProps({ previewData }) {
 
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
-  const items = await client.getAllByType('agenda_item');
+  const agenda_items = await client.getAllByType('agenda_item');
+  const shop_items = await client.getAllByType('shop_item');
+
+  const items = agenda_items.concat(shop_items);
 
   return {
     props: {
