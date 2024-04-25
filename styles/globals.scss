@@ -25,7 +25,8 @@ video#logo{
   object-fit: cover;
   margin-top: -5%;
   margin-left: -1%;
-  // animation: fadeIn 0.4s linear 1;
+  padding: 5%;
+  // animation: fadeIn 1s linear 1;
   // animation-fill-mode: forwards;
   // mix-blend-mode: multiply;
 }
@@ -128,11 +129,23 @@ video#logo{
   flex-direction: column;
   padding: 70px 20px 10px 14px;
   left: -30vw;
-  min-width: 30vw;
+  width: 180px;
+  // min-width: 30vw;
   top: 0;
   &.active{
-    background: linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 100%);
     animation: slide 0.5s forwards;
+    .effect{
+      mask-image: url(./gradient.png);
+      background-size: 100%;
+      mask-repeat: repeat-y;
+      mask-position: right;
+      background-color: white;
+      width: 200px;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 160px;
+    }
   }
   a{
     margin-bottom: 10px;
@@ -216,6 +229,7 @@ video#logo{
 
 .square-12{
   width: calc(12%*4.348);
+  height: calc(12%*4.348);
   top: 0;
   left: 0;
   background-size: calc(100% / (12%*4.348) * 100%);
@@ -224,6 +238,7 @@ video#logo{
 
 .square-11{
   width: calc(11%*4.348);
+  height: calc(11%*4.348);
   top: 0;
   left: calc(12%*4.348);
   background-size: calc(100% / (11%*4.348) * 100%);
@@ -232,6 +247,7 @@ video#logo{
 
 .square-11-2{
   width: calc(11%*4.348);
+  height: calc(11%*4.348);
   top:  calc(12%*4.348);
   background-size: calc(100% / (11%*4.348) * 100%);
   background-position: left 0 bottom 0;
@@ -240,6 +256,7 @@ video#logo{
 
 .square-7{
   width: calc(7%*4.348);
+  height: calc(7%*4.348);
   left: calc(11%*4.348);
   bottom: 0;
   background-size: calc(100% / (7%*4.348) * 100%);
@@ -248,6 +265,7 @@ video#logo{
 
 .square-5{
   width: calc(5%*4.348);;
+  height: calc(5%*4.348);
   left: calc(14%*4.348);
   top: calc(11%*4.348);
   background-size: calc(100% / (5%*4.348) * 100%);
@@ -256,6 +274,7 @@ video#logo{
 
 .square-5-2{
   width: calc(5%*4.348);
+  height: calc(5%*4.348);
   bottom: 0;
   right: 0;
   background-size: calc(100% / (5%*4.348) * 100%);
@@ -264,6 +283,7 @@ video#logo{
 
 .square-4{
   width: calc(4%*4.348);
+  height: calc(4%*4.348);
   right: 0;
   top: calc(11%*4.348);
   background-size: calc(100% / (4%*4.348) * 100%);
@@ -272,6 +292,7 @@ video#logo{
 
 .square-3{
   width: calc(3%*4.348);
+  height: calc(3%*4.348);
   left: calc(11%*4.348);
   top: calc(13%*4.348);
   background-size: calc(100% / (3%*4.348) * 100%);
@@ -280,6 +301,7 @@ video#logo{
 
 .square-3-2{
   width: calc(3%*4.348);
+  height: calc(3%*4.348);
   right: 0;
   bottom: calc(5%*4.348);
   background-size: calc(100% / (3%*4.348) * 100%);
@@ -287,40 +309,27 @@ video#logo{
 }
 
 .square-2{
-  width: calc(2%*4.348);;
+  width: calc(2%*4.348);
+  height: calc(2%*4.348);
   left: calc(12%*4.348);
   top: calc(11%*4.348);
-  background-color: transparent!important;
   padding: 0;
-}
-
-.square-2:after, .square-2-2:after, .square-1:after, .square-1-2:after{
-  content: "";
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white!important;
-  border: none!important;
-  border-radius: 50%;
 }
 
 .square-2-2{
   width: calc(2%*4.348);
+  height: calc(2%*4.348);
   right: calc(3%*4.348);
   bottom: calc(5%*4.348);
-  background-color: transparent!important;
   padding: 0;
 }
 
 
 .square-1{
   width: calc(1%*4.348);
+  height: calc(1%*4.348);
   top: calc(12%*4.348);
   left: calc(11%*4.348);
-  background-color: transparent!important;
   padding: 0;
 }
 
@@ -329,7 +338,6 @@ video#logo{
   height: calc(1%*4.348);
   top: calc(15%*4.348);
   right: calc(3%*4.348);
-  background-color: transparent!important;
   padding: 0;
 }
 
@@ -349,37 +357,6 @@ footer{
     color: black;
   }
 }
-
-// .play{
-//   width:100%;
-//   top: 0;
-//   left: 0;
-//   height: 100%;
-//   background-color: black;
-//   mask-image: url(./SVG/play.svg);
-//   mask-size: 40%;
-//   mask-repeat: no-repeat;
-//   mask-position: 60% center;
-//   position: absolute;
-//   z-index: 1;
-//   cursor: pointer;
-// }
-
-
-// .mail{
-//   width:100%;
-//   top: 0;
-//   left: 0;
-//   height: 100%;
-//   background-color: black;
-//   mask-image: url(./SVG/mail.svg);
-//   mask-size: 55%;
-//   mask-repeat: no-repeat;
-//   mask-position: center center;
-//   position: absolute;
-//   z-index: 1;
-//   cursor: pointer;
-// }
 
 .landing{
   display: flex;
@@ -480,4 +457,15 @@ footer{
   &.visible{
     visibility: visible;
   }
+}
+
+
+.content p{
+  a{
+    color: black;
+  }
+}
+
+.bg-vid{
+  width: 100%;
 }

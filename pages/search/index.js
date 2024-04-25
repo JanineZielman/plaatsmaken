@@ -53,7 +53,7 @@ const Index = ({ navigation, settings, items }) => {
               let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
               return(
                 <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
-                  <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} />
+                  <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} preview_video={item.data.preview_video}/>
                   <div className="search-info">
                     <p>
                       {item.data.title}

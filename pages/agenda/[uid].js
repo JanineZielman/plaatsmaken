@@ -52,7 +52,7 @@ const Page = ({ page, navigation, settings, items}) => {
               let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
               return(
                 <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
-                  <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} />
+                  <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date}/>
                 </a>
               )
             })}  

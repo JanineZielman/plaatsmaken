@@ -31,6 +31,17 @@ interface AgendaItemDocumentData {
      */
     image: prismicT.ImageField<never>;
     /**
+     * Preview Video (optional) field in *Agenda Item*
+     *
+     * - **Field Type**: Link to Media
+     * - **Placeholder**: *None*
+     * - **API ID Path**: agenda_item.preview_video
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    preview_video: prismicT.LinkToMediaField;
+    /**
      * Subtitle / Date field in *Agenda Item*
      *
      * - **Field Type**: Text

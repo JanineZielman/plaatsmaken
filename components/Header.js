@@ -25,6 +25,7 @@ export const Header = ({ navigation, settings }) => {
             <PrismicLink key={`nav${i}`} field={item.link}>{item.label}</PrismicLink>
           )
         })}
+        <div className="effect"></div>
       </div>
       {!router.asPath.includes('search') && !router.asPath.includes('webshop') &&
         <div className="search-icon">

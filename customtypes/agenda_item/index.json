@@ -30,6 +30,14 @@
           "thumbnails": []
         }
       },
+      "preview_video": {
+        "type": "Link",
+        "config": {
+          "label": "Preview Video (optional)",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
       "date": {
         "type": "Text",
         "config": {
