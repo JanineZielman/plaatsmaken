@@ -5,7 +5,6 @@ export const SquareItem = ({
   date,
   preview_video
 }) => {
-  console.log(preview_video)
   let bgUrl = `url(${bgImg})`
 
   if (preview_video?.url){

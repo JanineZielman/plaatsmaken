@@ -10,8 +10,6 @@ const Webshop = ({ navigation, settings, items }) => {
   const [amount, setAmount] = useState(2);
   const [loading, setLoading] = useState(true);
 
-  console.log(items)
-
   useEffect(() => {
     setLoading(false)
   }, [])
@@ -45,6 +43,32 @@ const Webshop = ({ navigation, settings, items }) => {
 		}
 		window.addEventListener('resize', handleResize)
   })
+
+  function searchItems() {
+    // Declare variables
+    var input, filter, li, i, txtValue;
+    input = document.getElementById('searchInput');
+    filter = input.value.toUpperCase();
+    var div = document.getElementsByClassName('item-wrapper');
+    li = document.getElementsByClassName('search-info');
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      var info = li[i].getElementsByTagName("p")[0]; 
+      txtValue = info.innerHTML;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        div[i].style.display = "visible";
+        div[i].style.opacity = "1";
+        div[i].style.width = "";
+        div[i].style.margin = "";
+      } else {
+        div[i].style.visability = "hidden";
+        div[i].style.opacity = "0";
+        div[i].style.width = "0";
+        div[i].style.margin = "0";
+      }
+    }
+  }
   return (
     <Layout
       navigation={navigation}
@@ -59,6 +83,7 @@ const Webshop = ({ navigation, settings, items }) => {
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
       <h2 className="page-title">Webshop</h2>
+      <input type="text" id="searchInput" className="search-bar" onKeyUp={searchItems} placeholder="Search..."></input>
       {!loading &&
         <div className="main-grid shop-grid">
           {items.map((item, i) => {
@@ -66,6 +91,17 @@ const Webshop = ({ navigation, settings, items }) => {
             return(
               <a href={`/webshop/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                 <ShopItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.artist} />
+                <div className="search-info">
+                  <p>
+                    {item.data.title}
+                    {item.data.artist}
+                    {item.tags.map((tag) => {
+                      return(
+                        <>{tag}</>
+                      )
+                    })}
+                  </p>
+                </div>
               </a>
             )
           })}  

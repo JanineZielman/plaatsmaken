@@ -51,7 +51,7 @@ const Page = ({ page, navigation, settings, items}) => {
           <PrismicRichText field={page.data.extra_info}/>
         </div>
       </div>
-      {!loading &&
+      {!loading && items.filter((item) => page.tags.some(r=> item.tags.includes(r))).filter((item) => item.uid != page.uid).length > 0 &&
         <div className="related">
           <h2>Gerelateerde werken</h2>
           <div className="related-items">
