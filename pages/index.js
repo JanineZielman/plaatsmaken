@@ -12,13 +12,45 @@ const Index = ({ navigation, settings, page }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
-    setTimeout(() => {
-      document.getElementById('logo')?.classList.add('visible');
-      document.querySelectorAll(".square-5, .square-7, .square-11, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-12").length)].append(document.getElementById('logo'))
-    }, 1000)
+    setTimeout(() => {      
+      let selected = document.querySelectorAll(".square-5, .square-7, .square-11, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-12").length)]
+      if (selected.classList[1] == 'square-12'){
+        document.getElementById('logo').setAttribute('src', '/PM-500-2.mp4')
+        document.getElementById('logo')?.classList.add('visible');
+      }
+      if (selected.classList[1] == 'square-11'){
+        document.getElementById('logo').setAttribute('src', '/PM-400-2.mp4')
+        document.getElementById('logo')?.classList.add('visible');
+      }
+      if (selected.classList[1] == 'square-7'){
+        document.getElementById('logo').setAttribute('src', '/PM-300-2.mp4')
+        document.getElementById('logo')?.classList.add('visible');
+      }
+      if (selected.classList[1] == 'square-5'){
+        document.getElementById('logo').setAttribute('src', '/PM-200-2.mp4')
+        document.getElementById('logo')?.classList.add('visible');
+      }
+      selected.append(document.getElementById('logo'));
+    }, 100)
     setInterval(() => { 
-      document.getElementById('logo')?.classList.add('visible');
-      document.querySelectorAll(".square-5, .square-7, .square-11, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-12").length)].append(document.getElementById('logo'))
+      let selected = document.querySelectorAll(".square-5, .square-7, .square-11, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-12").length)]
+      if (selected.classList[1] == 'square-12'){
+        document.getElementById('logo').setAttribute('src', '/PM-500-2.mp4')
+        document.getElementById('logo')?.classList.add('visible');
+      }
+      if (selected.classList[1] == 'square-11'){
+        document.getElementById('logo').setAttribute('src', '/PM-400-2.mp4')
+        document.getElementById('logo')?.classList.add('visible');
+      }
+      if (selected.classList[1] == 'square-7'){
+        document.getElementById('logo').setAttribute('src', '/PM-300-2.mp4')
+        document.getElementById('logo')?.classList.add('visible');
+      }
+      if (selected.classList[1] == 'square-5'){
+        document.getElementById('logo').setAttribute('src', '/PM-200-2.mp4')
+        document.getElementById('logo')?.classList.add('visible');
+      }
+      selected.append(document.getElementById('logo'));
     }, 5000);
   }, [])
   
@@ -71,9 +103,7 @@ const Index = ({ navigation, settings, page }) => {
       </Head>
 
         <h2 className="home-title">Plaatsmaken</h2>
-        <video muted autoPlay loop playsInline id="logo">
-          <source src={'/logo-full.mp4'} type="video/mp4"/>
-        </video>
+        <video muted autoPlay loop playsInline id="logo"></video>
         {!loading &&
           <div className="main-grid">
             <div className={`row row-1`}>
