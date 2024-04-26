@@ -73,7 +73,6 @@ const Webshop = ({ navigation, settings, items }) => {
   
   const [sortValue, setSortValue] = useState('');
   function sortTitle(e){
-    document.getElementById('list').classList.toggle('filter');
     document.getElementById('dateSort').classList.remove('active')
     document.getElementById('priceSort').classList.remove('active')
     document.getElementById('titleSort').classList.add('active')
@@ -86,7 +85,6 @@ const Webshop = ({ navigation, settings, items }) => {
   }
 
   function sortDate(e){
-    document.getElementById('list').classList.toggle('filter');
     document.getElementById('titleSort').classList.remove('active')
     document.getElementById('priceSort').classList.remove('active')
     document.getElementById('dateSort').classList.add('active')
@@ -99,7 +97,6 @@ const Webshop = ({ navigation, settings, items }) => {
   }
 
   function sortPrice(e){
-    document.getElementById('list').classList.toggle('filter');
     document.getElementById('titleSort').classList.remove('active')
     document.getElementById('dateSort').classList.remove('active')
     document.getElementById('priceSort').classList.add('active')
@@ -110,6 +107,8 @@ const Webshop = ({ navigation, settings, items }) => {
       setSortValue('-data.prijs')
     }
   }
+
+  console.log(items)
 
   
   return (
