@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
 import { ShopItem } from "../components/ShopItem";
+import sortBy from 'sort-by'
 
 const Webshop = ({ navigation, settings, items }) => {
   const [amount, setAmount] = useState(2);
@@ -69,6 +70,48 @@ const Webshop = ({ navigation, settings, items }) => {
       }
     }
   }
+  
+  const [sortValue, setSortValue] = useState('');
+  function sortTitle(e){
+    document.getElementById('list').classList.toggle('filter');
+    document.getElementById('dateSort').classList.remove('active')
+    document.getElementById('priceSort').classList.remove('active')
+    document.getElementById('titleSort').classList.add('active')
+    document.getElementById('titleSort').classList.toggle('rotate')
+    if (e.target.classList.length > 2){
+      setSortValue('data.title')
+    } else {
+      setSortValue('-data.title')
+    }
+  }
+
+  function sortDate(e){
+    document.getElementById('list').classList.toggle('filter');
+    document.getElementById('titleSort').classList.remove('active')
+    document.getElementById('priceSort').classList.remove('active')
+    document.getElementById('dateSort').classList.add('active')
+    document.getElementById('dateSort').classList.toggle('rotate')
+    if (e.target.classList.length > 2){
+      setSortValue('data.jaar')
+    } else {
+      setSortValue('-data.jaar')
+    }
+  }
+
+  function sortPrice(e){
+    document.getElementById('list').classList.toggle('filter');
+    document.getElementById('titleSort').classList.remove('active')
+    document.getElementById('dateSort').classList.remove('active')
+    document.getElementById('priceSort').classList.add('active')
+    document.getElementById('priceSort').classList.toggle('rotate')
+    if (e.target.classList.length > 2){
+      setSortValue('data.prijs')
+    } else {
+      setSortValue('-data.prijs')
+    }
+  }
+
+  
   return (
     <Layout
       navigation={navigation}
@@ -83,10 +126,15 @@ const Webshop = ({ navigation, settings, items }) => {
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
       <h2 className="page-title">Webshop</h2>
-      <input type="text" id="searchInput" className="search-bar" onKeyUp={searchItems} placeholder="Search..."></input>
+      <input type="text" id="searchInput" className="search-bar search-shop" onKeyUp={searchItems} placeholder="Search..."></input>
+      <div className="sort-buttons">
+        <div className="sort" id="titleSort" onClick={sortTitle}>Titel<span class="material-symbols-outlined">arrow_upward</span></div>
+        <div className="sort" id="dateSort" onClick={sortDate}>Jaar<span class="material-symbols-outlined">arrow_upward</span></div>
+        <div className="sort" id="priceSort" onClick={sortPrice}>Prijs<span class="material-symbols-outlined">arrow_upward</span></div>
+      </div>
       {!loading &&
-        <div className="main-grid shop-grid">
-          {items.map((item, i) => {
+        <div className="main-grid shop-grid" id="list">
+          {items.sort(sortBy(sortValue)).map((item, i) => {
             let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
             return(
               <a href={`/webshop/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>

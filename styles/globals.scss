@@ -26,14 +26,6 @@ video#logo{
   margin-top: -5%;
   margin-left: -1%;
   padding: 5%;
-  // animation: fadeIn 1s linear 1;
-  // animation-fill-mode: forwards;
-  // mix-blend-mode: multiply;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
 }
 
 .search-icon{
@@ -378,9 +370,26 @@ footer{
   }
 }
 
+#list{
+  opacity: 0;
+  animation: fadeIn 1s ease 1;
+  animation-fill-mode: forwards;
+  transition: all 0.4s ease;
+}
+
+// #list.filter{
+//   opacity: 0;
+//   animation: fadeIn 1s 1;
+//   animation-fill-mode: forwards;
+// }
+
+
 .item-wrapper{
   transition: opacity 1s ease, width 0.4s ease;
   transition-delay: 0s, 0.8s;
+  opacity: 0;
+  animation: fadeIn 1s 1;
+  animation-fill-mode: forwards;
   .item{
     cursor: pointer;
   }
@@ -398,6 +407,11 @@ footer{
   &.active .content{
     max-height: 50vh;
   }
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 .main-grid.upcoming-grid{
@@ -468,4 +482,46 @@ footer{
 
 .bg-vid{
   width: 100%;
+}
+
+.material-symbols-outlined {
+  font-size: 20px;
+  list-style: 1;
+  margin-left: 5px;
+  margin-right: -5px;
+}
+
+
+.search-shop{
+  margin-bottom: 10px;
+  margin-top: 36px;
+}
+
+.sort-buttons{
+  display: flex;
+  margin: auto;
+  max-width: 900px;
+  justify-content: center;
+  margin-bottom: 24px;
+  .sort{
+    padding: 5px;
+    margin: 0 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: all 0.4s ease;
+    font-family: 'space mono';
+    font-size: 14px;
+    font-weight: 500;
+    &.active{
+      opacity: 1;
+      font-weight: 600;
+      &.rotate{
+        .material-symbols-outlined{
+          transform: scale(1,-1);
+        }
+      }
+    }
+  }
 }
