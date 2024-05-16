@@ -205,17 +205,18 @@ video#logo{
     word-break: break-word;
     font-weight: 300;
   }
-  p{
-    font-size: 1vw;
-    line-height: 1.1;
-    word-break: break-word;
-  }
   h2, p{
     margin: 0;
     -webkit-hyphens : auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
+  }
+  p{
+    font-size: 1vw;
+    line-height: 1.1;
+    word-break: break-word;
+    margin-top: 5px;
   }
 }
 
@@ -306,6 +307,8 @@ video#logo{
   left: calc(12%*4.348);
   top: calc(11%*4.348);
   padding: 0;
+  background-size: calc(100% / (2%*4.348) * 100%);
+  background-position: left 57.5% bottom 47.8%;
 }
 
 .square-2-2{
@@ -314,6 +317,8 @@ video#logo{
   right: calc(3%*4.348);
   bottom: calc(5%*4.348);
   padding: 0;
+  background-size: calc(100% / (2%*4.348) * 100%);
+  background-position: right 14.2% bottom 23.8%;
 }
 
 
@@ -323,14 +328,18 @@ video#logo{
   top: calc(12%*4.348);
   left: calc(11%*4.348);
   padding: 0;
+  background-size: calc(100% / (1%*4.348) * 100%);
+  background-position: left 50% bottom 45.5%;
 }
 
 .square-1-2{
-  width:calc(1%*4.348);
+  width: calc(1%*4.348);
   height: calc(1%*4.348);
   top: calc(15%*4.348);
   right: calc(3%*4.348);
   padding: 0;
+  background-size: calc(100% / (1%*4.348) * 100%);
+  background-position: right 13.7% bottom 32%;
 }
 
 footer{
@@ -406,6 +415,24 @@ footer{
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity: 1;}
+}
+
+.hide-bg:nth-child(3n){
+  opacity: 1;
+  animation-fill-mode: forwards;
+  animation: hideAni 5s ease 1;
+}
+
+// .home-grid .hide-bg:nth-child(3n){
+//   opacity: 1;
+//   animation-fill-mode: forwards;
+//   animation: hideAni 5s ease 1;
+// }
+
+@keyframes hideAni {
+  0% {opacity: 1;}
+  20% {opacity: 0;}
+  100% {opacity: 0;}
 }
 
 .main-grid.upcoming-grid{

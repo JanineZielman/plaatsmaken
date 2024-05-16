@@ -1,9 +1,28 @@
+import { useEffect } from "react";
+
+
 export const ShopItem = ({
   variation,
   bgImg,
   title,
   date
 }) => {
+  useEffect(() => {
+    let random = Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-5-2,  .square-1, .square-2, .square-1-2, .square-2-2, .square-3, .square-3-2 ").length);
+    let selected = document.querySelectorAll(".square-5, .square-7, .square-5-2,  .square-1, .square-2, .square-1-2, .square-2-2, .square-3, .square-3-2 ")[random]
+    selected.classList.add('hide-bg');
+    setTimeout(function() {
+      selected.classList.remove('hide-bg');
+    }, 5000);
+    setInterval(function() {
+      let random = Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-5-2,  .square-1, .square-2, .square-1-2, .square-2-2, .square-3, .square-3-2 ").length);
+      let selected = document.querySelectorAll(".square-5, .square-7, .square-5-2,  .square-1, .square-2, .square-1-2, .square-2-2, .square-3, .square-3-2 ")[random]
+      selected.classList.add('hide-bg');
+      setTimeout(function() {
+        selected.classList.remove('hide-bg');
+      }, 5000);
+    }, 5000);
+  }, [])
   return (
     <div className='item' >
      {(variation === 'default' ||  variation === 'default1') &&
@@ -24,8 +43,10 @@ export const ShopItem = ({
           <div className='square square-5-2'  style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-3'  style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-3-2'  style={{backgroundImage: `url(${bgImg})`}}></div>
-          <div className='square square-1'></div>
-          <div className='square square-2'><div className='play'></div></div>
+          <div className='square square-1' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-1-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2-2' style={{backgroundImage: `url(${bgImg})`}}></div>
         </>
       }
       {variation === 'default2' &&
@@ -46,8 +67,10 @@ export const ShopItem = ({
           <div className='square square-4' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-3' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-3-2' style={{backgroundImage: `url(${bgImg})`}}></div>
-          <div className='square square-1-2'></div>
-          <div className='square square-2-2'></div>
+          <div className='square square-1-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-1' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2' style={{backgroundImage: `url(${bgImg})`}}></div>
         </>
       }
       {variation === 'default3' &&
@@ -68,8 +91,10 @@ export const ShopItem = ({
           <div className='square square-3-2' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-4' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-3' style={{backgroundImage: `url(${bgImg})`}}></div>
-          <div className='square square-1'></div>
-          <div className='square square-2'><div className='mail'></div></div>
+          <div className='square square-1' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-1-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2-2' style={{backgroundImage: `url(${bgImg})`}}></div>
         </>
       }
       {variation === 'default4' &&
@@ -90,8 +115,10 @@ export const ShopItem = ({
            <div className='square square-4' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-3' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-3-2' style={{backgroundImage: `url(${bgImg})`}}></div>
-          <div className='square square-1'></div>
-          <div className='square square-2'><div className='play'></div></div>
+          <div className='square square-1' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-1-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2-2' style={{backgroundImage: `url(${bgImg})`}}></div>
         </>
       }
       {variation === 'default5' &&
@@ -112,8 +139,10 @@ export const ShopItem = ({
           <div className='square square-4' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-3' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-3-2' style={{backgroundImage: `url(${bgImg})`}}></div>
-          <div className='square square-1-2'></div>
-          <div className='square square-2-2'></div>
+          <div className='square square-1-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-1' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2' style={{backgroundImage: `url(${bgImg})`}}></div>
         </>
       }
       {variation === 'default6' &&
@@ -134,8 +163,10 @@ export const ShopItem = ({
           <div className='square square-3-2' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-5' style={{backgroundImage: `url(${bgImg})`}}></div>
           <div className='square square-5-2' style={{backgroundImage: `url(${bgImg})`}}></div>
-          <div className='square square-1'></div>
-          <div className='square square-2'></div>
+          <div className='square square-1' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-1-2' style={{backgroundImage: `url(${bgImg})`}}></div>
+          <div className='square square-2-2' style={{backgroundImage: `url(${bgImg})`}}></div>
         </>
       }
     </div>

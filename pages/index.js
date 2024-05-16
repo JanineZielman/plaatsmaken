@@ -105,7 +105,7 @@ const Index = ({ navigation, settings, page }) => {
         <h2 className="home-title">Plaatsmaken</h2>
         <video muted autoPlay loop playsInline id="logo"></video>
         {!loading &&
-          <div className="main-grid">
+          <div className="main-grid home-grid">
             <div className={`row row-1`}>
               <SliceZone slices={page.data.slices.slice(0,amount)} components={components} amount={amount} />
             </div>

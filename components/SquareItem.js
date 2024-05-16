@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 export const SquareItem = ({
   variation,
   bgImg,
@@ -10,6 +12,23 @@ export const SquareItem = ({
   if (preview_video?.url){
     bgUrl = ''
   }
+
+  useEffect(() => {
+    let random = Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-5-2, .square-1, .square-2, .square-1-2, .square-2-2, .square-3, .square-3-2 ").length);
+    let selected = document.querySelectorAll(".square-5, .square-7, .square-5-2, .square-1, .square-2, .square-1-2, .square-2-2, .square-3, .square-3-2")[random]
+    selected.classList.add('hide-bg');
+    setTimeout(function() {
+      selected.classList.remove('hide-bg');
+    }, 5000);
+    setInterval(function() {
+      let random = Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-5-2,  .square-1, .square-2, .square-1-2, .square-2-2, .square-3, .square-3-2 ").length);
+      let selected = document.querySelectorAll(".square-5, .square-7, .square-5-2,  .square-1, .square-2, .square-1-2, .square-2-2, .square-3, .square-3-2 ")[random];
+      selected.classList.add('hide-bg');
+      setTimeout(function() {
+        selected.classList.remove('hide-bg');
+      }, 10000);
+    }, 5000);
+  }, [])
   return (
     <div className='item' >
      {(variation === 'default' ||  variation === 'default1') &&
@@ -18,23 +37,22 @@ export const SquareItem = ({
           {title ?
             <div className='square square-11' >
               <h2>{title}</h2>
+              {date &&<p>{date}</p>}
             </div>
           :
             <div className='square square-11' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           }
           <div className="square square-11-2"  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
-          {date &&
-            <div className='square square-7' >
-              <p>{date}</p>
-            </div>
-          }
+          <div className="square square-7"  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-5'  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-4'  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-5-2'  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3'  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3-2'  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
-          <div className='square square-1'></div>
-          <div className='square square-2'></div>
+          <div className='square square-1' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-1-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
         </>
       }
       {variation === 'default2' &&
@@ -44,22 +62,21 @@ export const SquareItem = ({
           {title ?
             <div className='square square-11-2'>
               <h2>{title}</h2>
+              {date &&<p>{date}</p>}
             </div>
             :
             <div className='square square-11-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           }
-          {date &&
-            <div className='square square-7'>
-              <p>{date}</p>
-            </div>
-          }
+          <div className="square square-7"  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-5-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-5' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-4' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
-          <div className='square square-1-2'></div>
-          <div className='square square-2-2'></div>
+          <div className='square square-1-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-1' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
         </>
       }
       {variation === 'default3' &&
@@ -68,23 +85,22 @@ export const SquareItem = ({
          {title ?
             <div className='square square-11-2'>
               <h2>{title}</h2>
+              {date &&<p>{date}</p>}
             </div>
             :
             <div className='square square-11-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           }
-          {date &&
-            <div className='square square-11'>
-              <p>{date}</p>
-            </div>
-          }
+          <div className="square square-11"  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
            <div className='square square-7' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
            <div className='square square-5' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
            <div className='square square-5-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-4' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
-          <div className='square square-1'></div>
-          <div className='square square-2'></div>
+          <div className='square square-1' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-1-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
         </>
       }
       {variation === 'default4' &&
@@ -93,23 +109,22 @@ export const SquareItem = ({
           {title ?
             <div className='square square-11'>
               <h2>{title}</h2>
+              {date &&<p>{date}</p>}
             </div>
             :
             <div className='square square-11' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           }
           <div className='square square-11-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-7' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
-          {date &&
-            <div className='square square-5'>
-              <p>{date}</p>
-            </div>
-          }
+          <div className="square square-5"  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
            <div className='square square-5-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
            <div className='square square-4' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
-          <div className='square square-1'></div>
-          <div className='square square-2'></div>
+          <div className='square square-1' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-1-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
         </>
       }
       {variation === 'default5' &&
@@ -117,24 +132,23 @@ export const SquareItem = ({
           {title ?
             <div className='square square-12'>
               <h2>{title}</h2>
+              {date &&<p>{date}</p>}
             </div>
             :
             <div className='square square-12' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           }
           <div className='square square-11' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-11-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
-          {date &&
-            <div className='square square-7'>
-              <p>{date}</p>
-            </div>
-          }
+          <div className="square square-7"  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-5-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-5' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-4' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
-          <div className='square square-1-2'></div>
-          <div className='square square-2-2'></div>
+          <div className='square square-1-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-1' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
         </>
       }
       {variation === 'default6' &&
@@ -142,24 +156,23 @@ export const SquareItem = ({
           {title ?
             <div className='square square-12'>
               <h2>{title}</h2>
+              {date &&<p>{date}</p>}
             </div>
             :
             <div className='square square-12' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           }
           <div className='square square-11' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
-          {date &&
-            <div className='square square-11-2'>
-              <p>{date}</p>
-            </div>
-          }
+          <div className="square square-11-2"  style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
            <div className='square square-7' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
            <div className='square square-4' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-3-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-5' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
           <div className='square square-5-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
-          <div className='square square-1'></div>
-          <div className='square square-2'></div>
+          <div className='square square-1' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-1-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
+          <div className='square square-2-2' style={{backgroundImage: bgUrl, backgroundColor: 'transparent'}}></div>
         </>
       }
       {preview_video?.url &&

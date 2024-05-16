@@ -11,6 +11,10 @@ import { SquareItem } from "../../components/SquareItem";
 const Page = ({ navigation, settings, items}) => {
   const [loading, setLoading] = useState(true);
   let date = new Date().toJSON();
+  let d =  new Date();
+  let nextMonth = new Date(d.setMonth(d.getMonth() + 1)).toJSON();
+
+
 
   useEffect(() => {
     setLoading(false)
@@ -34,11 +38,24 @@ const Page = ({ navigation, settings, items}) => {
         <h2 className="page-title">Agenda</h2>
         {!loading &&
           <div className="archive-upcoming">
-            {items.filter((item) => new Date(item.data.order_date).toJSON() >= date).length > 0 &&
-              <h2 className="subtitle">Actueel & Verwacht</h2>
+            {items.filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing == true).length > 0 &&
+              <h2 className="subtitle">Actueel</h2>
             }
             <div className="main-grid upcoming-grid">
-              {items.filter((item) => new Date(item.data.order_date).toJSON() >= date).map((item, i) => {
+              {items.filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing == true).map((item, i) => {
+                let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
+                return(
+                  <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                    <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video}/>
+                  </a>
+                )
+              })}  
+            </div>
+            {items.filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing != true).length > 0 &&
+              <h2 className="subtitle">Verwacht</h2>
+            }
+            <div className="main-grid upcoming-grid">
+              {items.filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing != true).map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
                   <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>

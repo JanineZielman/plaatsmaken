@@ -86,6 +86,18 @@ interface AgendaItemDocumentData {
      */
     order_date: prismicT.DateField;
     /**
+     * On going field in *Agenda Item*
+     *
+     * - **Field Type**: Boolean
+     * - **Placeholder**: *None*
+     * - **Default Value**: false
+     * - **API ID Path**: agenda_item.ongoing
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+     *
+     */
+    ongoing: prismicT.BooleanField;
+    /**
      * Slice Zone field in *Agenda Item*
      *
      * - **Field Type**: Slice Zone
