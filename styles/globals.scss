@@ -423,12 +423,6 @@ footer{
   animation: hideAni 5s ease 1;
 }
 
-// .home-grid .hide-bg:nth-child(3n){
-//   opacity: 1;
-//   animation-fill-mode: forwards;
-//   animation: hideAni 5s ease 1;
-// }
-
 @keyframes hideAni {
   0% {opacity: 1;}
   20% {opacity: 0;}
