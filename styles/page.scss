@@ -57,6 +57,21 @@
       animation-fill-mode: forwards;
     }
 
+    .square-2-2{
+      left: auto;
+      right: 13%;
+      animation: square2-2 1s ease 1;
+      animation-fill-mode: forwards;
+    }
+
+    .square-1-2{
+      left: auto;
+      right: 13%;
+      animation: square2-2 1s ease 1;
+      animation-fill-mode: forwards;
+    }
+
+
     .square-2{
       animation-delay: 0.2s;
     }
@@ -143,6 +158,11 @@
   @keyframes square2-3 {
     0%   {right: 39.5%;}
     100% {right: -79.5%;}
+  }
+
+  @keyframes square2-2 {
+    0%   {right: 39.5%;}
+    100% {right: -105%;}
   }
 
 }
