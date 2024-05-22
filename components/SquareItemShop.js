@@ -12,7 +12,7 @@ export const SquareItemShop = ({
   jaar
 }) => {
   return (
-    <div className='item' >
+    <div className='left-info' >
      {(variation === 'default' ||  variation === 'default1') &&
         <>
           <div className="square square-12">
@@ -26,7 +26,8 @@ export const SquareItemShop = ({
                 <p>Afmeting: {afmeting}</p>
                 <p>Oplage: {oplage}</p>
                 <p>Prijs: €{prijs},-</p>
-              </div> 
+              </div>
+              <div className="order">Bestel</div> 
             </div>   
           </div>
         </>

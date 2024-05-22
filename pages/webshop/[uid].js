@@ -10,6 +10,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import { SquareItem } from "../../components/SquareItem";
 import { SquareItemShop } from "../../components/SquareItemShop";
 import { useRouter } from 'next/router'
+import Link from "next/link";
 
 const Page = ({ page, navigation, settings, items}) => {
   const [loading, setLoading] = useState(true);
@@ -42,7 +43,8 @@ const Page = ({ page, navigation, settings, items}) => {
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-      <div className={`container page shop-page`}>       
+      <div className={`container page shop-page`}>
+        <Link className="back" href="/webshop"><h2>Back</h2></Link>       
         <SquareItemShop variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting}/>
         <div className="content" style={{backgroundImage: `url(${bgImg})`}}>
 

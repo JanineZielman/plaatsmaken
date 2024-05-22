@@ -9,6 +9,7 @@ import { Layout } from "../../components/Layout";
 import { PrismicNextImage } from "@prismicio/next";
 import { SquareItem } from "../../components/SquareItem";
 import { useRouter } from 'next/router'
+import Link from "next/link";
 
 const Page = ({ page, navigation, settings, items}) => {
   const [loading, setLoading] = useState(true);
@@ -37,7 +38,8 @@ const Page = ({ page, navigation, settings, items}) => {
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-      <div className={`container page`}>       
+      <div className={`container page`}>    
+        <Link className="back" href="/agenda"><h2>Back</h2></Link>
         <SquareItem variation={variation} bgImg={bgImg} title={title} date={date}/>
         <SliceZone slices={page.data.slices} components={components} />
         <div className="extra-info">

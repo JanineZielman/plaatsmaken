@@ -1,7 +1,10 @@
+.page{
+  margin-top: 35px;
+}
+
 @media only screen and (min-width: 900px) {
   .page{
     min-height: 100vh;
-    padding-top: 10px;
     .item{
       position: fixed;
       display: inline-block;
@@ -292,4 +295,16 @@
 
 .search-info{
   display: none;
+}
+
+.back{
+  position: fixed;
+  left: calc(0.7vw + 60px);
+  text-decoration: none;
+  top: 10px;
+  color: black;
+  h2{
+    margin: 0;
+    font-weight: 300;
+  }
 }
