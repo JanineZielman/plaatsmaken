@@ -133,7 +133,7 @@ export async function getStaticProps({ previewData }) {
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
   const page = await client.getSingle("home", {
-    fetchLinks: `agenda_item.title, agenda_item.image, agenda_item.date, agenda_item.slices, agenda_item.content`
+    fetchLinks: `agenda_item.title, agenda_item.image, agenda_item.date, agenda_item.slices, agenda_item.content,  agenda_item.preview_video`
   });
 
 

@@ -1,6 +1,4 @@
-import { PrismicRichText } from '@prismicio/react'
-import { PrismicNextImage } from '@prismicio/next'
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { SquareItem } from '../../components/SquareItem';
 
 /**
@@ -9,14 +7,14 @@ import { SquareItem } from '../../components/SquareItem';
  * @param { SquareProps }
  */
 const Square = ({ slice}) => {
-  // let variation = slice.variation;
   let variation =  'default' + Math.floor(Math.random() * 6 + 1);
   let bgImg = slice.primary.agenda_item.data.image.url;
   let title =  slice.primary.agenda_item.data.title;
   let date = slice.primary.agenda_item.data.date;
+  let preview_video = slice.primary.agenda_item.data.preview_video
   return(
     <a href={`agenda/${slice.primary.agenda_item.uid}?variation=${variation}`} className='item-wrapper'>
-      <SquareItem variation={variation} bgImg={bgImg} title={title} date={date}/>
+      <SquareItem variation={variation} bgImg={bgImg} title={title} date={date} preview_video={preview_video}/>
     </a>
   )
 }
