@@ -13,7 +13,7 @@ const Square = ({ slice}) => {
   let date = slice.primary.agenda_item.data.date;
   let preview_video = slice.primary.agenda_item.data.preview_video
   return(
-    <a href={`agenda/${slice.primary.agenda_item.uid}?variation=${variation}`} className='item-wrapper'>
+    <a href={`agenda/${slice.primary.agenda_item.uid}?variation=${variation}&home=true`} className='item-wrapper'>
       <SquareItem variation={variation} bgImg={bgImg} title={title} date={date} preview_video={preview_video}/>
     </a>
   )

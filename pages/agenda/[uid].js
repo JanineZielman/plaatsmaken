@@ -42,7 +42,10 @@ const Page = ({ page, navigation, settings, items}) => {
         {router.query.agenda == 'true' ?  
           <Link className="back" href="/agenda"><h2>Back</h2></Link>
         :
-          <Link className="back" href={`/${page.data.category.uid}`}><h2>Back</h2></Link>
+          router.query.home == 'true' ?
+            <Link className="back" href={`/`}><h2>Back</h2></Link>
+          :
+            <Link className="back" href={`/${page.data.category.uid}`}><h2>Back</h2></Link>
         }
         <SquareItem variation={variation} bgImg={bgImg} title={title} date={date}/>
         <SliceZone slices={page.data.slices} components={components} />
