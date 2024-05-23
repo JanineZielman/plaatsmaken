@@ -16,13 +16,15 @@ export const Layout = ({
         {children}
       </main>
       <footer>
-        {navigation.data.footer.map((item, i) => {
-          return(
-            <div key={`text-footer${i}`}>
-              <PrismicRichText field={item.text}/>
-            </div>
-          )
-        })}
+        <div className="footer-content">
+          {navigation.data.footer.map((item, i) => {
+            return(
+              <div key={`text-footer${i}`}>
+                <PrismicRichText field={item.text}/>
+              </div>
+            )
+          })}
+        </div>
       </footer>
     </>
   );

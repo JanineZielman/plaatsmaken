@@ -378,19 +378,25 @@ video#logo{
 }
 
 footer{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: end;
   padding-top: 48px;
-  font-family: space mono;
+  font-family: "Space Mono";
   background-color: white;
-  div{
-    width: 275px;
-    max-width: 50%;
-  }
-  a{
-    color: black;
+  width: 100%;
+  .footer-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: end;
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    div{
+      width: fit-content;
+      max-width: 50%;
+    }
+    a{
+      color: black;
+    }
   }
 }
 
