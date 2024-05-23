@@ -38,8 +38,12 @@ const Page = ({ page, navigation, settings, items}) => {
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-      <div className={`container page`}>    
-        <Link className="back" href="/agenda"><h2>Back</h2></Link>
+      <div className={`container page`}>
+        {router.query.agenda == 'true' ?  
+          <Link className="back" href="/agenda"><h2>Back</h2></Link>
+        :
+          <Link className="back" href={`/${page.data.category.uid}`}><h2>Back</h2></Link>
+        }
         <SquareItem variation={variation} bgImg={bgImg} title={title} date={date}/>
         <SliceZone slices={page.data.slices} components={components} />
         <div className="extra-info">

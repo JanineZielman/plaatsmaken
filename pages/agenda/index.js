@@ -45,7 +45,7 @@ const Page = ({ navigation, settings, items}) => {
               {items.filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing == true).map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
-                  <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                  <a href={`/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                     <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video}/>
                   </a>
                 )
@@ -58,7 +58,7 @@ const Page = ({ navigation, settings, items}) => {
               {items.filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing != true).map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
-                  <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                  <a href={`/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                     <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video}/>
                   </a>
                 )
@@ -71,7 +71,7 @@ const Page = ({ navigation, settings, items}) => {
               {items.filter((item) => new Date(item.data.order_date).toJSON() < date).map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
-                  <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                  <a href={`/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                     <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} preview_video={item.data.preview_video}/>
                   </a>
                 )
