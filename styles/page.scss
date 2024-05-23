@@ -278,6 +278,11 @@
 .page-intro{
   margin-left: 0.7vw;
   max-width: 900px;
+  &.small{
+    max-width: 16%;
+    font-size: 20px;
+    padding-right: 14px;
+  }
   .content{
     p{
       font-family: 'space mono';
@@ -301,7 +306,7 @@
   position: fixed;
   left: calc(0.7vw + 60px);
   text-decoration: none;
-  top: 10px;
+  top: 12px;
   color: black;
   h2{
     margin: 0;

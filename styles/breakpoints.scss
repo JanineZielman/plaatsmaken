@@ -1,3 +1,11 @@
+@media only screen and (max-width: 1600px) {
+  .page-intro{
+    &.small{
+      max-width: 30%;
+    }
+  }
+}
+
 @media only screen and (max-width: 1400px) {
   .main-grid .row{
     width: 32.1%;
@@ -31,11 +39,15 @@
     }
   }
   .page.shop-page{
+    display: flex;
+    flex-direction: column-reverse;
     .content{
-      margin-left: 0;
-      width: 100%;
-      max-width: 100%;
-      min-height: 60vh;
+      display: none;
+    }
+    .shop-info-text{
+      img{
+        display: block;
+      }
     }
     .left-info{
       position: relative;
@@ -49,6 +61,12 @@
         max-width: 100%;
         aspect-ratio: initial;
       }
+    }
+  }
+  .page-intro{
+    &.small{
+      max-width: 100%;
+      padding-right: 0;
     }
   }
 }

@@ -33,20 +33,41 @@ const Page = ({ page, navigation, settings, items, params}) => {
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
         <h2 className="page-title">{prismicH.asText(page.data.title)}</h2>
-        <div className="page-intro">
-          <SliceZone slices={page.data.slices} components={components} />
-        </div>
         {!loading &&
           <div className="archive-upcoming">
-            {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() >= date).length > 0 &&
-              <h2 className="subtitle">Actueel & Verwacht</h2>
+            { items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing == true).length > 0  ?
+              <h2 className="subtitle">Actueel</h2>
+              :
+              <>
+              {page.data.slices.length > 0 &&
+                <h2 className="subtitle">Actueel</h2>
+              }
+              </>
             }
             <div className="main-grid upcoming-grid">
-              {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() >= date).map((item, i) => {
+              {page.data.slices.length > 0 &&
+                <div className="page-intro small">
+                  <SliceZone slices={page.data.slices} components={components} />
+                </div>
+              }
+              {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing == true).map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
-                  <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
-                    <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video} />
+                  <a href={`/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                    <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video}/>
+                  </a>
+                )
+              })}  
+            </div>
+            {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing != true).length > 0 &&
+              <h2 className="subtitle">Verwacht</h2>
+            }
+            <div className="main-grid upcoming-grid">
+              {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing != true).map((item, i) => {
+                let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
+                return(
+                  <a href={`/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                    <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video}/>
                   </a>
                 )
               })}  

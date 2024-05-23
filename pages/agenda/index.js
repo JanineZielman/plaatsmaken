@@ -11,10 +11,6 @@ import { SquareItem } from "../../components/SquareItem";
 const Page = ({ navigation, settings, items}) => {
   const [loading, setLoading] = useState(true);
   let date = new Date().toJSON();
-  let d =  new Date();
-  let nextMonth = new Date(d.setMonth(d.getMonth() + 1)).toJSON();
-
-
 
   useEffect(() => {
     setLoading(false)

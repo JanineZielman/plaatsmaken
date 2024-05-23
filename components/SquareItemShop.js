@@ -9,7 +9,8 @@ export const SquareItemShop = ({
   afmeting,
   info,
   techniek,
-  jaar
+  jaar,
+  image
 }) => {
   return (
     <div className='left-info' >
@@ -19,6 +20,7 @@ export const SquareItemShop = ({
             <h2>{title}</h2>
             <p>{artist}</p>
             <div className="shop-info-text">
+              <img src={image}/>
               <PrismicRichText field={info}/>     
               <div className="shop-info">
                 <p>Jaar: {jaar}</p>

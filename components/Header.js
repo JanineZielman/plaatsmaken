@@ -25,6 +25,10 @@ export const Header = ({ navigation, settings }) => {
             <PrismicLink key={`nav${i}`} field={item.link}>{item.label}</PrismicLink>
           )
         })}
+        <div className="language-switcher">
+          <h2 className="active">NL</h2>
+          <h2>EN</h2>
+        </div>
         <div className="effect"></div>
       </div>
       {!router.asPath.includes('search') && !router.asPath.includes('webshop') &&

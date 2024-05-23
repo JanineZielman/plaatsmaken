@@ -25,10 +25,17 @@
   text-transform: uppercase;
   font-family: "Space Mono", monospace;
   transition: all 0.4s ease;
+  -webkit-box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+  -moz-box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
   &:hover{
     background-color: black;
     color: white;
     cursor: pointer;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+    transform: translate(3px, 3px);
   }
 }
 
@@ -41,10 +48,19 @@
     animation-fill-mode: forwards;
     // max-width: 600px;
   }
+  .shop-info-text{
+    img{
+      width: 100%;
+      height: auto;
+      display: none;
+    }
+  }
   .square-12{
     // background-color: blue;
     padding-top: 24px;
-    height: 95vh;
+    min-height: 50vh;
+    height: fit-content;
+    padding-bottom: 24px;
     width: 100%;
     max-width: 600px;
     position: absolute;
