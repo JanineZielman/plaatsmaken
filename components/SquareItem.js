@@ -26,7 +26,7 @@ export const SquareItem = ({
       selected.classList.add('hide-bg');
       setTimeout(function() {
         selected.classList.remove('hide-bg');
-      }, 10000);
+      }, 5000);
     }, 5000);
   }, [])
   return (
