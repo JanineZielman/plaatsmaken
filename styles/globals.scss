@@ -31,7 +31,7 @@ video#logo{
 .language-switcher{
   position: fixed;
   z-index: 9;
-  bottom: 10px;
+  bottom: 14px;
   cursor: pointer;
   display: flex;
   h2{
@@ -154,7 +154,7 @@ video#logo{
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 70px 20px 10px 14px;
+  padding: 70px 20px 10px calc(10px + 0.7vw);
   left: -30vw;
   width: 180px;
   // min-width: 30vw;
