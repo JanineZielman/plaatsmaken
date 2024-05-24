@@ -8,14 +8,21 @@ import { SquareItem } from '../../components/SquareItem';
  */
 const Square = ({ slice}) => {
   let variation =  'default' + Math.floor(Math.random() * 6 + 1);
-  let bgImg = slice.primary.agenda_item.data.image.url;
-  let title =  slice.primary.agenda_item.data.title;
-  let date = slice.primary.agenda_item.data.date;
-  let preview_video = slice.primary.agenda_item.data.preview_video
+  let bgImg, title, date, preview_video;
+  if (slice.primary.agenda_item.data){
+    bgImg = slice.primary.agenda_item.data.image.url;
+    title =  slice.primary.agenda_item.data.title;
+    date = slice.primary.agenda_item.data.date;
+    preview_video = slice.primary.agenda_item.data.preview_video
+  }
   return(
-    <a href={`agenda/${slice.primary.agenda_item.uid}?variation=${variation}&home=true`} className='item-wrapper'>
-      <SquareItem variation={variation} bgImg={bgImg} title={title} date={date} preview_video={preview_video}/>
-    </a>
+    <>
+    {slice.primary.agenda_item.data &&
+      <a href={`agenda/${slice.primary.agenda_item.uid}?variation=${variation}&home=true`} className='item-wrapper'>
+        <SquareItem variation={variation} bgImg={bgImg} title={title} date={date} preview_video={preview_video}/>
+      </a>
+    }
+    </>
   )
 }
 
