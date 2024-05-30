@@ -1,4 +1,5 @@
 import { PrismicRichText } from "@prismicio/react";
+import { sendMail } from "./sendMail";
 
 export const SquareItemShop = ({
   variation,
@@ -12,6 +13,10 @@ export const SquareItemShop = ({
   jaar,
   image
 }) => {
+  async function handleOnClick (){
+    let response = await sendMail();
+    console.log(response);
+  }
   return (
     <div className='left-info' >
      {(variation === 'default' ||  variation === 'default1') &&
@@ -29,7 +34,7 @@ export const SquareItemShop = ({
                 <p>Oplage: {oplage}</p>
                 <p>Prijs: €{prijs},-</p>
               </div>
-              <div className="order">Bestel</div> 
+              <div className="order" onClick={ () => handleOnClick()}>Bestel</div> 
             </div>   
           </div>
         </>
