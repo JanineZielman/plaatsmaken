@@ -44,7 +44,11 @@ const Page = ({ page, navigation, settings, items}) => {
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
       <div className={`container page shop-page`}>
-        <Link className="back" href="/webshop"><h2>Back</h2></Link>       
+        {router.query.home == 'true' ?
+            <Link className="back" href={`/`}><h2>Back</h2></Link>
+          :
+            <Link className="back" href={'/webshop'}><h2>Back</h2></Link>
+        }
         <SquareItemShop variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting} image={bgImg}/>
         <div className="content" style={{backgroundImage: `url(${bgImg})`}}>
 
