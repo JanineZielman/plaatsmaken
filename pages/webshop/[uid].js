@@ -49,7 +49,7 @@ const Page = ({ page, navigation, settings, items}) => {
           :
             <Link className="back" href={'/webshop'}><h2>Back</h2></Link>
         }
-        <SquareItemShop variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting} image={bgImg}/>
+        <SquareItemShop slug={page.uid} variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting} image={bgImg}/>
         <div className="content" style={{backgroundImage: `url(${bgImg})`}}>
 
         </div>

@@ -1,5 +1,7 @@
 import { PrismicRichText } from "@prismicio/react";
-import { sendMail } from "./sendMail";
+import Head from "next/head";
+import { useEffect } from "react";
+import { OrderForm } from "./OrderForm";
 
 export const SquareItemShop = ({
   variation,
@@ -11,13 +13,21 @@ export const SquareItemShop = ({
   info,
   techniek,
   jaar,
-  image
+  image,
+  slug
 }) => {
-  async function handleOnClick (){
-    let response = await sendMail();
-    console.log(response);
+  
+  function openPopup(){
+    document.getElementById('orderForm').style.visibility = 'visible';
+    document.getElementById('orderForm').style.opacity = '1';
   }
   return (
+    <>
+    <Head>
+      <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css"/>
+      <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+    </Head>
+
     <div className='left-info' >
      {(variation === 'default' ||  variation === 'default1') &&
         <>
@@ -34,11 +44,20 @@ export const SquareItemShop = ({
                 <p>Oplage: {oplage}</p>
                 <p>Prijs: €{prijs},-</p>
               </div>
-              <div className="order" onClick={ () => handleOnClick()}>Bestel</div> 
+              <div className="order" onClick={openPopup}>Bestel</div> 
             </div>   
           </div>
         </>
       }
     </div>
+
+    <OrderForm title={title} slug={slug}/>
+
+
+
+      
+
+    </>
   );
 };
+
