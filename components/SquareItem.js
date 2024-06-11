@@ -176,7 +176,7 @@ export const SquareItem = ({
         </>
       }
       {preview_video?.url &&
-        <video muted autoPlay loop playsInline class="bg-vid">
+        <video muted autoPlay loop playsInline className="bg-vid">
           <source src={preview_video.url} type="video/mp4"/>
         </video>
       }

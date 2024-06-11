@@ -145,9 +145,9 @@ const Webshop = ({ navigation, settings, items }) => {
       <h2 className="page-title">Webshop</h2>
       <input type="text" id="searchInput" className="search-bar search-shop" onKeyUp={searchItems} placeholder="Search..."></input>
       <div className="sort-buttons">
-        <div className="sort" id="titleSort" onClick={sortTitle}>Titel<span class="material-symbols-outlined">arrow_upward</span></div>
-        <div className="sort" id="dateSort" onClick={sortDate}>Jaar<span class="material-symbols-outlined">arrow_upward</span></div>
-        <div className="sort" id="priceSort" onClick={sortPrice}>Prijs<span class="material-symbols-outlined">arrow_upward</span></div>
+        <div className="sort" id="titleSort" onClick={sortTitle}>Titel<span className="material-symbols-outlined">arrow_upward</span></div>
+        <div className="sort" id="dateSort" onClick={sortDate}>Jaar<span className="material-symbols-outlined">arrow_upward</span></div>
+        <div className="sort" id="priceSort" onClick={sortPrice}>Prijs<span className="material-symbols-outlined">arrow_upward</span></div>
       </div>
       {!loading &&
         <div className="main-grid shop-grid" id="list">
