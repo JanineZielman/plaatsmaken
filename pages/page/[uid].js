@@ -8,7 +8,7 @@ import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 import { SquareItem } from "../../components/SquareItem";
 
-const Over = ({ page, navigation, settings}) => {
+const Page = ({ page, navigation, settings}) => {
 
   let variation = 'default';
   let bgImg = page.data.image.url;
@@ -33,26 +33,41 @@ const Over = ({ page, navigation, settings}) => {
         <SquareItem variation={variation} bgImg={bgImg}/>
         <SliceZone slices={page.data.slices} components={components} />
       </div>
-        {/* <div className="page content">
-          <SliceZone slices={page.data.slices} components={components} />
-        </div> */}
     </Layout>
   );
 };
 
-export default Over;
+export default Page;
 
-export async function getStaticProps({ previewData }) {
+
+export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("page", 'over');
+  const page = await client.getByUID("page", params.uid);
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
+  
+
   return {
     props: {
       page,
       navigation,
       settings,
     },
+  };
+}
+
+export async function getStaticPaths() {
+  const client = createClient();
+
+  const pages = await client.getAllByType("page");
+
+  return {
+    paths: pages.map((page) => {
+      return {
+        params: { uid: page.uid },
+      };
+    }),
+    fallback: false,
   };
 }
