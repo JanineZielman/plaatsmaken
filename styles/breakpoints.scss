@@ -7,11 +7,8 @@
 }
 
 @media only screen and (max-width: 1400px) {
-  .main-grid .row{
+  .main-grid .item-wrapper{
     width: 32.1%;
-  }
-  .row-4{
-    display: none;
   }
   .square{
     h2{
@@ -24,11 +21,8 @@
 }
 
 @media only screen and (max-width: 900px) {
-  .main-grid .row{
+  .main-grid .item-wrapper{
     width: 48.8%;
-  }
-  .row-3{
-    display: none;
   }
   .square{
     h2{
@@ -81,14 +75,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .main-grid .row{
+  .main-grid .item-wrapper{
     width: 100%;
-  }
-  .row-3{
-    display: none;
-  }
-  .row-2{
-    display: none;
   }
   .square{
     h2{

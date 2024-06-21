@@ -7,6 +7,7 @@ export const ShopItem = ({
   title,
   date
 }) => {
+
   useEffect(() => {
     let random = Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-5-2,  .square-1, .square-2, .square-1-2, .square-2-2, .square-3, .square-3-2 ").length);
     let selected = document.querySelectorAll(".square-5, .square-7, .square-5-2,  .square-1, .square-2, .square-1-2, .square-2-2, .square-3, .square-3-2 ")[random]

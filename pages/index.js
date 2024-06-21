@@ -8,12 +8,11 @@ import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
 
 const Index = ({ navigation, settings, page }) => {
-  const [amount, setAmount] = useState(3);
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
     setTimeout(() => {      
-      let selected = document.querySelectorAll(".square-5, .square-7, .square-11, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-12").length)]
+      let selected = document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12").length)]
       if (selected.classList[1] == 'square-12'){
         document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga8Jm069VX1oIT_PM-500-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
@@ -30,10 +29,12 @@ const Index = ({ navigation, settings, page }) => {
         document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga35m069VX1oIK_PM-200-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
-      selected.append(document.getElementById('logo'));
+      if (document.getElementById('logo')){
+        selected.append(document.getElementById('logo'));
+      }
     }, 100)
     setInterval(() => { 
-      let selected = document.querySelectorAll(".square-5, .square-7, .square-11, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-12").length)]
+      let selected = document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12").length)]
       if (selected.classList[1] == 'square-12'){
         document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga8Jm069VX1oIT_PM-500-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
@@ -50,44 +51,16 @@ const Index = ({ navigation, settings, page }) => {
         document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga35m069VX1oIK_PM-200-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
-      selected.append(document.getElementById('logo'));
-    }, 5000);
+      if (document.getElementById('logo')){
+        selected.append(document.getElementById('logo'));
+      }
+    }, 10000);
   }, [])
-  
 
   useEffect(() => {
     setLoading(false)
   }, [])
 	
-	useEffect(() => {
-    if (window.innerWidth>1400){
-      setAmount(3);
-    } 
-    if (window.innerWidth<1400){
-      setAmount(4);
-    }
-    if (window.innerWidth<900){
-      setAmount(6);
-    }
-    if (window.innerWidth<600){
-      setAmount(12);
-    }
-		function handleResize(){
-			if (window.innerWidth>1400){
-				setAmount(3);
-			} 
-			if (window.innerWidth<1400){
-				setAmount(4);
-			}
-			if (window.innerWidth<900){
-				setAmount(6);
-			}
-      if (window.innerWidth<600){
-				setAmount(12);
-			}
-		}
-		window.addEventListener('resize', handleResize)
-  })
   return (
     <Layout
       navigation={navigation}
@@ -106,18 +79,7 @@ const Index = ({ navigation, settings, page }) => {
         <video muted autoPlay loop playsInline id="logo"></video>
         {!loading &&
           <div className="main-grid home-grid">
-            <div className={`row row-1`}>
-              <SliceZone slices={page.data.slices.slice(0,amount)} components={components} amount={amount} />
-            </div>
-            <div className={`row row-2`}>
-              <SliceZone slices={page.data.slices.slice(amount,amount*2)} components={components}  />
-            </div>
-            <div className={`row row-3`}>
-              <SliceZone slices={page.data.slices.slice(amount*2,amount*3)} components={components} />
-            </div>
-            <div className={`row row-4`}>
-              <SliceZone slices={page.data.slices.slice(amount*3,amount*4)} components={components} />
-            </div>
+             <SliceZone slices={page.data.slices.slice(0,12)} components={components} />
           </div>
         }
 

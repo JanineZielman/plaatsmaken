@@ -8,43 +8,12 @@ import { ShopItem } from "../components/ShopItem";
 import sortBy from 'sort-by'
 
 const Webshop = ({ navigation, settings, items }) => {
-  const [amount, setAmount] = useState(2);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(false)
   }, [])
 	
-	useEffect(() => {
-    if (window.innerWidth>1400){
-      setAmount(2);
-    } 
-    if (window.innerWidth<1400){
-      setAmount(3);
-    }
-    if (window.innerWidth<900){
-      setAmount(4);
-    }
-    if (window.innerWidth<600){
-      setAmount(8);
-    }
-		function handleResize(){
-			if (window.innerWidth>1400){
-				setAmount(2);
-			} 
-			if (window.innerWidth<1400){
-				setAmount(3);
-			}
-			if (window.innerWidth<900){
-				setAmount(4);
-			}
-      if (window.innerWidth<600){
-				setAmount(8);
-			}
-		}
-		window.addEventListener('resize', handleResize)
-  })
-
   function searchItems() {
     // Declare variables
     var input, filter, li, i, txtValue;
