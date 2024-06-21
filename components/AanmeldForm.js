@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const OrderForm = ({title, slug}) => {
+export const AanmeldForm = ({title, slug}) => {
   useEffect(() =>{
     window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
     window.LOCALE = 'en';
@@ -54,17 +54,16 @@ export const OrderForm = ({title, slug}) => {
       </div>
       <div></div>
       <div id="sib-container" className="sib-container--large sib-container--vertical">
-        <form id="sib-form" method="POST" action="https://dc539d8a.sibforms.com/serve/MUIFAEAJpNwhERC8pnJAQ1cYdqHDAiaNVC5AjUqXjAewZfY-sxmcPIeylie9Vbqh-iNy7AuXMtx9CbqgluPr-KWmMdFlEkPboqJBJ8RAPP8kpo3bqJ50ADHOfog-UoAnNbOd3ntepEKBALWPlV2Yj34ML5ctsjbSzdKDJyBVGxf_NbGYYXbYPTkDAZCFvoe1j9q9wiMt5xs6NfNK" data-type="subscription">
+        <form id="sib-form" method="POST" action="https://dc539d8a.sibforms.com/serve/MUIFAJR25pF0ZG71Y54ZcsQNv-3z2NOZrhwN3vVy9JVJYy63OoezANTmfTf63gYTEJm8LGar5VDvrSissVYfOrHaK07n07WqTrcQaREzOM6EOjAlulX-qpM5NcEoc5gbdXbfoLpqdQNBEalHpTDiIIkTqniPz3ugpf1KH6ZRBMf4P5w2e_btJmTXoOVv7d8qROGHcyFbL7urhDJZ" data-type="subscription">
           <div >
             <div className="sib-form-block">
-              <h2>Request form: {title}</h2>
+              <h2>Aanmelden {title}</h2>
             </div>
           </div>
           <div>
             <div className="sib-form-block">
               <div className="sib-text-form-block">
-                <p>Als u het formulier instuurt neemt Plaatsmaken contact met u op.<br/>
-                  Bijvoorbeeld om een afspraak te maken zodat u het werk kunt bekijken in de galerie, of dat wij het werk inpakken en na betaling naar u verzenden.<br/><br/></p>
+                <p>Als u het formulier instuurt neemt Plaatsmaken contact met u op.<br/></p>
               </div>
             </div>
           </div>
@@ -167,7 +166,7 @@ export const OrderForm = ({title, slug}) => {
                     <input className="input " maxlength="200" type="text" id="OPMERKING" name="OPMERKING" autocomplete="off" placeholder="Opmerking / vraag" data-required="true" required />
                   </div>
                   <div className="entry__field">
-                    <input className="input hide" maxlength="200" type="text" id="PRODUCT" name="PRODUCT" autocomplete="off" data-required="true" value={slug} required />
+                    <input className="input hide" maxlength="200" type="text" id="WORKSHOP" name="WORKSHOP" autocomplete="off" data-required="true" value={slug} required />
                   </div>
                 </div>
 

@@ -24,6 +24,11 @@
             }
           }
         ]
+      },
+      "button_label": {
+        "__TYPE__": "FieldContent",
+        "value": "grandfather",
+        "type": "Text"
       }
     },
     "items": [

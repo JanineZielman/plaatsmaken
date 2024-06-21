@@ -10,6 +10,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import { SquareItem } from "../../components/SquareItem";
 import { useRouter } from 'next/router'
 import Link from "next/link";
+import AanmeldButton from "../../components/AanmeldButton"
 
 const Page = ({ page, navigation, settings, items}) => {
   const [loading, setLoading] = useState(true);
@@ -37,6 +38,8 @@ const Page = ({ page, navigation, settings, items}) => {
         <meta property="og:title" content={`${page.data.title} | ${prismicH.asText(settings.data.siteTitle)}`} />
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
+        <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css"/>
+        <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
       </Head>
       <div className={`container page`}>
         {router.query.agenda == 'true' ?  
@@ -51,6 +54,9 @@ const Page = ({ page, navigation, settings, items}) => {
         <SliceZone slices={page.data.slices} components={components} />
         <div className="extra-info">
           <PrismicRichText field={page.data.extra_info}/>
+          {page.data.aanmelden == true &&
+            <AanmeldButton title={page.data.title} slug={page.uid}/>
+          }
         </div>
       </div>
       {!loading && items.filter((item) => page.tags.some(r=> item.tags.includes(r))).filter((item) => item.uid != page.uid).length > 0 &&

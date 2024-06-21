@@ -64,6 +64,15 @@
           "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
         }
       },
+      "aanmelden": {
+        "type": "Boolean",
+        "config": {
+          "label": "Aanmelden",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
       "order_date": {
         "type": "Date",
         "config": {

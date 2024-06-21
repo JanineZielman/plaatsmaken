@@ -75,6 +75,18 @@ interface AgendaItemDocumentData {
      */
     extra_info: prismicT.RichTextField;
     /**
+     * Aanmelden field in *Agenda Item*
+     *
+     * - **Field Type**: Boolean
+     * - **Placeholder**: *None*
+     * - **Default Value**: false
+     * - **API ID Path**: agenda_item.aanmelden
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+     *
+     */
+    aanmelden: prismicT.BooleanField;
+    /**
      * Order Date field in *Agenda Item*
      *
      * - **Field Type**: Date
@@ -493,6 +505,16 @@ interface CollapsibleSliceDefaultPrimary {
      *
      */
     content: prismicT.RichTextField;
+    /**
+     * Button Label field in *Collapsible → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: collapsible.primary.button_label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    button_label: prismicT.KeyTextField;
 }
 /**
  * Default variation for Collapsible Slice
