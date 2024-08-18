@@ -14,19 +14,19 @@ const Index = ({ navigation, settings, page }) => {
     setTimeout(() => {      
       let selected = document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12").length)]
       if (selected.classList[1] == 'square-12'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga8Jm069VX1oIT_PM-500-2.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHndUaF0TcGJB9S_PM_500_balls.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-11'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga6pm069VX1oIR_PM-400-2.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHnd0aF0TcGJB9T_PM_250_balls.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-7'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga5Jm069VX1oIM_PM-300-2.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHnekaF0TcGJB9Y_PM_100_balls.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-5'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga35m069VX1oIK_PM-200-2.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHneEaF0TcGJB9V_PM_50_balls.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (document.getElementById('logo')){
@@ -36,25 +36,25 @@ const Index = ({ navigation, settings, page }) => {
     setInterval(() => { 
       let selected = document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12").length)]
       if (selected.classList[1] == 'square-12'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga8Jm069VX1oIT_PM-500-2.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHndUaF0TcGJB9S_PM_500_balls.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-11'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga6pm069VX1oIR_PM-400-2.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHnd0aF0TcGJB9T_PM_250_balls.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-7'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga5Jm069VX1oIM_PM-300-2.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHnekaF0TcGJB9Y_PM_100_balls.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-5'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/Zmga35m069VX1oIK_PM-200-2.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHneEaF0TcGJB9V_PM_50_balls.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (document.getElementById('logo')){
         selected.append(document.getElementById('logo'));
       }
-    }, 10000);
+    }, 4000);
   }, [])
 
   useEffect(() => {

@@ -20,14 +20,6 @@ h1,h2,h3,h4,h5,h6{
   font-weight: 300;
 }
 
-video#logo{
-  width: 103%;
-  object-fit: cover;
-  margin-top: -5%;
-  margin-left: -1%;
-  padding: 5%;
-}
-
 .language-switcher{
   position: fixed;
   z-index: 9;
@@ -521,17 +513,21 @@ footer{
   }
 }
 
-
-#logo{
+video#logo{
+  width: 95%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid black;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   visibility: hidden;
-  width: 102%;
-  height: 102%;
   position: absolute;
-  top: 4%;
-  left: 0;
-  padding: 2%;
-  background-color: white;
+  top: 2.5%;
+  left: 2.5%;
   opacity: 0;
+  aspect-ratio: 1/1;
+  padding: -2%;
   &.visible{
     visibility: visible;
     // opacity: 0;
