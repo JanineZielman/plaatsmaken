@@ -11,50 +11,52 @@ const Index = ({ navigation, settings, page }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
-    setTimeout(() => {      
+    setTimeout(() => {   
       let selected = document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12").length)]
       if (selected.classList[1] == 'square-12'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHndUaF0TcGJB9S_PM_500_balls.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsSj2UaF0TcGJHh9_PM_500_balls-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-11'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHnd0aF0TcGJB9T_PM_250_balls.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsSjz0aF0TcGJHh6_PM_250_balls-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-7'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHnekaF0TcGJB9Y_PM_100_balls.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsSjykaF0TcGJHh3_PM_100_balls-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-5'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHneEaF0TcGJB9V_PM_50_balls.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsSjx0aF0TcGJHh0_PM_50_balls-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (document.getElementById('logo')){
         selected.append(document.getElementById('logo'));
+        document.getElementById('logo').playbackRate = 2;   
       }
     }, 100)
     setInterval(() => { 
       let selected = document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12")[Math.floor(Math.random() * document.querySelectorAll(".square-5, .square-7, .square-11, .square-11-2, .square-12").length)]
       if (selected.classList[1] == 'square-12'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHndUaF0TcGJB9S_PM_500_balls.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsSj2UaF0TcGJHh9_PM_500_balls-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-11'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHnd0aF0TcGJB9T_PM_250_balls.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsSjz0aF0TcGJHh6_PM_250_balls-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-7'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHnekaF0TcGJB9Y_PM_100_balls.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsSjykaF0TcGJHh3_PM_100_balls-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (selected.classList[1] == 'square-5'){
-        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsHneEaF0TcGJB9V_PM_50_balls.mp4')
+        document.getElementById('logo')?.setAttribute('src', 'https://plaatsmaken.cdn.prismic.io/plaatsmaken/ZsSjx0aF0TcGJHh0_PM_50_balls-2.mp4')
         document.getElementById('logo')?.classList.add('visible');
       }
       if (document.getElementById('logo')){
         selected.append(document.getElementById('logo'));
+        document.getElementById('logo').playbackRate = 2;   
       }
-    }, 4000);
+    }, 8000);
   }, [])
 
   useEffect(() => {
