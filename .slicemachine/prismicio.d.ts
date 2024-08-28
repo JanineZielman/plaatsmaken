@@ -294,7 +294,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = ContentSlice | CollapsibleSlice;
+type PageDocumentDataSlicesSlice = ContentSlice | CollapsibleSlice | ImgSlice;
 /**
  * Page document from Prismic
  *

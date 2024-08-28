@@ -42,6 +42,9 @@
             },
             "collapsible": {
               "type": "SharedSlice"
+            },
+            "img": {
+              "type": "SharedSlice"
             }
           }
         }
