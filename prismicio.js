@@ -28,6 +28,9 @@ export const linkResolver = (doc) => {
     else if (doc.uid === "workshops") {
       return `/page/workshops`;
     }
+    else if (doc.uid === "productiehuis-werkplaatsen") {
+      return `/page/productiehuis-werkplaatsen`;
+    }
     else {
       return `/${doc.uid}`;
     }

@@ -16,11 +16,7 @@ const Page = ({ page, navigation, settings, items}) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter()
   let variation = router.query.variation ? router.query.variation : 'default';
-  let bgImg = page.data.image.full.url;
-  // let title =  page.data.title;
-  // let date = page.data.artist;
-  // let jaar = page.data.jaar;
-  // let info = page.data
+  let bgImg = page.data.image.url.replace('auto=format%2Ccompress&rect=', '').replace('w=1080&h=1080', '');
 
   const {title, artist, jaar, info, techniek, afmeting, oplage, prijs} = page.data
 

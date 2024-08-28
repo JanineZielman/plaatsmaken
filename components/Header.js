@@ -26,8 +26,8 @@ export const Header = ({ navigation, settings }) => {
           )
         })}
         <div className="language-switcher">
-          <h2 className="active">NL</h2>
-          <h2>EN</h2>
+          {/* <h2 className="active">NL</h2>
+          <h2>EN</h2> */}
         </div>
         <div className="effect"></div>
       </div>
