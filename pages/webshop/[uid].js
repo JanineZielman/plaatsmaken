@@ -20,6 +20,8 @@ const Page = ({ page, navigation, settings, items}) => {
 
   const {title, artist, jaar, info, techniek, afmeting, oplage, prijs} = page.data
 
+  console.log(page)
+
   useEffect(() => {
     setLoading(false)
   }, [])
@@ -46,8 +48,9 @@ const Page = ({ page, navigation, settings, items}) => {
             <Link className="back" href={'/webshop'}><h2>Back</h2></Link>
         }
         <SquareItemShop slug={page.uid} variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting} image={bgImg}/>
-        <div className="content" style={{backgroundImage: `url(${bgImg})`}}>
-
+        <div className="content">
+          <img src={bgImg}/>
+          <SliceZone slices={page.data.slices} components={components} />
         </div>
         <div className="extra-info">
           <PrismicRichText field={page.data.extra_info}/>
