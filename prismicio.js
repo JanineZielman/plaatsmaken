@@ -22,17 +22,17 @@ export const linkResolver = (doc) => {
   if (doc.type === "page") {
     if (doc.uid === "home") {
       return `/`;
-    } else if (doc.uid === "overpm") {
-      return `/page/overpm`;
+    } else if (doc.uid === "projectbureau") {
+      return `/projectbureau`;
     }
-    else if (doc.uid === "workshops") {
-      return `/page/workshops`;
+    else if (doc.uid === "agenda") {
+      return `/agenda`;
     }
-    else if (doc.uid === "productiehuis-werkplaatsen") {
-      return `/page/productiehuis-werkplaatsen`;
+    else if (doc.uid === "tentoonstellingen") {
+      return `/tentoonstellingen`;
     }
     else {
-      return `/${doc.uid}`;
+      return `/page/${doc.uid}`;
     }
   }
   if (doc.type === "agenda_item") {
