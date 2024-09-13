@@ -64,8 +64,8 @@
     width: 100%;
     max-width: 600px;
     position: absolute;
-    left: auto;
-    right: 1vw;
+    left: 0;
+    // right: 1vw;
     padding-left: 1vw;
     z-index: 6;
     p{
@@ -79,9 +79,9 @@
     }
   }
   .content{
-    margin-left: 30%;
-    width: 70%;
-    max-width: 70%;
+    margin-left: 40%;
+    width: 60%;
+    max-width: 60%;
     right: 0;
     transform: none;
     min-height: 100vh;
