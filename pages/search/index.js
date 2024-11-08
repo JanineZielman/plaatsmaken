@@ -51,8 +51,14 @@ const Index = ({ navigation, settings, items }) => {
           <div className="main-grid archief-grid">
             {items.map((item, i) => {
               let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
+              let link;
+              if (item.type == 'shop_item'){
+                link='webshop'
+              } else {
+                link = 'agenda'
+              }
               return(
-                <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                <a href={`/${link}/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                   <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} preview_video={item.data.preview_video}/>
                   <div className="search-info">
                     <p>
