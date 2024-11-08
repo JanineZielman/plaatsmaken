@@ -45,6 +45,9 @@
             },
             "img": {
               "type": "SharedSlice"
+            },
+            "video": {
+              "type": "SharedSlice"
             }
           }
         }

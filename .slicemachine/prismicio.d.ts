@@ -294,7 +294,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = ContentSlice | CollapsibleSlice | ImgSlice;
+type PageDocumentDataSlicesSlice = ContentSlice | CollapsibleSlice | ImgSlice | VideoSlice;
 /**
  * Page document from Prismic
  *
@@ -468,7 +468,7 @@ interface ShopItemDocumentData {
  * Slice for *Shop Item → Slice Zone*
  *
  */
-type ShopItemDocumentDataSlicesSlice = ImgSlice;
+type ShopItemDocumentDataSlicesSlice = ImgSlice | VideoSlice;
 /**
  * Shop Item document from Prismic
  *
@@ -495,6 +495,16 @@ interface CollapsibleSliceDefaultPrimary {
      *
      */
     title: prismicT.TitleField;
+    /**
+     * Image field in *Collapsible → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: collapsible.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
     /**
      * Content field in *Collapsible → Primary*
      *
