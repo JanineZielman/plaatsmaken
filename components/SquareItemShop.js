@@ -39,7 +39,7 @@ export const SquareItemShop = ({
               <div className="mobile-only">
                 {slices.map((item, i) => {
                   return(
-                    <img src={item.primary.image.url}/>
+                    <img key={`shopimg${i}`} src={item.primary.image.url}/>
                   )
                 })}
               </div>

@@ -20,8 +20,10 @@
           {
             "type": "heading2",
             "content": {
-              "text": "Master"
-            }
+              "text": "Intro text",
+              "spans": []
+            },
+            "direction": "ltr"
           }
         ]
       }

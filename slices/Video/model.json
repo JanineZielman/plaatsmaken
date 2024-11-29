@@ -1,15 +1,15 @@
 {
   "id": "video",
   "type": "SharedSlice",
-  "name": "Video",
-  "description": "Video",
+  "name": "Embed",
+  "description": "Embed",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "Video",
+      "description": "Embed",
       "primary": {
         "embed": {
           "type": "Text",
