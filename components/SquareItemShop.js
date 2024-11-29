@@ -1,9 +1,9 @@
 import { PrismicRichText } from "@prismicio/react";
 import Head from "next/head";
-import { useEffect } from "react";
 import { OrderForm } from "./OrderForm";
 
 export const SquareItemShop = ({
+  slices,
   variation,
   title,
   artist,
@@ -36,6 +36,13 @@ export const SquareItemShop = ({
             <p>{artist}</p>
             <div className="shop-info-text">
               <img src={image}/>
+              <div className="mobile-only">
+                {slices.map((item, i) => {
+                  return(
+                    <img src={item.primary.image.url}/>
+                  )
+                })}
+              </div>
               <PrismicRichText field={info}/>     
               <div className="shop-info">
                 <p>Jaar: {jaar}</p>

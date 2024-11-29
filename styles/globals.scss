@@ -426,6 +426,9 @@ footer{
   transition: all 0.4s ease;
 }
 
+.mobile-only{
+  display: none;
+}
 
 .item-wrapper{
   transition: opacity 1s ease, width 0.4s ease;
@@ -547,6 +550,16 @@ video#logo{
     // opacity: 0;
     animation: fadeIn 0.5s 1s ease 1;
     animation-fill-mode: forwards;
+  }
+}
+
+.collapsible-wrapper{
+  img{
+    width: 50%;
+    display: block;
+    margin-top: 14px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 

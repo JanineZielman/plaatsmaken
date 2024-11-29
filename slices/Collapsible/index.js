@@ -10,8 +10,9 @@ import ReactCollapsible from 'react-collapsible';
  */
 const Collapsible = ({ slice }) => {
   return(
-    <section className='content'>
+    <section className='content collapsible-wrapper'>
       <ReactCollapsible trigger={prismicH.asText(slice.primary.title)}>
+        {slice.primary.image?.url &&<img src={slice.primary.image.url}/>}
         <PrismicRichText field={slice.primary.content}/>
       </ReactCollapsible>
     </section>

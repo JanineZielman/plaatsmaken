@@ -21,6 +21,9 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .mobile-only{
+    display: block;
+  }
   .main-grid .item-wrapper{
     width: 48.8%;
   }
@@ -41,6 +44,7 @@
     .shop-info-text{
       img{
         display: block;
+        margin-bottom: 14px;
       }
     }
     .left-info{
