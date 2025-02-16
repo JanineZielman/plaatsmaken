@@ -4,6 +4,7 @@ import { Header } from "./Header";
 export const Layout = ({
   navigation,
   settings,
+  page,
   children,
 }) => {
   return (
@@ -11,6 +12,7 @@ export const Layout = ({
       <Header
         navigation={navigation}
         settings={settings}
+        page={page}
       />
       <main>
         {children}

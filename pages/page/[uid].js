@@ -17,6 +17,7 @@ const Page = ({ page, navigation, settings}) => {
     <Layout
       navigation={navigation}
       settings={settings}
+      page={page}
     >
       <Head>
         <title>
@@ -40,11 +41,11 @@ const Page = ({ page, navigation, settings}) => {
 export default Page;
 
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ params, previewData, locale }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("page", params.uid);
-  const navigation = await client.getSingle("navigation");
+  const page = await client.getByUID("page", params.uid, {lang: locale});
+  const navigation = await client.getSingle("navigation", {lang: locale});
   const settings = await client.getSingle("settings");
   
 
@@ -60,12 +61,13 @@ export async function getStaticProps({ params, previewData }) {
 export async function getStaticPaths() {
   const client = createClient();
 
-  const pages = await client.getAllByType("page");
+  const pages = await client.getAllByType("page", { lang: "*" });
 
   return {
     paths: pages.map((page) => {
       return {
         params: { uid: page.uid },
+        locale: page.lang,
       };
     }),
     fallback: false,

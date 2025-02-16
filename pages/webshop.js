@@ -123,7 +123,7 @@ const Webshop = ({ navigation, settings, items }) => {
           {items.sort(sortBy(sortValue)).map((item, i) => {
             let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
             return(
-              <a href={`/webshop/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+              <a href={`/${item.lang}/webshop/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                 <ShopItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.artist} />
                 <div className="search-info">
                   <p>
@@ -147,12 +147,12 @@ const Webshop = ({ navigation, settings, items }) => {
 
 export default Webshop;
 
-export async function getStaticProps({ previewData }) {
+export async function getStaticProps({ previewData, locale }) {
   const client = createClient({ previewData });
 
-  const navigation = await client.getSingle("navigation");
+  const navigation = await client.getSingle("navigation", {lang: locale});
   const settings = await client.getSingle("settings");
-  const items = await client.getAllByType('shop_item');
+  const items = await client.getAllByType('shop_item', {lang: locale});
 
 
   return {

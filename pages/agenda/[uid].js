@@ -28,6 +28,7 @@ const Page = ({ page, navigation, settings, items}) => {
     <Layout
       navigation={navigation}
       settings={settings}
+      page={page}
     >
       <Head>
         <title>
@@ -66,7 +67,7 @@ const Page = ({ page, navigation, settings, items}) => {
             {items.filter((item) => page.tags.some(r=> item.tags.includes(r))).filter((item) => item.uid != page.uid).map((item, i) => {
               let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
               return(
-                <a href={`/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                <a href={`/${item.lang}/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                   <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date}/>
                 </a>
               )
@@ -80,15 +81,16 @@ const Page = ({ page, navigation, settings, items}) => {
 
 export default Page;
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ params, previewData, locale }) {
   const client = createClient({ previewData });
 
   const page = await client.getByUID("agenda_item", params.uid, {
-    fetchLinks: `agenda_item.title, agenda_item.image, agenda_item.date, agenda_item.slices, agenda_item.content`
+    fetchLinks: `agenda_item.title, agenda_item.image, agenda_item.date, agenda_item.slices, agenda_item.content`,
+    lang: locale
   });
-  const navigation = await client.getSingle("navigation");
+  const navigation = await client.getSingle("navigation", {lang: locale});
   const settings = await client.getSingle("settings");
-  const items = await client.getAllByType('agenda_item');
+  const items = await client.getAllByType('agenda_item', {lang: locale});
 
   return {
     props: {
@@ -103,12 +105,13 @@ export async function getStaticProps({ params, previewData }) {
 export async function getStaticPaths() {
   const client = createClient();
 
-  const pages = await client.getAllByType("agenda_item");
+  const pages = await client.getAllByType("agenda_item", { lang: "*" });
 
   return {
     paths: pages.map((page) => {
       return {
         params: { uid: page.uid },
+        locale: page.lang,
       };
     }),
     fallback: false,

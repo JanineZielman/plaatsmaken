@@ -16,9 +16,9 @@ const Square = ({ slice}) => {
     preview_video = slice.primary.agenda_item.data.preview_video;
     type = slice.primary.agenda_item.type;
     if (type == 'agenda_item'){
-      url = `/agenda/${slice.primary.agenda_item.uid}?variation=${variation}&home=true`
+      url = `/${slice.primary.agenda_item.lang}/agenda/${slice.primary.agenda_item.uid}?variation=${variation}&home=true`
     } else {
-      url = `/webshop/${slice.primary.agenda_item.uid}?home=true`
+      url = `/${slice.primary.agenda_item.lang}/webshop/${slice.primary.agenda_item.uid}?home=true`
     }
   }
   return(

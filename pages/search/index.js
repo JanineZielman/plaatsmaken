@@ -58,7 +58,7 @@ const Index = ({ navigation, settings, items }) => {
                 link = 'agenda'
               }
               return(
-                <a href={`/${link}/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                <a href={`/${item.lang}/${link}/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                   <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} preview_video={item.data.preview_video}/>
                   <div className="search-info">
                     <p>
@@ -83,13 +83,13 @@ const Index = ({ navigation, settings, items }) => {
 
 export default Index;
 
-export async function getStaticProps({ previewData }) {
+export async function getStaticProps({ previewData, locale }) {
   const client = createClient({ previewData });
 
-  const navigation = await client.getSingle("navigation");
+  const navigation = await client.getSingle("navigation", {lang: locale});
   const settings = await client.getSingle("settings");
-  const agenda_items = await client.getAllByType('agenda_item');
-  const shop_items = await client.getAllByType('shop_item');
+  const agenda_items = await client.getAllByType('agenda_item', {lang: locale});
+  const shop_items = await client.getAllByType('shop_item', {lang: locale});
 
   const items = agenda_items.concat(shop_items);
 

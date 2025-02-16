@@ -41,7 +41,7 @@ const Page = ({ navigation, settings, items}) => {
               {items.filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing == true).map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
-                  <a href={`/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                  <a href={`/${item.lang}/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                     <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video}/>
                   </a>
                 )
@@ -54,7 +54,7 @@ const Page = ({ navigation, settings, items}) => {
               {items.filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing != true).map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
-                  <a href={`/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                  <a href={`/${item.lang}/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                     <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video}/>
                   </a>
                 )
@@ -67,7 +67,7 @@ const Page = ({ navigation, settings, items}) => {
               {items.filter((item) => new Date(item.data.order_date).toJSON() < date).map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
-                  <a href={`/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                  <a href={`/${item.lang}/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                     <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} preview_video={item.data.preview_video}/>
                   </a>
                 )
@@ -81,12 +81,13 @@ const Page = ({ navigation, settings, items}) => {
 
 export default Page;
 
-export async function getStaticProps({ previewData }) {
+export async function getStaticProps({ previewData, locale }) {
   const client = createClient({ previewData });
 
-  const navigation = await client.getSingle("navigation");
+  const navigation = await client.getSingle("navigation", {lang: locale});
   const settings = await client.getSingle("settings");
   const items = await client.getAllByType('agenda_item', {
+    lang: locale,
     orderings: [
       {
         field: 'my.agenda_item.order_date',

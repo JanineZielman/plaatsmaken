@@ -28,6 +28,7 @@ const Page = ({ page, navigation, settings, items}) => {
     <Layout
       navigation={navigation}
       settings={settings}
+      page={page}
     >
       <Head>
         <title>
@@ -61,7 +62,7 @@ const Page = ({ page, navigation, settings, items}) => {
             {items.filter((item) => page.tags.some(r=> item.tags.includes(r))).filter((item) => item.uid != page.uid).map((item, i) => {
               let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
               return(
-                <a href={`/webshop/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+                <a href={`/${item.lang}/webshop/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
                   <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.artist} />
                 </a>
               )
@@ -98,12 +99,13 @@ export async function getStaticProps({ params, previewData }) {
 export async function getStaticPaths() {
   const client = createClient();
 
-  const pages = await client.getAllByType("shop_item");
+  const pages = await client.getAllByType("shop_item", { lang: "*" });
 
   return {
     paths: pages.map((page) => {
       return {
         params: { uid: page.uid },
+        locale: page.lang,
       };
     }),
     fallback: false,

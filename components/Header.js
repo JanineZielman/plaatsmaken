@@ -4,8 +4,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-export const Header = ({ navigation, settings }) => {
+export const Header = ({ navigation, page }) => {
   const router = useRouter();
+  console.log(router)
 
   // Function to toggle the menu's visibility
   function toggleMenu() {
@@ -51,10 +52,12 @@ export const Header = ({ navigation, settings }) => {
             </PrismicLink>
           );
         })}
-        <div className="language-switcher">
-          {/* <h2 className="active">NL</h2>
-          <h2>EN</h2> */}
-        </div>
+        {page?.lang &&
+          <div className="language-switcher">
+            <a href={`/${page.lang}${router.asPath}`}><h2 className="active">{page.lang.slice(0,2)}</h2></a>
+            {page.alternate_languages[0]?.lang && <a href={`/${page.alternate_languages[0].lang}${router.asPath}`}><h2>{page.alternate_languages[0].lang.slice(0,2)}</h2></a>}
+          </div>
+        }
         <div className="effect"></div>
       </div>
       {!router.asPath.includes("search") && !router.asPath.includes("webshop") && (

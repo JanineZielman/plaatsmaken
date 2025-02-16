@@ -67,6 +67,7 @@ const Index = ({ navigation, settings, page }) => {
     <Layout
       navigation={navigation}
       settings={settings}
+      page={page}
     >
       <Head>
         <title>{prismicH.asText(settings.data.siteTitle)}</title>
@@ -91,13 +92,14 @@ const Index = ({ navigation, settings, page }) => {
 
 export default Index;
 
-export async function getStaticProps({ previewData }) {
+export async function getStaticProps({ previewData, locale }) {
   const client = createClient({ previewData });
 
-  const navigation = await client.getSingle("navigation");
+  const navigation = await client.getSingle("navigation", {lang: locale});
   const settings = await client.getSingle("settings");
   const page = await client.getSingle("home", {
-    fetchLinks: `agenda_item.title, agenda_item.image, agenda_item.date, agenda_item.slices, agenda_item.content,  agenda_item.preview_video, shop_item.title, shop_item.image, shop_item.artist, shop_item.slices`
+    fetchLinks: `agenda_item.title, agenda_item.image, agenda_item.date, agenda_item.slices, agenda_item.content,  agenda_item.preview_video, shop_item.title, shop_item.image, shop_item.artist, shop_item.slices`,
+    lang: locale
   });
 
 
