@@ -14,9 +14,5 @@ const SliceSimulatorPage = () => (
 export default SliceSimulatorPage
 
 export const getStaticProps = async () => {
-  if (process.env.NODE_ENV === "production") {
-    return { notFound: true }
-  } else {
     return { props: {} }
-  }
 }
