@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from "next/script";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import React, { useEffect, useState } from 'react';
@@ -12,12 +13,12 @@ import { useRouter } from 'next/router'
 import Link from "next/link";
 import AanmeldButton from "../../components/AanmeldButton"
 
-const Page = ({ page, navigation, settings, items}) => {
+const Page = ({ page, navigation, settings, items }) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter()
   let variation = router.query.variation ? router.query.variation : 'default';
   let bgImg = page.data.image.url;
-  let title =  page.data.title;
+  let title = page.data.title;
   let date = page.data.date;
 
   useEffect(() => {
@@ -39,39 +40,40 @@ const Page = ({ page, navigation, settings, items}) => {
         <meta property="og:title" content={`${page.data.title} | ${prismicH.asText(settings.data.siteTitle)}`} />
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
-        <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css"/>
+        <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
         <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
       </Head>
+      <Script src="https://www.google.com/recaptcha/api.js?hl=en" strategy="afterInteractive" />
       <div className={`container page`}>
-        {router.query.agenda == 'true' ?  
+        {router.query.agenda == 'true' ?
           <Link className="back" href="/agenda"><h2>Back</h2></Link>
-        :
+          :
           router.query.home == 'true' ?
             <Link className="back" href={`/`}><h2>Back</h2></Link>
-          :
+            :
             <Link className="back" href={`/${page.data.category.uid}`}><h2>Back</h2></Link>
         }
-        <SquareItem variation={variation} bgImg={bgImg} title={title} date={date}/>
+        <SquareItem variation={variation} bgImg={bgImg} title={title} date={date} />
         <SliceZone slices={page.data.slices} components={components} />
         <div className="extra-info">
-          <PrismicRichText field={page.data.extra_info}/>
+          <PrismicRichText field={page.data.extra_info} />
           {page.data.aanmelden == true &&
-            <AanmeldButton title={page.data.title} slug={page.uid}/>
+            <AanmeldButton title={page.data.title} slug={page.uid} />
           }
         </div>
       </div>
-      {!loading && items.filter((item) => page.tags.some(r=> item.tags.includes(r))).filter((item) => item.uid != page.uid).length > 0 &&
+      {!loading && items.filter((item) => page.tags.some(r => item.tags.includes(r))).filter((item) => item.uid != page.uid).length > 0 &&
         <div className="related">
           <h2>Gerelateerde projecten</h2>
           <div className="related-items">
-            {items.filter((item) => page.tags.some(r=> item.tags.includes(r))).filter((item) => item.uid != page.uid).map((item, i) => {
+            {items.filter((item) => page.tags.some(r => item.tags.includes(r))).filter((item) => item.uid != page.uid).map((item, i) => {
               let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
-              return(
-                <a href={`/${item.lang}/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
-                  <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date}/>
+              return (
+                <a href={`/${item.lang}/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default' + Math.floor(Math.random() * 5)}`}>
+                  <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} />
                 </a>
               )
-            })}  
+            })}
           </div>
         </div>
       }
@@ -88,9 +90,9 @@ export async function getStaticProps({ params, previewData, locale }) {
     fetchLinks: `agenda_item.title, agenda_item.image, agenda_item.date, agenda_item.slices, agenda_item.content`,
     lang: locale
   });
-  const navigation = await client.getSingle("navigation", {lang: locale});
+  const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings");
-  const items = await client.getAllByType('agenda_item', {lang: locale});
+  const items = await client.getAllByType('agenda_item', { lang: locale });
 
   return {
     props: {
