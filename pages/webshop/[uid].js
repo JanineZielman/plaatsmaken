@@ -12,13 +12,13 @@ import { SquareItemShop } from "../../components/SquareItemShop";
 import { useRouter } from 'next/router'
 import Link from "next/link";
 
-const Page = ({ page, navigation, settings, items}) => {
+const Page = ({ page, navigation, settings, items }) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter()
   let variation = router.query.variation ? router.query.variation : 'default';
   let bgImg = page.data.image.url.replace('auto=format%2Ccompress&rect=', '').replace('w=1080&h=1080', '').replace('&rect=', '');
 
-  const {title, artist, jaar, info, techniek, afmeting, oplage, prijs} = page.data
+  const { title, artist, jaar, info, techniek, afmeting, oplage, prijs } = page.data
 
   useEffect(() => {
     setLoading(false)
@@ -42,31 +42,33 @@ const Page = ({ page, navigation, settings, items}) => {
       </Head>
       <div className={`container page shop-page`}>
         {router.query.home == 'true' ?
-            <Link className="back" href={`/`}><h2>Back</h2></Link>
+          <Link className="back" href={`/`}><h2>Back</h2></Link>
           :
-            <Link className="back" href={'/webshop'}><h2>Back</h2></Link>
+          <Link className="back" href={'/webshop'}><h2>Back</h2></Link>
         }
-        <SquareItemShop slices={page.data.slices} slug={page.uid} variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting} image={bgImg}/>
+        <SquareItemShop slices={page.data.slices} slug={page.uid} variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting} image={bgImg} />
         <div className="content">
-          <img src={bgImg}/>
+          <img src={bgImg} />
           <SliceZone slices={page.data.slices} components={components} />
         </div>
-        <div className="extra-info">
-          <PrismicRichText field={page.data.extra_info}/>
-        </div>
+        {page.data.extra_info &&
+          <div className="extra-info">
+            <PrismicRichText field={page.data.extra_info} />
+          </div>
+        }
       </div>
-      {!loading && items.filter((item) => page.tags.some(r=> item.tags.includes(r))).filter((item) => item.uid != page.uid).length > 0 &&
+      {!loading && items.filter((item) => page.tags.some(r => item.tags.includes(r))).filter((item) => item.uid != page.uid).length > 0 &&
         <div className="related">
           <h2>Gerelateerde werken</h2>
           <div className="related-items">
-            {items.filter((item) => page.tags.some(r=> item.tags.includes(r))).filter((item) => item.uid != page.uid).map((item, i) => {
+            {items.filter((item) => page.tags.some(r => item.tags.includes(r))).filter((item) => item.uid != page.uid).map((item, i) => {
               let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
-              return(
-                <a href={`/${item.lang}/webshop/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
+              return (
+                <a href={`/${item.lang}/webshop/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default' + Math.floor(Math.random() * 5)}`}>
                   <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.artist} />
                 </a>
               )
-            })}  
+            })}
           </div>
         </div>
       }
