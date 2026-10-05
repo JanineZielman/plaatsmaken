@@ -25,6 +25,8 @@ const Page = ({ page, navigation, settings, items }) => {
     setLoading(false)
   }, [])
 
+  console.log(page)
+
   return (
     <Layout
       navigation={navigation}
@@ -46,19 +48,19 @@ const Page = ({ page, navigation, settings, items }) => {
       <Script src="https://www.google.com/recaptcha/api.js?hl=en" strategy="afterInteractive" />
       <div className={`container page`}>
         {router.query.agenda == 'true' ?
-          <Link className="back" href="/agenda"><h2>Back</h2></Link>
+          <Link className="back" href="/agenda">{page?.lang == 'nl-nl' ? <h2>Terug</h2> : <h2>Back</h2>}</Link>
           :
           router.query.home == 'true' ?
-            <Link className="back" href={`/`}><h2>Back</h2></Link>
+            <Link className="back" href={`/`}>{page?.lang == 'nl-nl' ? <h2>Terug</h2> : <h2>Back</h2>}</Link>
             :
-            <Link className="back" href={`/${page.data.category.uid}`}><h2>Back</h2></Link>
+            <Link className="back" href={`/${page.data.category.uid}`}>{page?.lang == 'nl-nl' ? <h2>Terug</h2> : <h2>Back</h2>}</Link>
         }
         <SquareItem variation={variation} bgImg={bgImg} title={title} date={date} />
         <SliceZone slices={page.data.slices} components={components} />
         <div className="extra-info">
           <PrismicRichText field={page.data.extra_info} />
           {page.data.aanmelden == true &&
-            <AanmeldButton title={page.data.title} slug={page.uid} />
+            <AanmeldButton title={page.data.title} slug={page.uid} lang={page.lang} />
           }
         </div>
       </div>

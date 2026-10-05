@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react';
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
-import { PrismicNextImage } from "@prismicio/next";
 import { SquareItem } from "../../components/SquareItem";
 import { SquareItemShop } from "../../components/SquareItemShop";
 import { useRouter } from 'next/router'
@@ -23,6 +22,8 @@ const Page = ({ page, navigation, settings, items }) => {
   useEffect(() => {
     setLoading(false)
   }, [])
+
+  console.log(page)
 
   return (
     <Layout
@@ -42,11 +43,13 @@ const Page = ({ page, navigation, settings, items }) => {
       </Head>
       <div className={`container page shop-page`}>
         {router.query.home == 'true' ?
-          <Link className="back" href={`/`}><h2>Back</h2></Link>
+          <Link className="back" href={`/`}>{page.lang == 'nl-nl' ? <h2>Terug</h2> : <h2>Back</h2>}</Link>
           :
-          <Link className="back" href={'/webshop'}><h2>Back</h2></Link>
+          <Link className="back" href={'/webshop'}>
+            {page.lang == 'nl-nl' ? <h2>Terug</h2> : <h2>Back</h2>}
+          </Link>
         }
-        <SquareItemShop slices={page.data.slices} slug={page.uid} variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting} image={bgImg} />
+        <SquareItemShop slices={page.data.slices} slug={page.uid} variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting} image={bgImg} lang={page.lang} />
         <div className="content">
           <img src={bgImg} />
           <SliceZone slices={page.data.slices} components={components} />
@@ -59,7 +62,7 @@ const Page = ({ page, navigation, settings, items }) => {
       </div>
       {!loading && items.filter((item) => page.tags.some(r => item.tags.includes(r))).filter((item) => item.uid != page.uid).length > 0 &&
         <div className="related">
-          <h2>Gerelateerde werken</h2>
+          <h2>{page.lang == 'nl-nl' ? 'Gerelateerde werken' : 'Related works'}</h2>
           <div className="related-items">
             {items.filter((item) => page.tags.some(r => item.tags.includes(r))).filter((item) => item.uid != page.uid).map((item, i) => {
               let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
@@ -78,15 +81,16 @@ const Page = ({ page, navigation, settings, items }) => {
 
 export default Page;
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ params, previewData, locale }) {
   const client = createClient({ previewData });
 
   const page = await client.getByUID("shop_item", params.uid, {
-    fetchLinks: `shop_item.title, shop_item.image`
+    fetchLinks: `shop_item.title, shop_item.image`,
+    lang: locale,
   });
-  const navigation = await client.getSingle("navigation");
+  const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings");
-  const items = await client.getAllByType('shop_item');
+  const items = await client.getAllByType('shop_item', { lang: locale });
 
   return {
     props: {

@@ -6,7 +6,6 @@ import { useEffect } from "react";
 
 export const Header = ({ navigation, page }) => {
   const router = useRouter();
-  console.log(router)
 
   // Function to toggle the menu's visibility
   function toggleMenu() {
@@ -54,8 +53,8 @@ export const Header = ({ navigation, page }) => {
         })}
         {page?.lang &&
           <div className="language-switcher">
-            <a href={`/${page.lang}${router.asPath}`}><h2 className="active">{page.lang.slice(0,2)}</h2></a>
-            {page.alternate_languages[0]?.lang && <a href={`/${page.alternate_languages[0].lang}${router.asPath}`}><h2>{page.alternate_languages[0].lang.slice(0,2)}</h2></a>}
+            <a href={`/${page.lang}${router.asPath}`}><h2 className="active">{page.lang.slice(0, 2)}</h2></a>
+            {page.alternate_languages[0]?.lang && <a href={`/${page.alternate_languages[0].lang}${router.asPath}`}><h2>{page.alternate_languages[0].lang.slice(0, 2)}</h2></a>}
           </div>
         }
         <div className="effect"></div>
@@ -63,7 +62,7 @@ export const Header = ({ navigation, page }) => {
       {!router.asPath.includes("search") && !router.asPath.includes("webshop") && (
         <div className="search-icon">
           <Link href="/search">
-            <h2>Search</h2>
+            {page?.lang == 'nl-nl' ? <h2>Zoeken</h2> : <h2>Search</h2>}
           </Link>
         </div>
       )}

@@ -15,8 +15,11 @@ export const SquareItemShop = ({
   techniek,
   jaar,
   image,
-  slug
+  slug,
+  lang
 }) => {
+
+  const isDutch = lang === 'nl-nl';
 
   function openPopup() {
     document.getElementById('orderForm').style.visibility = 'visible';
@@ -47,13 +50,13 @@ export const SquareItemShop = ({
                 </div>
                 <PrismicRichText field={info} />
                 <div className="shop-info">
-                  <p>Jaar: {jaar}</p>
-                  <p>Techniek: {techniek}</p>
-                  <p>Afmeting: {afmeting}</p>
-                  <p>Oplage: {oplage}</p>
-                  <p>Prijs: €{prijs},-</p>
+                  <p>{isDutch ? 'Jaar' : 'Year'}: {jaar}</p>
+                  <p>{isDutch ? 'Techniek' : 'Technique'}: {techniek}</p>
+                  <p>{isDutch ? 'Afmeting' : 'Dimensions'}: {afmeting}</p>
+                  <p>{isDutch ? 'Oplage' : 'Edition'}: {oplage}</p>
+                  <p>{isDutch ? 'Prijs' : 'Price'}: €{prijs},-</p>
                 </div>
-                <div className="order" onClick={openPopup}>Bestel</div>
+                <div className="order" onClick={openPopup}>{isDutch ? 'Bestel' : 'Order'}</div>
               </div>
             </div>
           </>

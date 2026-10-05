@@ -8,7 +8,7 @@ import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 import { SquareItem } from "../../components/SquareItem";
 
-const Page = ({ page, navigation, settings}) => {
+const Page = ({ page, navigation, settings }) => {
 
   let variation = 'default';
   let bgImg = page.data.image.url;
@@ -30,8 +30,8 @@ const Page = ({ page, navigation, settings}) => {
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
       <h2 className="page-title">{prismicH.asText(page.data.title)}</h2>
-      <div className={`container page`}>       
-        <SquareItem variation={variation} bgImg={bgImg}/>
+      <div className={`container page`}>
+        <SquareItem variation={variation} bgImg={bgImg} />
         <SliceZone slices={page.data.slices} components={components} />
       </div>
     </Layout>
@@ -44,10 +44,10 @@ export default Page;
 export async function getStaticProps({ params, previewData, locale }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("page", params.uid, {lang: locale});
-  const navigation = await client.getSingle("navigation", {lang: locale});
+  const page = await client.getByUID("page", params.uid, { lang: locale });
+  const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings");
-  
+
 
   return {
     props: {
