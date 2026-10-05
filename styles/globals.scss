@@ -281,6 +281,19 @@ p a {
   }
 }
 
+.home-grid .text-square {
+  container-type: inline-size;
+  z-index: 1;
+
+  h2 {
+    font-size: clamp(1rem, 18cqi, 5rem);
+  }
+
+  p {
+    font-size: clamp(0.75rem, 8cqi, 3rem);
+  }
+}
+
 .square-12 {
   width: calc(12%*4.348);
   height: calc(12%*4.348);

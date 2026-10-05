@@ -76,14 +76,14 @@
       "order_date": {
         "type": "Date",
         "config": {
-          "label": "Order Date",
+          "label": "Datum voor volgorde",
           "placeholder": ""
         }
       },
       "ongoing": {
         "type": "Boolean",
         "config": {
-          "label": "On going",
+          "label": "On going / Actueel",
           "placeholder_false": "false",
           "placeholder_true": "true",
           "default_value": false

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
+import { predicate } from "@prismicio/client";
 import React, { useEffect, useState } from 'react';
 
 import { createClient } from "../../prismicio";
@@ -84,10 +85,23 @@ export default Page;
 export async function getStaticProps({ params, previewData, locale }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("shop_item", params.uid, {
+  const result = await client.query([
+    predicate.at('my.shop_item.uid', params.uid),
+  ], {
     fetchLinks: `shop_item.title, shop_item.image`,
     lang: locale,
   });
+  const page = result.results[0];
+
+  if (!page) {
+    return {
+      redirect: {
+        destination: locale === 'nl-nl' ? '/page/404' : `/${locale}/page/404`,
+        permanent: false,
+      },
+    };
+  }
+
   const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings");
   const items = await client.getAllByType('shop_item', { lang: locale });
@@ -114,6 +128,6 @@ export async function getStaticPaths() {
         locale: page.lang,
       };
     }),
-    fallback: false,
+    fallback: 'blocking',
   };
 }

@@ -87,7 +87,7 @@ interface AgendaItemDocumentData {
      */
     aanmelden: prismicT.BooleanField;
     /**
-     * Order Date field in *Agenda Item*
+     * Datum voor volgorde field in *Agenda Item*
      *
      * - **Field Type**: Date
      * - **Placeholder**: *None*
@@ -98,7 +98,7 @@ interface AgendaItemDocumentData {
      */
     order_date: prismicT.DateField;
     /**
-     * On going field in *Agenda Item*
+     * On going / Actueel field in *Agenda Item*
      *
      * - **Field Type**: Boolean
      * - **Placeholder**: *None*
@@ -687,12 +687,12 @@ type SquareSliceVariation = SquareSliceDefault;
  */
 export type SquareSlice = prismicT.SharedSlice<"square", SquareSliceVariation>;
 /**
- * Primary content in Video → Primary
+ * Primary content in Embed → Primary
  *
  */
 interface VideoSliceDefaultPrimary {
     /**
-     * Embed field in *Video → Primary*
+     * Embed field in *Embed → Primary*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
@@ -702,7 +702,7 @@ interface VideoSliceDefaultPrimary {
      */
     embed: prismicT.KeyTextField;
     /**
-     * Caption field in *Video → Primary*
+     * Caption field in *Embed → Primary*
      *
      * - **Field Type**: Rich Text
      * - **Placeholder**: *None*
@@ -713,24 +713,24 @@ interface VideoSliceDefaultPrimary {
     caption: prismicT.RichTextField;
 }
 /**
- * Default variation for Video Slice
+ * Default variation for Embed Slice
  *
  * - **API ID**: `default`
- * - **Description**: `Video`
+ * - **Description**: `Embed`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
 export type VideoSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<VideoSliceDefaultPrimary>, never>;
 /**
- * Slice variation for *Video*
+ * Slice variation for *Embed*
  *
  */
 type VideoSliceVariation = VideoSliceDefault;
 /**
- * Video Shared Slice
+ * Embed Shared Slice
  *
  * - **API ID**: `video`
- * - **Description**: `Video`
+ * - **Description**: `Embed`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */

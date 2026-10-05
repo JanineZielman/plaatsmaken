@@ -2,6 +2,7 @@ import Head from "next/head";
 import Script from "next/script";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
+import { predicate } from "@prismicio/client";
 import React, { useEffect, useState } from 'react';
 
 import { createClient } from "../../prismicio";
@@ -88,10 +89,23 @@ export default Page;
 export async function getStaticProps({ params, previewData, locale }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("agenda_item", params.uid, {
+  const result = await client.query([
+    predicate.at('my.agenda_item.uid', params.uid),
+  ], {
     fetchLinks: `agenda_item.title, agenda_item.image, agenda_item.date, agenda_item.slices, agenda_item.content`,
     lang: locale
   });
+  const page = result.results[0];
+
+  if (!page) {
+    return {
+      redirect: {
+        destination: locale === 'nl-nl' ? '/page/404' : `/${locale}/page/404`,
+        permanent: false,
+      },
+    };
+  }
+
   const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings");
   const items = await client.getAllByType('agenda_item', { lang: locale });
@@ -118,6 +132,6 @@ export async function getStaticPaths() {
         locale: page.lang,
       };
     }),
-    fallback: false,
+    fallback: 'blocking',
   };
 }
