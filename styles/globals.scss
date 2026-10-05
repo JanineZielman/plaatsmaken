@@ -281,7 +281,8 @@ p a {
   }
 }
 
-.home-grid .text-square {
+.home-grid .text-square,
+.upcoming-grid .text-square {
   container-type: inline-size;
   z-index: 1;
 
