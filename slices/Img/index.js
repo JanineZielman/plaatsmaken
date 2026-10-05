@@ -1,6 +1,5 @@
 import React from 'react'
 import { PrismicRichText } from '@prismicio/react'
-import { PrismicNextImage } from '@prismicio/next'
 
 /**
  * @typedef {import("@prismicio/client").Content.ImgSlice} ImgSlice
@@ -8,10 +7,10 @@ import { PrismicNextImage } from '@prismicio/next'
  * @param { ImgProps }
  */
 const Img = ({ slice }) => {
-  return(
+  return (
     <section className='content img-block'>
-      <PrismicNextImage field={slice.primary.image}/>
-      <div className='caption'><PrismicRichText className='caption' field={slice.primary.caption}/></div>
+      {slice.primary.image?.url && <img src={slice.primary.image.url} alt={slice.primary.image.alt || ''} />}
+      <div className='caption'><PrismicRichText className='caption' field={slice.primary.caption} /></div>
     </section>
   )
 }

@@ -84,6 +84,6 @@ export async function getStaticPaths() {
         locale: page.lang,
       };
     }),
-    fallback: 'blocking',
+    fallback: false,
   };
 }

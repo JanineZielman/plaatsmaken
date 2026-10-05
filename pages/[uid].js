@@ -141,12 +141,12 @@ export async function getStaticPaths() {
   const pages = await client.getAllByType("page", { lang: "*" });
 
   return {
-    paths: pages.map((page) => {
+    paths: pages.filter((page) => page.uid !== '404').map((page) => {
       return {
         params: { uid: page.uid },
         locale: page.lang,
       };
     }),
-    fallback: 'blocking',
+    fallback: false,
   };
 }

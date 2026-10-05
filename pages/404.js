@@ -11,10 +11,4 @@ const NotFound = () => {
   return null;
 };
 
-export async function getStaticProps() {
-  return {
-    props: {},
-  };
-}
-
 export default NotFound;
