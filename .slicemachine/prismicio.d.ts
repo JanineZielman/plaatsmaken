@@ -110,6 +110,17 @@ interface AgendaItemDocumentData {
      */
     ongoing: prismicT.BooleanField;
     /**
+     * Einddatum field in *Agenda Item*
+     *
+     * - **Field Type**: Date
+     * - **Placeholder**: *None*
+     * - **API ID Path**: agenda_item.einddatum
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/date
+     *
+     */
+    einddatum: prismicT.DateField;
+    /**
      * Slice Zone field in *Agenda Item*
      *
      * - **Field Type**: Slice Zone
@@ -340,6 +351,28 @@ interface SettingsDocumentData {
      *
      */
     image: prismicT.ImageField<never>;
+    /**
+     * Bestel Formulier Intro field in *Settings*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.bestel_formulier_intro
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    bestel_formulier_intro: prismicT.RichTextField;
+    /**
+     * Bestel Knop field in *Settings*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.bestel_knop
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    bestel_knop: prismicT.KeyTextField;
 }
 /**
  * Settings document from Prismic
@@ -452,6 +485,29 @@ interface ShopItemDocumentData {
      *
      */
     info: prismicT.RichTextField;
+    /**
+     * Categorie field in *Shop Item*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: shop_item.categorie
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    categorie: prismicT.KeyTextField;
+    /**
+     * Uitgelicht field in *Shop Item*
+     *
+     * - **Field Type**: Boolean
+     * - **Placeholder**: *None*
+     * - **Default Value**: false
+     * - **API ID Path**: shop_item.ongoing
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+     *
+     */
+    ongoing: prismicT.BooleanField;
     /**
      * Slice Zone field in *Shop Item*
      *

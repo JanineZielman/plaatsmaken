@@ -87,6 +87,22 @@
           "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
         }
       },
+      "categorie": {
+        "type": "Text",
+        "config": {
+          "label": "Categorie",
+          "placeholder": ""
+        }
+      },
+      "ongoing": {
+        "type": "Boolean",
+        "config": {
+          "label": "Uitgelicht",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": false
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

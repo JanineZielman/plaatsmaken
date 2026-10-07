@@ -661,12 +661,16 @@ video#logo {
 
 .sort-buttons {
   display: flex;
+  flex-wrap: wrap;
   margin: auto;
   max-width: 900px;
   justify-content: center;
   margin-bottom: 24px;
 
   .sort {
+    background: none;
+    border: 0;
+    color: black;
     padding: 5px;
     margin: 0 14px;
     display: flex;
