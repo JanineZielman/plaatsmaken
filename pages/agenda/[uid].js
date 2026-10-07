@@ -61,7 +61,7 @@ const Page = ({ page, navigation, settings, items }) => {
         <div className="extra-info">
           <PrismicRichText field={page.data.extra_info} />
           {page.data.aanmelden == true &&
-            <AanmeldButton title={page.data.title} slug={page.uid} lang={page.lang} />
+            <AanmeldButton title={page.data.title} slug={page.uid} lang={page.lang} settings={settings.data} />
           }
         </div>
       </div>
@@ -107,7 +107,7 @@ export async function getStaticProps({ params, previewData, locale }) {
   }
 
   const navigation = await client.getSingle("navigation", { lang: locale });
-  const settings = await client.getSingle("settings");
+  const settings = await client.getSingle("settings", { lang: locale });
   const items = await client.getAllByType('agenda_item', { lang: locale });
 
   return {

@@ -50,7 +50,7 @@ const Page = ({ page, navigation, settings, items }) => {
             {page.lang == 'nl-nl' ? <h2>Terug</h2> : <h2>Back</h2>}
           </Link>
         }
-        <SquareItemShop slices={page.data.slices} slug={page.uid} variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting} image={bgImg} lang={page.lang} />
+        <SquareItemShop slices={page.data.slices} slug={page.uid} variation={variation} title={title} artist={artist} info={info} jaar={jaar} techniek={techniek} oplage={oplage} prijs={prijs} afmeting={afmeting} image={bgImg} lang={page.lang} settings={settings.data} />
         <div className="content">
           <img src={bgImg} />
           <SliceZone slices={page.data.slices} components={components} />
@@ -103,7 +103,7 @@ export async function getStaticProps({ params, previewData, locale }) {
   }
 
   const navigation = await client.getSingle("navigation", { lang: locale });
-  const settings = await client.getSingle("settings");
+  const settings = await client.getSingle("settings", { lang: locale });
   const items = await client.getAllByType('shop_item', { lang: locale });
 
   return {

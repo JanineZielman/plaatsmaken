@@ -373,6 +373,28 @@ interface SettingsDocumentData {
      *
      */
     bestel_knop: prismicT.KeyTextField;
+    /**
+     * Aanmeld Formulier Intro field in *Settings*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.aanmeld_formulier_intro
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    aanmeld_formulier_intro: prismicT.RichTextField;
+    /**
+     * Aanmeld Knop field in *Settings*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.aanmeld_knop
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    aanmeld_knop: prismicT.KeyTextField;
 }
 /**
  * Settings document from Prismic

@@ -16,7 +16,8 @@ export const SquareItemShop = ({
   jaar,
   image,
   slug,
-  lang
+  lang,
+  settings
 }) => {
 
   const isDutch = lang === 'nl-nl';
@@ -56,14 +57,14 @@ export const SquareItemShop = ({
                   <p>{isDutch ? 'Oplage' : 'Edition'}: {oplage}</p>
                   <p>{isDutch ? 'Prijs' : 'Price'}: €{prijs},-</p>
                 </div>
-                <div className="order" onClick={openPopup}>{isDutch ? 'Bestel' : 'Order'}</div>
+                <div className="order" onClick={openPopup}>{settings.bestel_knop}</div>
               </div>
             </div>
           </>
         }
       </div>
 
-      <OrderForm title={title} slug={slug} />
+      <OrderForm title={title} slug={slug} settings={settings} />
 
 
 

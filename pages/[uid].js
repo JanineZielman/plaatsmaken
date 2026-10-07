@@ -9,7 +9,7 @@ import { components } from "../slices";
 import { Layout } from "../components/Layout";
 import { SquareItem } from "../components/SquareItem";
 
-const Page = ({ page, navigation, settings, items, params}) => {
+const Page = ({ page, navigation, settings, items, params }) => {
   const [loading, setLoading] = useState(true);
   const date = new Date().toISOString().split('T')[0];
   const categoryUids = params.uid === 'tentoonstellingen' ? ['tentoonstelling', 'tentoonstellingen'] : [params.uid];
@@ -39,61 +39,61 @@ const Page = ({ page, navigation, settings, items, params}) => {
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-        <h2 className="page-title">{prismicH.asText(page.data.title)}</h2>
-        {!loading &&
-          <div className="archive-upcoming">
-            { ongoingItems.length > 0  ?
-              <h2 className="subtitle">Actueel</h2>
-              :
-              <>
+      <h2 className="page-title">{prismicH.asText(page.data.title)}</h2>
+      {!loading &&
+        <div className="archive-upcoming">
+          {ongoingItems.length > 0 ?
+            <h2 className="subtitle">Actueel</h2>
+            :
+            <>
               {page.data.slices.length > 0 &&
                 <h2 className="subtitle">Actueel</h2>
               }
-              </>
+            </>
+          }
+          <div className="main-grid upcoming-grid">
+            {page.data.slices.length > 0 &&
+              <div className="page-intro small">
+                <SliceZone slices={page.data.slices} components={components} />
+              </div>
             }
-            <div className="main-grid upcoming-grid">
-              {page.data.slices.length > 0 &&
-                <div className="page-intro small">
-                  <SliceZone slices={page.data.slices} components={components} />
-                </div>
-              }
-              {ongoingItems.map((item, i) => {
-                let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
-                return(
-                  <a href={`/${item.lang}/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
-                    <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video}/>
-                  </a>
-                )
-              })}  
-            </div>
-            {upcomingItems.length > 0 &&
-              <h2 className="subtitle">Verwacht</h2>
-            }
-            <div className="main-grid upcoming-grid">
-              {upcomingItems.map((item, i) => {
-                let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
-                return(
-                  <a href={`/${item.lang}/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
-                    <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video}/>
-                  </a>
-                )
-              })}  
-            </div>
-            {archiveItems.length > 0 &&
-              <h2 className="subtitle">Archief</h2>
-            }
-            <div className="main-grid archief-grid">
-              {archiveItems.map((item, i) => {
-                let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
-                return(
-                  <a href={`/${item.lang}/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
-                    <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} preview_video={item.data.preview_video}/>
-                  </a>
-                )
-              })}  
-            </div>
+            {ongoingItems.map((item, i) => {
+              let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
+              return (
+                <a href={`/${item.lang}/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default' + Math.floor(Math.random() * 5)}`}>
+                  <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video} />
+                </a>
+              )
+            })}
           </div>
-        }
+          {upcomingItems.length > 0 &&
+            <h2 className="subtitle">Verwacht</h2>
+          }
+          <div className="main-grid upcoming-grid">
+            {upcomingItems.map((item, i) => {
+              let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
+              return (
+                <a href={`/${item.lang}/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default' + Math.floor(Math.random() * 5)}`}>
+                  <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} date={item.data.date} preview_video={item.data.preview_video} />
+                </a>
+              )
+            })}
+          </div>
+          {archiveItems.length > 0 &&
+            <h2 className="subtitle">Archief</h2>
+          }
+          <div className="main-grid archief-grid">
+            {archiveItems.map((item, i) => {
+              let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
+              return (
+                <a href={`/${item.lang}/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default' + Math.floor(Math.random() * 5)}`}>
+                  <SquareItem variation={randomVar} bgImg={item.data.image.url} title={item.data.title} preview_video={item.data.preview_video} />
+                </a>
+              )
+            })}
+          </div>
+        </div>
+      }
     </Layout>
   );
 };
