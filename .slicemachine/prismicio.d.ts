@@ -87,7 +87,7 @@ interface AgendaItemDocumentData {
      */
     aanmelden: prismicT.BooleanField;
     /**
-     * Datum voor volgorde field in *Agenda Item*
+     * Start Datum (voor volgorde) field in *Agenda Item*
      *
      * - **Field Type**: Date
      * - **Placeholder**: *None*
@@ -97,6 +97,17 @@ interface AgendaItemDocumentData {
      *
      */
     order_date: prismicT.DateField;
+    /**
+     * Einddatum field in *Agenda Item*
+     *
+     * - **Field Type**: Date
+     * - **Placeholder**: *None*
+     * - **API ID Path**: agenda_item.einddatum
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/date
+     *
+     */
+    einddatum: prismicT.DateField;
     /**
      * On going / Actueel field in *Agenda Item*
      *
@@ -109,17 +120,6 @@ interface AgendaItemDocumentData {
      *
      */
     ongoing: prismicT.BooleanField;
-    /**
-     * Einddatum field in *Agenda Item*
-     *
-     * - **Field Type**: Date
-     * - **Placeholder**: *None*
-     * - **API ID Path**: agenda_item.einddatum
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/date
-     *
-     */
-    einddatum: prismicT.DateField;
     /**
      * Slice Zone field in *Agenda Item*
      *

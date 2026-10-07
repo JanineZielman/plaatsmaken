@@ -76,7 +76,14 @@
       "order_date": {
         "type": "Date",
         "config": {
-          "label": "Datum voor volgorde",
+          "label": "Start Datum (voor volgorde)",
+          "placeholder": ""
+        }
+      },
+      "einddatum": {
+        "type": "Date",
+        "config": {
+          "label": "Einddatum",
           "placeholder": ""
         }
       },
@@ -87,13 +94,6 @@
           "placeholder_false": "false",
           "placeholder_true": "true",
           "default_value": false
-        }
-      },
-      "einddatum": {
-        "type": "Date",
-        "config": {
-          "label": "Einddatum",
-          "placeholder": ""
         }
       },
       "slices": {

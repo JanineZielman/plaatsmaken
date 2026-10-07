@@ -11,12 +11,17 @@ import { SquareItem } from "../components/SquareItem";
 
 const Page = ({ page, navigation, settings, items, params}) => {
   const [loading, setLoading] = useState(true);
+  const date = new Date().toISOString().split('T')[0];
+  const categoryUids = params.uid === 'tentoonstellingen' ? ['tentoonstelling', 'tentoonstellingen'] : [params.uid];
+  const categoryItems = items.filter((item) => categoryUids.includes(item.data.category.uid));
+  const endDate = (item) => item.data.einddatum || item.data.order_date;
+  const ongoingItems = categoryItems.filter((item) => item.data.ongoing === true && endDate(item) >= date);
+  const upcomingItems = categoryItems.filter((item) => item.data.ongoing !== true && item.data.order_date >= date);
+  const archiveItems = categoryItems.filter((item) => item.data.ongoing === true ? endDate(item) < date : item.data.order_date < date);
 
   useEffect(() => {
     setLoading(false)
   }, [])
-
-  let date = new Date().toJSON();
 
   return (
     <Layout
@@ -37,7 +42,7 @@ const Page = ({ page, navigation, settings, items, params}) => {
         <h2 className="page-title">{prismicH.asText(page.data.title)}</h2>
         {!loading &&
           <div className="archive-upcoming">
-            { items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing == true).length > 0  ?
+            { ongoingItems.length > 0  ?
               <h2 className="subtitle">Actueel</h2>
               :
               <>
@@ -52,7 +57,7 @@ const Page = ({ page, navigation, settings, items, params}) => {
                   <SliceZone slices={page.data.slices} components={components} />
                 </div>
               }
-              {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing == true).map((item, i) => {
+              {ongoingItems.map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
                   <a href={`/${item.lang}/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
@@ -61,11 +66,11 @@ const Page = ({ page, navigation, settings, items, params}) => {
                 )
               })}  
             </div>
-            {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing != true).length > 0 &&
+            {upcomingItems.length > 0 &&
               <h2 className="subtitle">Verwacht</h2>
             }
             <div className="main-grid upcoming-grid">
-              {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() >= date && item.data.ongoing != true).map((item, i) => {
+              {upcomingItems.map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
                   <a href={`/${item.lang}/agenda/${item.uid}?agenda=true`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
@@ -74,11 +79,11 @@ const Page = ({ page, navigation, settings, items, params}) => {
                 )
               })}  
             </div>
-            {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() < date).length > 0 &&
+            {archiveItems.length > 0 &&
               <h2 className="subtitle">Archief</h2>
             }
             <div className="main-grid archief-grid">
-              {items.filter((item) => item.data.category.uid == params.uid).filter((item) => new Date(item.data.order_date).toJSON() < date).map((item, i) => {
+              {archiveItems.map((item, i) => {
                 let randomVar = 'default' + Math.floor(Math.random() * 6 + 1);
                 return(
                   <a href={`/${item.lang}/agenda/${item.uid}`} key={`rel${i}`} className={`item-wrapper ${'default'+Math.floor(Math.random() * 5)}`}>
